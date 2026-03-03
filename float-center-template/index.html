@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Anti-flash theme script: runs synchronously before first paint -->
+    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark'));</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensory Deprivation Float Center | Restore & Rejuvenate</title>
+    <meta name="description"
+        content="Experience complete relaxation and sensory deprivation at our luxury float center. Book your float therapy session today.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sensory Deprivation Float Center">
+    <meta property="og:description" content="Experience complete relaxation, mental clarity, and physical recovery.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80">
+    <meta property="og:url" content="https://example.com/index.html">
+    <meta property="og:type" content="website">
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Luxury Float Therapy",
+      "image": "https://example.com/assets/images/logo.png",
+      "@id": "https://example.com",
+      "url": "https://example.com",
+      "telephone": "+1-800-FLOAT-NOW",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Float Way",
+        "addressLocality": "Zen City",
+        "addressRegion": "CA",
+        "postalCode": "90210",
+        "addressCountry": "US"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="Sensory Deprivation Float Center Home">FLOAT it</a>
+
+            <nav id="main-nav" class="nav" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+                <a href="pages/services.html" class="nav-link">Services</a>
+                <a href="pages/gallery.html" class="nav-link">Gallery</a>
+                <a href="pages/about.html" class="nav-link">About</a>
+                <a href="pages/contact.html" class="nav-link">Contact</a>
+                <a href="pages/dashboard.html" class="nav-link">My Bookings</a>
+                <a href="pages/booking.html" class="btn btn-primary btn-sticky-mobile">Book Now</a>
+            </nav>
+
+            <div style="display:flex; gap: 1rem; align-items: center;">
+                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span id="theme-icon"></span>
+                </button>
+                <button type="button" id="mobile-toggle" class="mobile-toggle" aria-expanded="false"
+                    aria-controls="main-nav" aria-label="Open menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="section hero-section"
+            style="min-height: 80vh; display: flex; align-items: center; background-image: var(--hero-gradient), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80'); background-position: center; background-size: cover;">
+            <div class="container animate-fade-up" style="text-align: center;">
+                <h1
+                    style="margin-bottom: var(--spacing-lg); max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.1;">
+                    Experience Absolute Nothingness.</h1>
+                <p
+                    style="font-size: 1.25rem; color: var(--hero-text); max-width: 600px; margin: 0 auto var(--spacing-xl); opacity: 0.9;">
+                    Step into our premium sensory deprivation pods. Relieve stress, reduce chronic pain, and expand your
+                    consciousness in zero-gravity comfort.
+                </p>
+                <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                    <a href="pages/booking.html" class="btn btn-primary"
+                        style="font-size: 1.1rem; padding: 1rem 2rem;">Book a
+                        Session</a>
+                    <a href="pages/services.html" class="btn btn-outline"
+                        style="font-size: 1.1rem; padding: 1rem 2rem; color: var(--hero-text); border-color: var(--hero-text); opacity: 0.9;">Explore
+                        Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+                    <h2>The Power of Floating</h2>
+                    <p style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto;">Reset your mind and
+                        body with clinical-grade epsom salt therapy.</p>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg);">
+                    <!-- Benefit 1 -->
+                    <article class="card">
+                        <div style="font-size: 2.5rem; color: var(--theme-accent); margin-bottom: var(--spacing-md);">🧠
+                        </div>
+                        <h3>Mental Clarity</h3>
+                        <p style="color: var(--theme-text-muted);">Removing sensory input allows your brain to shift
+                            into the elusive Theta state, sparking profound creativity and deep rest.</p>
+                    </article>
+
+                    <!-- Benefit 2 -->
+                    <article class="card">
+                        <div style="font-size: 2.5rem; color: var(--theme-accent); margin-bottom: var(--spacing-md);">💪
+                        </div>
+                        <h3>Physical Recovery</h3>
+                        <p style="color: var(--theme-text-muted);">1,000 lbs of Epsom salts create perfect buoyancy,
+                            taking all pressure off your joints and spine while magnesium soothes muscles.</p>
+                    </article>
+
+                    <!-- Benefit 3 -->
+                    <article class="card">
+                        <div style="font-size: 2.5rem; color: var(--theme-accent); margin-bottom: var(--spacing-md);">😌
+                        </div>
+                        <h3>Stress Relief</h3>
+                        <p style="color: var(--theme-text-muted);">Float therapy naturally drops cortisol levels and
+                            triggers dopamine and endorphin release, leaving you in a state of lasting bliss.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works -->
+        <section class="section" style="background-color: var(--theme-surface);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+                    <h2>How It Works</h2>
+                </div>
+
+                <div
+                    style="display: flex; flex-direction: column; gap: var(--spacing-lg); max-width: 800px; margin: 0 auto;">
+                    <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: var(--theme-accent); opacity: 0.5;">01
+                        </div>
+                        <div>
+                            <h4>Prepare &amp; Shower</h4>
+                            <p style="color: var(--theme-text-muted); margin-bottom: 0;">Arrive 15 minutes early. We
+                                provide everything you need—earplugs, towels, and body wash inside your private suite.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: var(--theme-accent); opacity: 0.5;">02
+                        </div>
+                        <div>
+                            <h4>Step In &amp; Let Go</h4>
+                            <p style="color: var(--theme-text-muted); margin-bottom: 0;">Step into the skin-temperature
+                                water. Close the lid (or leave it open) and turn off the light when you're ready.</p>
+                        </div>
+                    </div>
+                    <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: var(--theme-accent); opacity: 0.5;">03
+                        </div>
+                        <div>
+                            <h4>Awaken &amp; Integrate</h4>
+                            <p style="color: var(--theme-text-muted); margin-bottom: 0;">Gentle music will signal the
+                                end of your session. Shower, dress, and enjoy organic tea in our integration lounge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Membership Highlight -->
+        <section class="section">
+            <div class="container" style="text-align: center;">
+                <h2>Deepen Your Practice.</h2>
+                <p style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto var(--spacing-lg);">
+                    Consistent floatation yields compounding benefits. Explore our membership tiers for regular access
+                    at exceptional rates.</p>
+                <a href="pages/memberships.html" class="btn btn-outline">View Memberships</a>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section section-minimal" style="background-color: var(--theme-accent); color: #fff;">
+            <div class="container"
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-lg);">
+                <h2 style="margin: 0; color: #fff;">Ready to float?</h2>
+                <a href="pages/booking.html" class="btn"
+                    style="background-color: #fff; color: var(--theme-accent);">Book
+                    Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: var(--spacing-md);">FLOAT.</div>
+                    <p style="color: var(--theme-text-muted);">Elevating human potential through nothingness.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/services.html">Our Services</a></li>
+                        <li><a href="pages/gallery.html">Gallery</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Subscribe</h4>
+                    <p style="color: var(--theme-text-muted); margin-bottom: var(--spacing-sm);">Join our newsletter for
+                        exclusive wellness insights.</p>
+                    <form action="https://mailchimp.com/placeholder" method="POST" style="display: flex; gap: 0.5rem;"
+                        aria-label="Newsletter Subscription">
+                        <label for="newsletter-email" class="sr-only">Email Address</label>
+                        <input type="email" id="newsletter-email" name="email" class="form-control"
+                            placeholder="Email address" required style="flex: 1;">
+                        <button type="submit" class="btn btn-primary" aria-label="Subscribe">
+                            <span class="spinner" aria-hidden="true"></span>
+                            Go
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year">2026</span> Sensory Deprivation Float Center. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
