@@ -208,18 +208,14 @@ img {
 
 /* Header & Navigation */
 .header {
-  position: sticky;
-  top: 0;
+  position: static;
   height: var(--header-height);
-  background-color: rgba(var(--rgb-theme-bg), 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background-color: rgba(var(--rgb-theme-bg), 1);
   border-bottom: 1px solid var(--theme-border);
   z-index: var(--z-header);
   display: flex;
   align-items: center;
   transition: background-color var(--transition-normal);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Injecting RGB variables for alpha transparency */

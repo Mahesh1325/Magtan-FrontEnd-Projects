@@ -6,13 +6,44 @@
     <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Confirmed | Sensory Deprivation</title>
-    <link rel="stylesheet" href="../assets/css/style.css">`n    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
 </head>
 
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-    <header class="header">
-        <div class="container header-container" style="justify-content: center;">
-            <a href="../index.html" class="logo" aria-label="Home">FLOAT it</a>
+        <header class="header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo" aria-label="Sensory Deprivation Float Center Home">FLOAT it</a>
+
+            <nav id="main-nav" class="nav" aria-label="Main Navigation">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+            </nav>
+
+            <div style="display:flex; gap: 1rem; align-items: center;">
+                <button type="button" id="dir-toggle" class="theme-toggle"
+                    style="width: auto; padding: 0 0.75rem; font-weight: bold; font-family: var(--font-sans);"
+                    aria-label="Toggle Navigation Direction">
+                    <span id="dir-text">RTL</span>
+                </button>
+                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span id="theme-icon"></span>
+                </button>
+                <button type="button" id="mobile-toggle" class="mobile-toggle" aria-expanded="false"
+                    aria-controls="main-nav" aria-label="Open menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="booking.html" class="btn btn-primary btn-sticky-mobile d-none-mobile">Book Now</a>
+            </div>
         </div>
     </header>
 
