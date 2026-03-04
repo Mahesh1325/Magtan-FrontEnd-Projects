@@ -607,6 +607,13 @@ img {
 /* ---- MOBILE: < 640px ---- */
 @media (max-width: 639px) {
 
+  
+  @media (max-width: 768px) {
+    .d-none-mobile {
+      display: none !important;
+    }
+  }
+
   /* Hamburger Menu */
   .nav {
     position: fixed;
