@@ -19,6 +19,33 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
+    <style>
+        /* Home 2 Premium Design Override */
+        body {
+            font-family: var(--font-serif);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .nav-link,
+        .btn {
+            font-family: var(--font-sans);
+        }
+
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card {
+            border: none !important;
+            border-radius: 24px !important;
+            box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.08) !important;
+            border-top: 4px solid var(--theme-accent) !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -85,53 +112,53 @@
     </header>
 
     <main id="main-content">
-        <!-- Split Hero Section -->
-        <section class="section hero-section animate-fade-up" style="padding: var(--spacing-xl) 0; overflow: hidden;">
+        <!-- Center-Aligned Focused Hero Section -->
+        <section class="section hero-section animate-fade-up"
+            style="padding: calc(var(--spacing-xl) * 1.5) 0 var(--spacing-xl) 0; overflow: hidden; background: radial-gradient(circle at top center, rgba(13, 148, 136, 0.05) 0%, transparent 70%);">
             <div class="container">
                 <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-xl); align-items: center;">
-                    <div style="padding-right: var(--spacing-lg);">
-                        <span
-                            style="color: var(--theme-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: var(--spacing-md); display: block;">Reclaim
-                            Your Mind</span>
-                        <h1
-                            style="font-family: var(--font-serif); font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: var(--spacing-md);">
-                            The Ultimate Stillness.
-                        </h1>
-                        <p
-                            style="color: var(--theme-text-muted); font-size: 1.25rem; line-height: 1.6; margin-bottom: var(--spacing-lg);">
-                            Step outside the noise of the world. Our zero-gravity float suites offer profound mental
-                            clarity, physical recovery, and lasting peace.
-                        </p>
-                        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
-                            <a href="booking.html" class="btn btn-primary"
-                                style="font-size: 1.1rem; padding: 1rem 2rem;">Book Your Float</a>
-                            <a href="membership.html" class="btn btn-outline"
-                                style="font-size: 1.1rem; padding: 1rem 2rem;">Join Us</a>
-                        </div>
-                        <div style="margin-top: var(--spacing-xl); display: flex; align-items: center; gap: 1rem;">
-                            <div style="display: flex;">
-                                <div
-                                    style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--theme-bg); background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80') center/cover; margin-left: -10px;">
-                                </div>
-                                <div
-                                    style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--theme-bg); background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80') center/cover; margin-left: -10px;">
-                                </div>
-                                <div
-                                    style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--theme-bg); background: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80') center/cover; margin-left: -10px;">
-                                </div>
-                            </div>
-                            <span style="color: var(--theme-text-muted); font-size: 0.9rem;">Join 1,000+ happy
-                                floaters.</span>
-                        </div>
+                    style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 800px; margin: 0 auto; padding-bottom: var(--spacing-lg);">
+                    <span
+                        style="color: var(--theme-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: var(--spacing-md); display: block;">Reclaim
+                        Your Mind</span>
+                    <h1
+                        style="font-family: var(--font-serif); font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: var(--spacing-md);">
+                        The Ultimate Stillness.
+                    </h1>
+                    <p
+                        style="color: var(--theme-text-muted); font-size: 1.25rem; line-height: 1.6; margin-bottom: var(--spacing-lg);">
+                        Step outside the noise of the world. Our zero-gravity float suites offer profound mental
+                        clarity, physical recovery, and lasting peace.
+                    </p>
+                    <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                        <a href="booking.html" class="btn btn-primary"
+                            style="font-size: 1.1rem; padding: 1rem 2rem;">Book Your Float</a>
+                        <a href="membership.html" class="btn btn-outline"
+                            style="font-size: 1.1rem; padding: 1rem 2rem;">Explore Memberships</a>
                     </div>
                     <div
-                        style="position: relative; height: 600px; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                        <img src="../assets/img/hero-about.jpg" alt="Float Therapy Pod"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                        <div
-                            style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);">
+                        style="margin-top: var(--spacing-xl); display: flex; align-items: center; justify-content: center; gap: 1rem;">
+                        <div style="display: flex;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--theme-bg); background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80') center/cover; margin-left: -10px;">
+                            </div>
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--theme-bg); background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80') center/cover; margin-left: -10px;">
+                            </div>
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--theme-bg); background: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80') center/cover; margin-left: -10px;">
+                            </div>
                         </div>
+                        <span style="color: var(--theme-text-muted); font-size: 0.9rem;">Join 1,000+ happy
+                            floaters.</span>
+                    </div>
+                </div>
+                <div
+                    style="position: relative; height: 600px; max-width: 1000px; margin: 0 auto; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.25);">
+                    <img src="../assets/img/hero-home.jpg" alt="Float Therapy Pod"
+                        style="width: 100%; height: 100%; object-fit: cover; object-position: center bottom;">
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);">
                     </div>
                 </div>
             </div>
@@ -234,6 +261,157 @@
             </div>
         </section>
 
+        <!-- The Sanctuary (Facility Insight) -->
+        <section class="section" style="background-color: var(--theme-bg); position: relative; overflow: hidden;">
+            <div class="container">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl); align-items: center;">
+                    <div>
+                        <h2 style="margin-bottom: var(--spacing-md);">The Sanctuary Design</h2>
+                        <p
+                            style="color: var(--theme-text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--spacing-lg);">
+                            Our facility was architecturally designed from the ground up to support absolute
+                            decompression. From triple-layer acoustic isolation to clinical-grade ozone sanitation,
+                            every detail aims to seamlessly guide you into your float experience.
+                        </p>
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
+                            <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)"
+                                    stroke-width="2" style="flex-shrink: 0;">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span>Private, sound-proofed suites with personal climate control.</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)"
+                                    stroke-width="2" style="flex-shrink: 0;">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span>Premium organic toiletries and rain showers in every room.</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)"
+                                    stroke-width="2" style="flex-shrink: 0;">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span>Post-float integration lounge with artisanal herbal teas.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        style="position: relative; border-radius: var(--border-radius-lg); overflow: hidden; height: 500px;">
+                        <img src="../assets/img/hero-about.jpg" alt="Float Suite Interior"
+                            style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Snippet -->
+        <section class="section" style="background-color: var(--theme-surface);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+                    <h2>Simple Options for Deep Rest</h2>
+                    <p style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto;">Whether you are
+                        floating for the first time or looking for a weekly reset, we have a path for you.</p>
+                </div>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md); max-width: 900px; margin: 0 auto;">
+                    <div class="card" style="text-align: center; display: flex; flex-direction: column;">
+                        <h3 style="margin-bottom: 0.5rem;">Intro Float</h3>
+                        <div
+                            style="font-size: 2.5rem; font-weight: bold; color: var(--theme-accent); margin-bottom: 1rem; font-family: var(--font-serif);">
+                            $89</div>
+                        <p style="color: var(--theme-text-muted); flex-grow: 1;">A single 60-minute session to introduce
+                            your mind to the void.</p>
+                        <a href="booking.html" class="btn btn-outline"
+                            style="margin-top: 1rem; width: 100%; border-color: var(--theme-border);">Book Single</a>
+                    </div>
+                    <div class="card"
+                        style="text-align: center; display: flex; flex-direction: column; border: 2px solid var(--primary); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                        <div
+                            style="background-color: var(--primary); color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; align-self: center; margin-bottom: 1rem; margin-top: -1.25rem;">
+                            Most Popular</div>
+                        <h3 style="margin-bottom: 0.5rem;">The Monthly Reset</h3>
+                        <div
+                            style="font-size: 2.5rem; font-weight: bold; color: var(--theme-accent); margin-bottom: 1rem; font-family: var(--font-serif);">
+                            $69<span style="font-size: 1rem; color: var(--theme-text-muted);"> /mo</span></div>
+                        <p style="color: var(--theme-text-muted); flex-grow: 1;">One 60-minute float per month.
+                            Additional floats at member rate.</p>
+                        <a href="memberships.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Become
+                            a Member</a>
+                    </div>
+                    <div class="card" style="text-align: center; display: flex; flex-direction: column;">
+                        <h3 style="margin-bottom: 0.5rem;">The Deep Dive</h3>
+                        <div
+                            style="font-size: 2.5rem; font-weight: bold; color: var(--theme-accent); margin-bottom: 1rem; font-family: var(--font-serif);">
+                            $199</div>
+                        <p style="color: var(--theme-text-muted); flex-grow: 1;">Three 60-minute floats to rapidly build
+                            a cumulative calmness.</p>
+                        <a href="booking.html" class="btn btn-outline"
+                            style="margin-top: 1rem; width: 100%; border-color: var(--theme-border);">Buy Package</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voices of Stillness (Testimonials) -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+                    <h2>Voices of Stillness</h2>
+                    <p style="color: var(--theme-text-muted);">Real experiences from our community of floaters.</p>
+                </div>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg);">
+                    <div class="card" style="background-color: var(--theme-surface-2);">
+                        <div style="color: var(--primary); margin-bottom: 1rem;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 1.5rem; line-height: 1.6;">"I've struggled with
+                            insomnia for years. After my first 90-minute float, I slept through the night for the first
+                            time in memory. This place is a necessary sanctuary."</p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 48px; height: 48px; border-radius: 50%; background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80') center/cover;">
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">Sarah Jenkins</h4>
+                                <span style="color: var(--theme-text-muted); font-size: 0.85rem;">Member since
+                                    2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" style="background-color: var(--theme-surface-2);">
+                        <div style="color: var(--primary); margin-bottom: 1rem;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 1.5rem; line-height: 1.6;">"As a competitive
+                            athlete, recovery is everything. Floating has dramatically reduced my muscle soreness and
+                            improved my focus during competitions. Highly recommend the deep dive package."</p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 48px; height: 48px; border-radius: 50%; background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80') center/cover;">
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">David Chen</h4>
+                                <span style="color: var(--theme-text-muted); font-size: 0.85rem;">Athlete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Integrated Wellness CTA -->
         <section class="section" style="background-color: var(--theme-surface);">
             <div class="container">
@@ -270,7 +448,41 @@
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                         </a>
-                        <!-- other icons omitted for brevity but they are standard part of footer -->
+                        <a href="#" aria-label="Facebook"
+                            style="color: var(--theme-text-muted); transition: color 0.2s;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="X (Twitter)"
+                            style="color: var(--theme-text-muted); transition: color 0.2s;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn"
+                            style="color: var(--theme-text-muted); transition: color 0.2s;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="WhatsApp"
+                            style="color: var(--theme-text-muted); transition: color 0.2s;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 <!-- Standard Footer Links -->
@@ -286,9 +498,11 @@
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                        <li><a href="404.html">Terms of Service</a></li>
+                        <li><a href="404.html">FAQ</a></li>
+                        <li><a href="404.html">404 Page</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

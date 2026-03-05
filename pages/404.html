@@ -22,19 +22,192 @@
             text-align: center;
             flex-direction: column;
             padding: var(--spacing-lg);
+            position: relative;
+            background: radial-gradient(circle at center, rgba(13, 148, 136, 0.1) 0%, var(--theme-bg) 70%);
+            overflow: hidden;
+        }
+
+        .page-404::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80vw;
+            height: 80vw;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.05) 0%, transparent 60%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content-404 {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .glitch {
+            font-size: clamp(6rem, 12vw, 10rem);
+            color: var(--theme-accent);
+            line-height: 1;
+            margin-bottom: var(--spacing-md);
+            font-family: var(--font-serif);
+            letter-spacing: -0.05em;
+            position: relative;
+            animation: glitch-skew 1s infinite linear alternate-reverse;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: "404";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .glitch::before {
+            color: #ff003c;
+            z-index: -1;
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+            left: 2px;
+        }
+
+        .glitch::after {
+            color: #00e6f6;
+            z-index: -2;
+            animation: glitch-anim2 3s infinite linear alternate-reverse;
+            left: -2px;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip-path: inset(20% 0 80% 0);
+                transform: translate(-2px, 1px);
+            }
+
+            20% {
+                clip-path: inset(60% 0 10% 0);
+                transform: translate(2px, -1px);
+            }
+
+            40% {
+                clip-path: inset(40% 0 50% 0);
+                transform: translate(2px, 2px);
+            }
+
+            60% {
+                clip-path: inset(80% 0 5% 0);
+                transform: translate(-2px, -2px);
+            }
+
+            80% {
+                clip-path: inset(10% 0 70% 0);
+                transform: translate(2px, -1px);
+            }
+
+            100% {
+                clip-path: inset(30% 0 50% 0);
+                transform: translate(-2px, 2px);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip-path: inset(10% 0 60% 0);
+                transform: translate(2px, 1px);
+            }
+
+            20% {
+                clip-path: inset(30% 0 20% 0);
+                transform: translate(-2px, -1px);
+            }
+
+            40% {
+                clip-path: inset(70% 0 10% 0);
+                transform: translate(-2px, 2px);
+            }
+
+            60% {
+                clip-path: inset(20% 0 50% 0);
+                transform: translate(2px, -2px);
+            }
+
+            80% {
+                clip-path: inset(50% 0 30% 0);
+                transform: translate(-2px, -1px);
+            }
+
+            100% {
+                clip-path: inset(5% 0 80% 0);
+                transform: translate(2px, 2px);
+            }
+        }
+
+        @keyframes glitch-skew {
+            0% {
+                transform: skew(0deg);
+            }
+
+            20% {
+                transform: skew(-10deg);
+            }
+
+            21% {
+                transform: skew(0deg);
+            }
+
+            50% {
+                transform: skew(0deg);
+            }
+
+            55% {
+                transform: skew(10deg);
+            }
+
+            56% {
+                transform: skew(0deg);
+            }
+
+            100% {
+                transform: skew(0deg);
+            }
+        }
+
+        .desc-404 {
+            color: var(--theme-text-muted);
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.6;
         }
     </style>
 </head>
 
 <body>
+    <header class="header" style="position: absolute; top:0; width:100%; z-index:10;">
+        <div class="container header-container" style="justify-content: center;">
+            <a href="../index.html" class="logo" aria-label="Home">FLOAT it</a>
+        </div>
+    </header>
+
     <main class="page-404">
-        <h1 style="font-size: 8rem; color: var(--theme-accent); margin-bottom: 0; line-height: 1;">404</h1>
-        <h2 style="margin-bottom: var(--spacing-md);">You've drifted too far.</h2>
-        <p style="color: var(--theme-text-muted); max-width: 500px; margin: 0 auto var(--spacing-lg);">The page you are
-            looking for does not exist in this dimension. It might have been moved or deleted.</p>
-        <div style="display: flex; gap: var(--spacing-md); justify-content: center;">
-            <a href="../index.html" class="btn btn-primary">Return Home</a>
-            <a href="contact.html" class="btn btn-outline">Contact Us</a>
+        <div class="content-404 animate-fade-up">
+            <h1 class="glitch">404</h1>
+            <h2 style="font-size: clamp(1.5rem, 4vw, 2.5rem); margin-bottom: var(--spacing-md);">You've drifted too far
+                into the void.</h2>
+            <p class="desc-404">
+                The sensory plane you were seeking does not exist. It may have dissolved or shifted into another
+                dimension. Let's ground you back to reality.
+            </p>
+            <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                <a href="../index.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">Return
+                    Home</a>
+                <a href="contact.html" class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1.1rem;">Contact
+                    Support</a>
+            </div>
         </div>
     </main>
     <script src="../assets/js/main.js"></script>

@@ -21,36 +21,201 @@
             justify-content: center;
             text-align: center;
             padding: var(--spacing-lg);
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('../assets/images/hero-bg.webp') center/cover;
+            position: relative;
+            background-color: var(--theme-bg);
             color: #fff;
+            overflow: hidden;
+        }
+
+        .coming-soon-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.95)), url('../assets/img/hero-about.jpg') center/cover;
+            z-index: 0;
+            filter: brightness(0.6) saturate(1.2);
+        }
+
+        .cs-content {
+            position: relative;
+            z-index: 1;
+            max-width: 650px;
+            width: 100%;
+        }
+
+        .cs-logo {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-xl);
+            color: #fff;
+            font-family: var(--font-serif);
+            letter-spacing: 2px;
+        }
+
+        .cs-title {
+            color: #fff;
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .cs-desc {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.6;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-lg);
+            min-width: 90px;
+        }
+
+        .countdown-number {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--theme-accent);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .cs-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cs-form form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .countdown-wrapper {
+                gap: 0.5rem;
+            }
+
+            .countdown-item {
+                padding: 0.75rem 1rem;
+                min-width: 70px;
+            }
+
+            .countdown-number {
+                font-size: 1.75rem;
+            }
+
+            .cs-form form {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 
 <body>
     <main class="coming-soon-wrapper">
-        <div class="container" style="max-width: 600px;">
-            <div class="logo" style="font-size: 2.5rem; margin-bottom: var(--spacing-lg); color: #fff;">FLOAT it</div>
-            <h1 style="color: #fff; margin-bottom: var(--spacing-sm);">We're Launching Soon.</h1>
-            <p style="color: rgba(255,255,255,0.7); font-size: 1.125rem; margin-bottom: var(--spacing-lg);">Join our
-                waitlist to be notified when we open our doors, and receive an exclusive founders discount on your first
-                float.</p>
+        <div class="cs-content animate-fade-up">
+            <div class="cs-logo">FLOAT.</div>
+            <h1 class="cs-title">We're Launching Soon.</h1>
+            <p class="cs-desc">
+                A purpose-built sanctuary crafted for ultimate physical recovery and mental disconnection is coming to
+                your city. Join our waitlist to be notified when we open our doors, and receive an exclusive founders
+                discount on your first float.
+            </p>
 
-            <form action="https://mailchimp.com/placeholder" method="POST"
-                style="display: flex; flex-direction: column; gap: var(--spacing-md);"
-                aria-label="Waitlist Subscription">
-                <input type="email" name="email" class="form-control" placeholder="Enter your email address" required
-                    aria-required="true" style="padding: 1rem;">
-                <button type="submit" class="btn btn-primary" style="padding: 1rem;">Reserve My Spot</button>
-            </form>
+            <div class="countdown-wrapper">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="cd-days">--</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="cd-hours">--</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="cd-minutes">--</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="cd-seconds">--</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
 
-            <div style="margin-top: var(--spacing-xl); display: flex; gap: var(--spacing-md); justify-content: center;">
-                <a href="#" style="color: rgba(255,255,255,0.5);">Instagram</a>
-                <a href="#" style="color: rgba(255,255,255,0.5);">Facebook</a>
+            <div class="cs-form">
+                <form action="#" method="POST" aria-label="Waitlist Subscription">
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email address"
+                        required aria-required="true"
+                        style="padding: 1rem; flex: 1; background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <button type="submit" class="btn btn-primary"
+                        style="padding: 1rem 2rem; font-size: 1.1rem; white-space: nowrap;">Reserve Spot</button>
+                </form>
+            </div>
+
+            <div style="margin-top: var(--spacing-xl); display: flex; gap: 1.5rem; justify-content: center;">
+                <a href="../index.html"
+                    style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s;">Return Home</a>
+                <a href="contact.html"
+                    style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s;">Contact Us</a>
             </div>
         </div>
     </main>
     <script src="../assets/js/main.js"></script>
+    <script>
+        // Set launch date to 30 days from now
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 30);
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate.getTime() - now;
+
+            if (distance < 0) {
+                document.getElementById('cd-days').innerText = "00";
+                document.getElementById('cd-hours').innerText = "00";
+                document.getElementById('cd-minutes').innerText = "00";
+                document.getElementById('cd-seconds').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('cd-hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('cd-minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('cd-seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 
 </html>
