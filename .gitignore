@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Project-specific logs/temp
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# (Optional) If you don't want to push the compiled CSS and would rather compile it on the server/other machines:
+# assets/css/tailwind.css

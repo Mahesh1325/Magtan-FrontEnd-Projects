@@ -694,13 +694,6 @@ img {
 /* ---- MOBILE: < 640px ---- */
 @media (max-width: 639px) {
 
-
-  @media (max-width: 768px) {
-    .d-none-mobile {
-      display: none !important;
-    }
-  }
-
   /* Hamburger Menu */
   .nav {
     position: fixed;
@@ -839,6 +832,14 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
+/* Hide on mobile (standalone rule — outside > 639px block) */
+@media (max-width: 768px) {
+  .d-none-mobile {
+    display: none !important;
+  }
+}
+
 
 /* ---- TABLET: 640px - 1024px ---- */
 @media (min-width: 640px) and (max-width: 1023px) {

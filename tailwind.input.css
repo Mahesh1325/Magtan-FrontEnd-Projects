@@ -1,0 +1,7 @@
+/*
+ * Tailwind CSS Input File
+ * Only @tailwind utilities is included — base/components are excluded
+ * to avoid conflicting with the project's own style.css reset and components.
+ * All generated classes will have the 'tw-' prefix.
+ */
+@tailwind utilities;

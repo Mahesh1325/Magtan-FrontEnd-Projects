@@ -1,0 +1,833 @@
+/*
+ * responsive.css — Comprehensive responsive fixes for all 14 pages
+ * Float Center Website
+ *
+ * Breakpoints (matching style.css):
+ *   Mobile  : < 640px
+ *   Tablet  : 640px – 1024px
+ *   Desktop : 1024px – 1280px
+ *   Large   : > 1280px
+ *
+ * This file is loaded AFTER style.css so it can safely override layout.
+ * Dark/light mode, RTL, booking, dashboard remain fully functional.
+ */
+
+/* ================================================================
+   GLOBAL — applies to every page
+   ================================================================ */
+
+/* Tighter container padding on small screens */
+@media (max-width: 639px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Block-level buttons stretch full width on mobile */
+    .btn-block-mobile {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Hero sections — reduce top padding so content is visible */
+    .hero {
+        min-height: auto !important;
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+    }
+
+    /* Hero action buttons stack vertically */
+    .hero-actions,
+    .h2-hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn,
+    .h2-hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Two-column grid → single column */
+    [style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Three-column grid → single column */
+    [style*="grid-template-columns: repeat(3"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Four-column stat row → 2x2 grid */
+    [style*="repeat(4, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /* Hero action buttons stay in a row on tablet */
+    .hero-actions,
+    .h2-hero-actions {
+        flex-wrap: wrap;
+    }
+}
+
+/* ================================================================
+   HEADER / NAVIGATION — all pages
+   ================================================================ */
+
+@media (max-width: 1023px) {
+
+    /* Ensure header items don't overflow on tablet/mobile */
+    .header-container {
+        gap: 0.5rem;
+    }
+
+    /* Logo text truncation safety */
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    /* Hide RTL button on very small screens to save space */
+    @media (max-width: 400px) {
+        #dir-toggle {
+            display: none;
+        }
+    }
+}
+
+/* ================================================================
+   FOOTER — all pages
+   ================================================================ */
+
+@media (max-width: 639px) {
+    .footer {
+        padding-top: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+        padding-top: 1rem;
+    }
+
+    /* Social icons row wraps cleanly */
+    .social-links {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* ================================================================
+   INDEX.HTML / HOME-2.HTML — Hero, Services, Stats
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Hero section (index.html) */
+    .hero-content {
+        padding: 5rem 0 3rem;
+        text-align: center;
+    }
+
+    .hero-content p {
+        max-width: 100%;
+    }
+
+    /* Services grid → full-width cards */
+    .services-grid,
+    [class*="services-grid"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Why Float section feature grid */
+    .features-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Stats/counters section */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
+    }
+
+    /* CTA card full-width actions */
+    .cta-card {
+        padding: 2rem 1rem;
+    }
+
+    .cta-card .btn {
+        width: 100%;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Services → 2 columns on tablet */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ================================================================
+   HOME-2.HTML — Premium editorial layout fixes
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Facility showcase grid → stacked */
+    .h2-facility-grid,
+    [style*="grid-template-columns: 1fr 1fr 280px"] {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+    }
+
+    /* Sidebar flex columns → horizontal two-column row */
+    [style*="grid-row: span 2"] {
+        grid-row: span 1 !important;
+    }
+
+    /* Science 2x2 grid → single column */
+    [style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Stat cards row → 2x2 on mobile */
+    [style*="repeat(4, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* CTA strip button full width */
+    .h2-cta-inner {
+        flex-direction: column;
+    }
+
+    .h2-cta-inner .btn {
+        width: 100%;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Facility grid → 2 columns on tablet */
+    [style*="grid-template-columns: 1fr 1fr 280px"] {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto !important;
+    }
+
+    /* Sidebar stat columns hidden on tablet, merged into visible area */
+    [style*="grid-row: span 2"] {
+        grid-row: span 1 !important;
+    }
+}
+
+/* ================================================================
+   SERVICES.HTML — Service cards grid
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Service cards → full width */
+    [style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Service detail image fullwidth */
+    .service-detail-image {
+        height: 220px;
+    }
+
+    /* Benefit list items stack cleanly */
+    .benefit-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Service cards → 2 columns on tablet */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ================================================================
+   ABOUT.HTML — Team grid and about split
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* About intro split → stacked */
+    .about-split {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    /* Team grid → single column */
+    .team-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Values grid → single column */
+    .values-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Timeline → reduce padding */
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Team → 2 columns on tablet */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Values → 2 columns on tablet */
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ================================================================
+   GALLERY.HTML — Image gallery grid
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Gallery masonry → single column */
+    .gallery-grid {
+        columns: 1 !important;
+        column-gap: 0;
+    }
+
+    /* Gallery filter buttons wrap */
+    .gallery-filters {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .gallery-filter-btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Gallery → 2 columns on tablet */
+    .gallery-grid {
+        columns: 2 !important;
+    }
+}
+
+/* ================================================================
+   BOOKING.HTML — Multi-step booking form
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Booking page hero padding adjustment */
+    .booking-page .hero {
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+    }
+
+    /* Step indicator → compressed */
+    .booking-steps {
+        gap: 0.25rem;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+
+    .step-label {
+        font-size: 0.7rem;
+    }
+
+    /* Date/Time grid → 2 columns */
+    .time-slots-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Pod selection → full-width cards */
+    .pod-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Summary card full width */
+    .booking-summary {
+        padding: 1rem;
+    }
+
+    /* Form submit sticky at bottom */
+    .booking-next-btn {
+        position: sticky;
+        bottom: 1rem;
+        z-index: 10;
+        width: 100%;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Time slots → 4 columns on tablet */
+    .time-slots-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    /* Pod selection → 2 columns */
+    .pod-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ================================================================
+   CONTACT.HTML — Split layout contact form
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Contact split → stacked */
+    .contact-split {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    /* Map → full width */
+    .contact-map {
+        height: 250px;
+    }
+
+    /* Contact info items */
+    .contact-info-item {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    /* Form full width */
+    .contact-form {
+        width: 100%;
+    }
+
+    /* Two-column form row → single column */
+    .form-row {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Contact stays split on tablet but with less padding */
+    .contact-split {
+        gap: 2rem;
+    }
+}
+
+/* ================================================================
+   DASHBOARD.HTML — Sidebar, tables, stat cards
+   ================================================================ */
+
+@media (max-width: 1023px) {
+
+    /* Dashboard sidebar → hidden by default, slides in */
+    .dashboard-sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 280px;
+        z-index: 900;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .dashboard-sidebar.is-open {
+        left: 0;
+    }
+
+    /* Dashboard main content → full width when sidebar is hidden */
+    .dashboard-main {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    /* Dashboard overlay behind sidebar */
+    .dashboard-sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 899;
+    }
+
+    .dashboard-sidebar-overlay.is-open {
+        display: block;
+    }
+}
+
+@media (max-width: 639px) {
+
+    /* Stat cards → 2-column grid */
+    .stat-cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    /* Dashboard content header */
+    .dashboard-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    /* Tables → horizontal scroll */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 8px;
+    }
+
+    .table-responsive table {
+        min-width: 600px;
+        white-space: nowrap;
+    }
+
+    /* Admin charts/analytics grids → stack */
+    .analytics-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Calendar mini → full width */
+    .dashboard-calendar {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    /* Recent bookings list */
+    .bookings-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    /* Booking badge */
+    .booking-status-badge {
+        align-self: flex-start;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Stat cards → 4 columns on tablet (stay compact) */
+    .stat-cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Analytics → 2 columns on tablet */
+    .analytics-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ================================================================
+   MEMBERSHIPS.HTML — Pricing cards
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Pricing cards → single column */
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Featured card — remove extra top offset */
+    .pricing-card.featured {
+        margin-top: 0 !important;
+        transform: none !important;
+    }
+
+    /* Pricing card CTA full width */
+    .pricing-card .btn {
+        width: 100%;
+    }
+
+    /* Comparison table → horizontal scroll */
+    .pricing-comparison {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .pricing-comparison table {
+        min-width: 480px;
+    }
+
+    /* FAQ accordion → full width */
+    .faq-item {
+        width: 100%;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Pricing → still stacked on tablet for clean layout */
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+}
+
+/* ================================================================
+   BLOG.HTML — Blog post grid
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Blog grid → single column */
+    .blog-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Blog hero post → full bleed image */
+    .blog-hero-post {
+        grid-column: span 1 !important;
+    }
+
+    /* Blog meta row → wrap */
+    .blog-meta {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    /* Blog filter tabs → scrollable */
+    .blog-filters {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        padding-bottom: 0.5rem;
+        gap: 0.5rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    /* Blog → 2-column grid on tablet */
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .blog-hero-post {
+        grid-column: span 2 !important;
+    }
+}
+
+/* ================================================================
+   404.HTML — Error page
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* 404 glitch heading — reduce size */
+    .error-404-number {
+        font-size: clamp(5rem, 20vw, 8rem) !important;
+    }
+
+    .error-page-content {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .error-page-content .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* ================================================================
+   COMING-SOON.HTML — Countdown timer page
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Coming soon layout */
+    .coming-soon-content {
+        padding: 3rem 1rem;
+        text-align: center;
+    }
+
+    /* Countdown timer boxes → smaller on mobile */
+    .countdown-box {
+        min-width: 60px !important;
+        padding: 0.75rem 0.5rem !important;
+    }
+
+    .countdown-number {
+        font-size: 1.8rem !important;
+    }
+
+    .countdown-label {
+        font-size: 0.65rem !important;
+    }
+
+    /* Timer row fits on screen */
+    .countdown-timer {
+        gap: 0.5rem !important;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Email signup full width */
+    .coming-soon-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .coming-soon-form input,
+    .coming-soon-form .btn {
+        width: 100%;
+    }
+}
+
+/* ================================================================
+   FLOAT-THERAPY.HTML
+   ================================================================ */
+
+@media (max-width: 639px) {
+
+    /* Experience steps → single column */
+    .therapy-steps {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Benefits accordion */
+    .benefit-accordion-item {
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .therapy-steps {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ================================================================
+   CONFIRMATION.HTML
+   ================================================================ */
+
+@media (max-width: 639px) {
+    .confirmation-card {
+        padding: 1.5rem 1rem;
+        margin: 1rem;
+    }
+
+    .confirmation-details {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Action buttons → stack */
+    .confirmation-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .confirmation-actions .btn {
+        width: 100%;
+    }
+}
+
+/* ================================================================
+   TOUCH / INTERACTION IMPROVEMENTS — all pages
+   ================================================================ */
+
+@media (max-width: 1023px) {
+
+    /* Ensure all interactive elements meet 44px minimum */
+    a,
+    button,
+    input[type="checkbox"],
+    input[type="radio"],
+    select {
+        min-height: 44px;
+    }
+
+    /* Increase link padding for easier touch */
+    .nav-link,
+    .dropdown-item,
+    .footer-links a {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Prevent text from overflowing on small screens */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Images always responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Prevent horizontal overflow site-wide */
+    body {
+        overflow-x: hidden;
+    }
+
+    section {
+        overflow-x: hidden;
+    }
+}
+
+/* Prevent inline styles from overflowing on very small screens */
+@media (max-width: 400px) {
+    [style*="font-size: clamp"] {
+        word-break: break-word;
+    }
+
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
