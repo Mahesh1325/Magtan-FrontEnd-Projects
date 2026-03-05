@@ -5,45 +5,679 @@
     <meta charset="UTF-8">
     <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Home | Sensory Deprivation Float Center</title>
-    <meta name="description"
-        content="Experience absolute nothingness and profound wellness at our luxury float center.">
-    <!-- Open Graph -->
-    <meta property="og:title" content="Premium Home | Sensory Deprivation Float Center">
-    <meta property="og:description" content="Experience absolute nothingness and profound wellness.">
+    <title>Home 2 — The Float Experience | Sensory Deprivation Float Center</title>
+    <meta name="description" content="Discover a new dimension of calm. Premium float therapy for mind, body and soul.">
+    <meta property="og:title" content="Home 2 — The Float Experience | Float Center">
+    <meta property="og:description" content="Discover a new dimension of calm with premium float therapy.">
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap"
         rel="stylesheet">
+
     <style>
-        /* Home 2 Premium Design Override */
-        body {
-            font-family: var(--font-serif);
+        /* ====================================================
+           HOME 2 — UNIQUE EDITORIAL DESIGN SYSTEM
+           All classes prefixed with h2- to avoid conflicts
+        ====================================================  */
+
+        /* ---------- Editorial Hero (Full-bleed split screen) ---------- */
+        .h2-hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            position: relative;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        .nav-link,
-        .btn {
-            font-family: var(--font-sans);
+        .h2-hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(5rem, 8vw, 8rem) clamp(1.5rem, 4vw, 3rem) 4rem;
+            position: relative;
+            z-index: 2;
         }
 
-        h2 {
+        .h2-overline {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--theme-accent);
+            margin-bottom: var(--spacing-md);
         }
 
-        .card {
-            border: none !important;
-            border-radius: 24px !important;
-            box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.08) !important;
-            border-top: 4px solid var(--theme-accent) !important;
+        .h2-overline::before {
+            content: '';
+            display: block;
+            width: 2.5rem;
+            height: 2px;
+            background-color: var(--theme-accent);
+        }
+
+        .h2-hero-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.8rem, 5vw, 5rem);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .h2-hero-headline em {
+            font-style: italic;
+            color: var(--theme-accent);
+        }
+
+        .h2-hero-body {
+            font-size: 1.1rem;
+            color: var(--theme-text-muted);
+            line-height: 1.7;
+            max-width: 480px;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .h2-hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .h2-hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .h2-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .h2-hero-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, var(--theme-bg) 0%, transparent 40%);
+            z-index: 1;
+        }
+
+        .h2-hero-badge {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 2rem;
+            z-index: 3;
+            background: rgba(10, 18, 32, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .h2-hero-badge .stat-num {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: var(--theme-accent);
+        }
+
+        .h2-hero-badge .stat-label {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.75);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ---------- Floating Metrics Bar ---------- */
+        .h2-metrics {
+            background-color: var(--primary);
+            padding: 2rem 0;
+        }
+
+        .h2-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .h2-metric-item {
+            padding: 1.5rem var(--spacing-lg);
+            background-color: var(--primary);
+            text-align: center;
+        }
+
+        .h2-metric-num {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+        }
+
+        .h2-metric-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* ---------- Alternating Editorial Blocks ---------- */
+        .h2-editorial {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 580px;
+            overflow: hidden;
+            align-items: stretch;
+        }
+
+        .h2-editorial.reverse {
+            direction: rtl;
+        }
+
+        .h2-editorial.reverse>* {
+            direction: ltr;
+        }
+
+        .h2-editorial-img {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .h2-editorial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .h2-editorial-img:hover img {
+            transform: scale(1.03);
+        }
+
+        .h2-editorial-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 5vw, 5rem);
+            background-color: var(--theme-surface);
+            min-height: 100%;
+        }
+
+        /* ---------- Benefits Timeline ---------- */
+        .h2-timeline {
+            counter-reset: timeline;
+        }
+
+        .h2-timeline-item {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            align-items: flex-start;
+        }
+
+        .h2-timeline-num {
+            counter-increment: timeline;
+            width: 52px;
+            height: 52px;
+            border: 2px solid var(--theme-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--theme-accent);
+            flex-shrink: 0;
+        }
+
+        .h2-timeline-body h4 {
+            margin-bottom: 0.35rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .h2-timeline-body p {
+            font-size: 0.95rem;
+            color: var(--theme-text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .h2-timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---------- Bento Grid ---------- */
+        .h2-bento {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 120px;
+            gap: 1rem;
+        }
+
+        .h2-bento-item {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .h2-bento--wide {
+            grid-column: span 7;
+            grid-row: span 3;
+        }
+
+        .h2-bento--tall {
+            grid-column: span 5;
+            grid-row: span 4;
+        }
+
+        .h2-bento--med {
+            grid-column: span 5;
+            grid-row: span 2;
+        }
+
+        .h2-bento--sm {
+            grid-column: span 7;
+            grid-row: span 1;
+        }
+
+        .h2-bento--stat {
+            grid-column: span 4;
+            grid-row: span 1;
+            background: var(--theme-surface);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .h2-bento--cta {
+            grid-column: span 8;
+            grid-row: span 1;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .h2-bento-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .h2-bento-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            font-size: 0.85rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .h2-bento--stat .stat-val {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--theme-accent);
+            line-height: 1;
+        }
+
+        .h2-bento--stat .stat-desc {
+            font-size: 0.8rem;
+            color: var(--theme-text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .h2-bento--cta .cta-text h3 {
+            color: white;
+            margin: 0 0 0.25rem;
+        }
+
+        .h2-bento--cta .cta-text p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Testimonials Carousel ---------- */
+        .h2-testimonials-track {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .h2-testimonial {
+            background: var(--theme-surface);
+            border: 1px solid var(--theme-border);
+            border-radius: 20px;
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            transition: box-shadow 0.3s ease;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .h2-testimonial:hover {
+            box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.15);
+        }
+
+        .h2-testimonial-stars {
+            display: flex;
+            gap: 0.25rem;
+            color: #F0A500;
+            font-size: 0.9rem;
+        }
+
+        .h2-testimonial-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: var(--theme-text);
+            flex-grow: 1;
+        }
+
+        .h2-testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--theme-border);
+        }
+
+        .h2-testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .h2-testimonial-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .h2-testimonial-role {
+            font-size: 0.8rem;
+            color: var(--theme-text-muted);
+        }
+
+        /* ---------- Membership Cards ---------- */
+        .h2-membership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            align-items: stretch;
+        }
+
+        /* Testimonials track ensures equal height cards */
+        .h2-testimonials-track {
+            align-items: stretch;
+        }
+
+        .h2-membership-card {
+            border-radius: 20px;
+            padding: 2rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .h2-membership-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .h2-membership-card.standard {
+            background: var(--theme-surface);
+            border: 1px solid var(--theme-border);
+        }
+
+        .h2-membership-card.featured {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 1.75rem;
+            border: none;
+        }
+
+        .h2-membership-card.studio {
+            background: var(--theme-surface);
+            border: 1px solid var(--theme-border);
+        }
+
+        .h2-membership-price {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .h2-membership-card.featured .h2-membership-price {
+            color: white;
+        }
+
+        .h2-membership-card.featured .h2-membership-price small {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .h2-membership-price small {
+            font-size: 0.9rem;
+            font-family: var(--font-sans);
+            font-weight: 400;
+            color: var(--theme-text-muted);
+        }
+
+        .h2-membership-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            flex-grow: 1;
+        }
+
+        .h2-membership-features+a,
+        .h2-membership-features+.btn {
+            margin-top: auto;
+        }
+
+        .h2-membership-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .h2-membership-card.featured .h2-membership-features li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .h2-check {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            color: var(--theme-accent);
+        }
+
+        .h2-membership-card.featured .h2-check {
+            color: white;
+        }
+
+        .h2-badge-tag {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.2em 0.7em;
+            border-radius: 100px;
+            align-self: flex-start;
+        }
+
+        /* ---------- Section Title Styles ---------- */
+        .h2-section-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--theme-accent);
+            margin-bottom: 1rem;
+        }
+
+        .h2-section-tag::before {
+            content: '';
+            display: inline-block;
+            width: 2rem;
+            height: 2px;
+            background: var(--theme-accent);
+        }
+
+        /* ---------- CTA Section (Asymmetric) ---------- */
+        .h2-cta-strip {
+            background: var(--theme-surface);
+            border-top: 1px solid var(--theme-border);
+            border-bottom: 1px solid var(--theme-border);
+        }
+
+        .h2-cta-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .h2-cta-inner>div:last-child {
+            min-width: 220px;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1024px) {
+            .h2-bento {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .h2-hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .h2-hero-text {
+                padding: 7rem 1.5rem 2.5rem;
+            }
+
+            .h2-hero-body {
+                max-width: 100%;
+            }
+
+            .h2-hero-image {
+                height: 350px;
+            }
+
+            .h2-hero-image-overlay {
+                background: linear-gradient(to bottom, var(--theme-bg) 0%, transparent 30%);
+            }
+
+            .h2-metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .h2-editorial {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .h2-editorial.reverse {
+                direction: ltr;
+            }
+
+            .h2-editorial-img {
+                height: 300px;
+            }
+
+            .h2-editorial-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .h2-testimonials-track {
+                grid-template-columns: 1fr;
+            }
+
+            .h2-testimonial {
+                height: auto;
+            }
+
+            .h2-membership-grid {
+                grid-template-columns: 1fr;
+                align-items: stretch;
+            }
+
+            .h2-membership-card.featured {
+                padding: var(--spacing-xl) var(--spacing-lg);
+            }
+
+            .h2-cta-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .h2-cta-inner>div:last-child {
+                min-width: unset;
+                width: 100%;
+            }
+
+            .h2-cta-inner a {
+                justify-content: center;
+            }
+
+            .h2-section-tag {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .h2-metrics-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .h2-hero-headline {
+                font-size: 2.4rem;
+            }
         }
     </style>
 </head>
@@ -51,6 +685,7 @@
 <body>
     <a href="#main-content" class="sr-only">Skip to main content</a>
 
+    <!-- ====== HEADER (same nav keeps brand consistent) ====== -->
     <header class="header">
         <div class="container header-container">
             <a href="../index.html" class="logo" aria-label="Sensory Deprivation Float Center Home">FLOAT it</a>
@@ -112,325 +747,467 @@
     </header>
 
     <main id="main-content">
-        <!-- Center-Aligned Focused Hero Section -->
-        <section class="section hero-section animate-fade-up"
-            style="padding: calc(var(--spacing-xl) * 1.5) 0 var(--spacing-xl) 0; overflow: hidden; background: radial-gradient(circle at top center, rgba(13, 148, 136, 0.05) 0%, transparent 70%);">
+
+        <!-- ====== 1. FULL-BLEED SPLIT-SCREEN HERO ====== -->
+        <section class="h2-hero animate-fade-up" aria-label="Hero">
+            <div class="h2-hero-text">
+                <p class="h2-overline">Float Therapy</p>
+                <h1 class="h2-hero-headline">
+                    Find the Space <em>Within</em> the Silence.
+                </h1>
+                <p class="h2-hero-body">
+                    A 60-minute float is equivalent to 4 hours of deep sleep. Step into zero gravity, dissolve the world
+                    outside, and rediscover your natural state of calm.
+                </p>
+                <div class="h2-hero-actions">
+                    <a href="booking.html" class="btn btn-primary"
+                        style="padding: 1rem 2rem; font-size: 1.05rem;">Reserve Your Pod</a>
+                    <a href="services.html" class="btn btn-outline"
+                        style="padding: 1rem 2rem; font-size: 1.05rem;">Explore Services</a>
+                </div>
+            </div>
+            <div class="h2-hero-image">
+                <img src="../assets/img/hero-home.jpg" alt="Float therapy pod in a dark serene room" loading="eager">
+                <div class="h2-hero-image-overlay" aria-hidden="true"></div>
+                <div class="h2-hero-badge" aria-label="1000 satisfied members">
+                    <span class="stat-num">1,000+</span>
+                    <span class="stat-label">Satisfied Floaters</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 2. STAT CARDS ROW ====== -->
+        <section
+            style="background-color: var(--theme-surface); padding: var(--spacing-lg) 0; border-top: 1px solid var(--theme-border); border-bottom: 1px solid var(--theme-border);"
+            aria-label="Wellness statistics">
             <div class="container">
                 <div
-                    style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 800px; margin: 0 auto; padding-bottom: var(--spacing-lg);">
-                    <span
-                        style="color: var(--theme-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: var(--spacing-md); display: block;">Reclaim
-                        Your Mind</span>
-                    <h1
-                        style="font-family: var(--font-serif); font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: var(--spacing-md);">
-                        The Ultimate Stillness.
-                    </h1>
+                    style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--theme-border);">
+                    <div style="background: var(--theme-surface); padding: 2rem 1.5rem; text-align: center;">
+                        <span
+                            style="display: block; font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--theme-accent); line-height: 1; margin-bottom: 0.4rem;">1,000+</span>
+                        <span
+                            style="font-size: 0.82rem; color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Lbs
+                            of Epsom Salt Per Pod</span>
+                    </div>
+                    <div style="background: var(--theme-surface); padding: 2rem 1.5rem; text-align: center;">
+                        <span
+                            style="display: block; font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--theme-accent); line-height: 1; margin-bottom: 0.4rem;">93.5°F</span>
+                        <span
+                            style="font-size: 0.82rem; color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Skin-Temperature
+                            Water</span>
+                    </div>
+                    <div style="background: var(--theme-surface); padding: 2rem 1.5rem; text-align: center;">
+                        <span
+                            style="display: block; font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--theme-accent); line-height: 1; margin-bottom: 0.4rem;">60–90</span>
+                        <span
+                            style="font-size: 0.82rem; color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Optimal
+                            Float Duration (mins)</span>
+                    </div>
+                    <div style="background: var(--theme-surface); padding: 2rem 1.5rem; text-align: center;">
+                        <span
+                            style="display: block; font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--theme-accent); line-height: 1; margin-bottom: 0.4rem;">0
+                            dB</span>
+                        <span
+                            style="font-size: 0.82rem; color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">External
+                            Sound Inside Pod</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 3. FACILITY SHOWCASE ====== -->
+        <section style="background-color: var(--theme-bg); padding: var(--spacing-xl) 0;"
+            aria-label="Facility showcase">
+            <div class="container">
+                <!-- Heading -->
+                <div
+                    style="display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: var(--spacing-lg); flex-wrap: wrap;">
+                    <div>
+                        <p class="h2-section-tag">The Facility</p>
+                        <h2
+                            style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3rem); margin: 0;">
+                            Designed for<br>Total Surrender</h2>
+                    </div>
                     <p
-                        style="color: var(--theme-text-muted); font-size: 1.25rem; line-height: 1.6; margin-bottom: var(--spacing-lg);">
-                        Step outside the noise of the world. Our zero-gravity float suites offer profound mental
-                        clarity, physical recovery, and lasting peace.
-                    </p>
-                    <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
-                        <a href="booking.html" class="btn btn-primary"
-                            style="font-size: 1.1rem; padding: 1rem 2rem;">Book Your Float</a>
-                        <a href="membership.html" class="btn btn-outline"
-                            style="font-size: 1.1rem; padding: 1rem 2rem;">Explore Memberships</a>
-                    </div>
-                    <div
-                        style="margin-top: var(--spacing-xl); display: flex; align-items: center; justify-content: center; gap: 1rem;">
-                        <div style="display: flex;">
-                            <div
-                                style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--theme-bg); background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80') center/cover; margin-left: -10px;">
-                            </div>
-                            <div
-                                style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--theme-bg); background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80') center/cover; margin-left: -10px;">
-                            </div>
-                            <div
-                                style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--theme-bg); background: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80') center/cover; margin-left: -10px;">
-                            </div>
+                        style="color: var(--theme-text-muted); font-size: 1rem; line-height: 1.6; max-width: 380px; margin: 0;">
+                        Each suite is architecturally crafted to melt away the boundary between mind and body.</p>
+                </div>
+
+                <!-- Main Image Grid: 2 large + sidebar stats -->
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr 280px; grid-template-rows: 300px 300px; gap: 1rem;">
+                    <!-- Big left image, spans 2 rows -->
+                    <div style="grid-row: span 2; border-radius: 20px; overflow: hidden; position: relative;">
+                        <img src="../assets/img/gallery-pod-ambient.jpg" alt="Float pod with ambient lighting"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <div
+                            style="position: absolute; bottom: 1.5rem; left: 1.5rem; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); padding: 0.6rem 1rem; border-radius: 10px; color: white; font-size: 0.85rem; font-weight: 500;">
+                            Oasis Float Pods
                         </div>
-                        <span style="color: var(--theme-text-muted); font-size: 0.9rem;">Join 1,000+ happy
-                            floaters.</span>
+                    </div>
+                    <!-- Top right image -->
+                    <div style="border-radius: 20px; overflow: hidden; position: relative;">
+                        <img src="../assets/img/gallery-lounge.jpg" alt="Post-float integration lounge"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <div
+                            style="position: absolute; bottom: 1.5rem; left: 1.5rem; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); padding: 0.6rem 1rem; border-radius: 10px; color: white; font-size: 0.85rem; font-weight: 500;">
+                            Integration Lounge
+                        </div>
+                    </div>
+                    <!-- Sidebar: 2 stacked stats -->
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div
+                            style="flex: 1; background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;">
+                            <span
+                                style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--theme-accent); line-height: 1; display: block;">5
+                                ★</span>
+                            <span
+                                style="font-size: 0.8rem; color: var(--theme-text-muted); margin-top: 0.4rem; display: block; text-transform: uppercase; letter-spacing: 0.08em;">Member
+                                Rating</span>
+                        </div>
+                        <div
+                            style="flex: 1; background: var(--primary); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;">
+                            <span
+                                style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: white; line-height: 1; display: block;">8+</span>
+                            <span
+                                style="font-size: 0.8rem; color: rgba(255,255,255,0.75); margin-top: 0.4rem; display: block; text-transform: uppercase; letter-spacing: 0.08em;">Private
+                                Suites</span>
+                        </div>
+                    </div>
+                    <!-- Bottom center image -->
+                    <div style="border-radius: 20px; overflow: hidden; position: relative;">
+                        <img src="../assets/img/gallery-suite-amen.jpg" alt="Private suite amenities"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <div
+                            style="position: absolute; bottom: 1.5rem; left: 1.5rem; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); padding: 0.6rem 1rem; border-radius: 10px; color: white; font-size: 0.85rem; font-weight: 500;">
+                            Suite Amenities
+                        </div>
+                    </div>
+                    <!-- Bottom sidebar stats -->
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div
+                            style="flex: 1; background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;">
+                            <span
+                                style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--theme-accent); line-height: 1; display: block;">100%</span>
+                            <span
+                                style="font-size: 0.8rem; color: var(--theme-text-muted); margin-top: 0.4rem; display: block; text-transform: uppercase; letter-spacing: 0.08em;">Sanitised
+                                Per Session</span>
+                        </div>
+                        <div
+                            style="flex: 1; background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;">
+                            <span
+                                style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--theme-accent); line-height: 1; display: block;">30+</span>
+                            <span
+                                style="font-size: 0.8rem; color: var(--theme-text-muted); margin-top: 0.4rem; display: block; text-transform: uppercase; letter-spacing: 0.08em;">Countries
+                                of Guests</span>
+                        </div>
                     </div>
                 </div>
-                <div
-                    style="position: relative; height: 600px; max-width: 1000px; margin: 0 auto; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.25);">
-                    <img src="../assets/img/hero-home.jpg" alt="Float Therapy Pod"
-                        style="width: 100%; height: 100%; object-fit: cover; object-position: center bottom;">
-                    <div
-                        style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);">
+
+                <!-- View Gallery CTA -->
+                <div style="text-align: center; margin-top: var(--spacing-lg);">
+                    <a href="gallery.html" class="btn btn-outline" style="padding: 0.85rem 2.5rem;">View Full Gallery
+                        →</a>
+                </div>
+            </div>
+
+            <!-- Responsive overrides scoped to this section -->
+            <style>
+                @media (max-width: 900px) {
+                    .h2-facility-grid {
+                        grid-template-columns: 1fr 1fr !important;
+                        grid-template-rows: auto !important;
+                    }
+                }
+
+                @media (max-width: 600px) {
+                    .h2-stat-row {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                    }
+                }
+            </style>
+        </section>
+
+        <!-- ====== 4. EXPERIENCE TIMELINE (Alternating Layout) ====== -->
+        <section class="h2-editorial" aria-label="The float experience">
+            <div class="h2-editorial-img">
+                <img src="../assets/img/gallery-entrance.jpg" alt="Float center entrance" loading="lazy">
+            </div>
+            <div class="h2-editorial-content">
+                <p class="h2-section-tag">The Experience</p>
+                <h2
+                    style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: var(--spacing-lg);">
+                    Your Journey Into<br>Complete Stillness
+                </h2>
+                <div class="h2-timeline" role="list">
+                    <div class="h2-timeline-item" role="listitem">
+                        <div class="h2-timeline-num">1</div>
+                        <div class="h2-timeline-body">
+                            <h4>Arrive &amp; Prepare</h4>
+                            <p>Check in, shower, and enter your private pod suite. We provide everything you need.</p>
+                        </div>
+                    </div>
+                    <div class="h2-timeline-item" role="listitem">
+                        <div class="h2-timeline-num">2</div>
+                        <div class="h2-timeline-body">
+                            <h4>Enter the Void</h4>
+                            <p>Float effortlessly in skin-temperature, heavily salinated water. All external stimuli
+                                vanish.</p>
+                        </div>
+                    </div>
+                    <div class="h2-timeline-item" role="listitem">
+                        <div class="h2-timeline-num">3</div>
+                        <div class="h2-timeline-body">
+                            <h4>The Theta State</h4>
+                            <p>Your mind drifts into deep theta brainwaves — a place between waking and sleep.</p>
+                        </div>
+                    </div>
+                    <div class="h2-timeline-item" role="listitem">
+                        <div class="h2-timeline-num">4</div>
+                        <div class="h2-timeline-body">
+                            <h4>Integrate &amp; Restore</h4>
+                            <p>Emerge refreshed. Enjoy artisan tea in our post-float lounge and carry the calm with you.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- The Science of Silence -->
-        <section class="section" style="background-color: var(--theme-surface);">
+        <!-- ====== 5. EDITORIAL BLOCK: Science Reversed ====== -->
+        <section class="h2-editorial reverse" aria-label="The science of float therapy">
+            <div class="h2-editorial-img">
+                <img src="../assets/img/gallery-suite-shower.jpg" alt="Float suite shower room" loading="lazy">
+            </div>
+            <div class="h2-editorial-content">
+                <p class="h2-section-tag">The Science</p>
+                <h2
+                    style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: var(--spacing-md);">
+                    What Happens to Your Body Inside the Pod?
+                </h2>
+                <p
+                    style="color: var(--theme-text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: var(--spacing-lg);">
+                    Buoyed by over 1,000 lbs of dissolved Epsom salts, your body achieves zero-gravity spinal
+                    decompression, while cortisol drops and magnesium absorption aids muscular recovery.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
+                    <div style="padding: 1rem; background: var(--theme-bg); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 1.6rem; margin-bottom: 0.25rem;">🧠</div>
+                        <h5 style="margin: 0 0 0.25rem;">Theta Waves</h5>
+                        <p style="font-size: 0.82rem; color: var(--theme-text-muted); margin: 0;">Deep meditative calm
+                        </p>
+                    </div>
+                    <div style="padding: 1rem; background: var(--theme-bg); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 1.6rem; margin-bottom: 0.25rem;">⚖️</div>
+                        <h5 style="margin: 0 0 0.25rem;">Zero Gravity</h5>
+                        <p style="font-size: 0.82rem; color: var(--theme-text-muted); margin: 0;">Spinal decompression
+                        </p>
+                    </div>
+                    <div style="padding: 1rem; background: var(--theme-bg); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 1.6rem; margin-bottom: 0.25rem;">💧</div>
+                        <h5 style="margin: 0 0 0.25rem;">Magnesium Boost</h5>
+                        <p style="font-size: 0.82rem; color: var(--theme-text-muted); margin: 0;">Natural muscle repair
+                        </p>
+                    </div>
+                    <div style="padding: 1rem; background: var(--theme-bg); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 1.6rem; margin-bottom: 0.25rem;">😌</div>
+                        <h5 style="margin: 0 0 0.25rem;">Cortisol Drop</h5>
+                        <p style="font-size: 0.82rem; color: var(--theme-text-muted); margin: 0;">Stress hormone relief
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 6. TESTIMONIALS GRID ====== -->
+        <section class="section" style="background-color: var(--theme-surface);" aria-label="Testimonials">
             <div class="container">
                 <div style="text-align: center; margin-bottom: var(--spacing-xl);">
-                    <h2>The Science of Silence</h2>
-                    <p style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto;">Discover the
-                        physiological benefits of sensory deprivation.</p>
+                    <p class="h2-section-tag" style="justify-content: center;">What Our Members Say</p>
+                    <h2
+                        style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3rem);">
+                        Voices from the Void</h2>
                 </div>
-
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg);">
-                    <div class="card" style="border-top: 4px solid var(--theme-accent);">
-                        <div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">🧠</div>
-                        <h4 style="margin-bottom: var(--spacing-sm);">Theta Brainwaves</h4>
-                        <p style="color: var(--theme-text-muted); font-size: 0.95rem;">By removing external stimuli,
-                            your brain seamlessly shifts into a theta state, normally only achieved in deep meditation.
-                        </p>
-                    </div>
-                    <div class="card" style="border-top: 4px solid var(--theme-accent);">
-                        <div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">⚡</div>
-                        <h4 style="margin-bottom: var(--spacing-sm);">Nervous System Reset</h4>
-                        <p style="color: var(--theme-text-muted); font-size: 0.95rem;">Floating lowers cortisol levels
-                            and triggers a profound parasympathetic response, offering relief from chronic stress.</p>
-                    </div>
-                    <div class="card" style="border-top: 4px solid var(--theme-accent);">
-                        <div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">🦴</div>
-                        <h4 style="margin-bottom: var(--spacing-sm);">Zero-Gravity Healing</h4>
-                        <p style="color: var(--theme-text-muted); font-size: 0.95rem;">Over 1,000 lbs of Epsom salts
-                            create perfect buoyancy, decompressing the spine and rapidly accelerating muscle recovery.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sensory Reset Path (Timeline) -->
-        <section class="section">
-            <div class="container">
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl); align-items: center;">
-                    <div style="order: 2;">
-                        <img src="../assets/img/hero-home.jpg" alt="Sensory Reset"
-                            style="border-radius: var(--border-radius-lg); box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
-                    </div>
-                    <div style="order: 1;">
-                        <h2 style="margin-bottom: var(--spacing-lg);">The Sensory Reset Path</h2>
-
-                        <div style="display: flex; gap: 1.5rem; margin-bottom: var(--spacing-md);">
-                            <div style="display: flex; flex-direction: column; align-items: center;">
-                                <div
-                                    style="width: 32px; height: 32px; border-radius: 50%; background-color: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 2;">
-                                    1</div>
-                                <div
-                                    style="width: 2px; height: 100%; background-color: var(--theme-border); margin-top: 0.5rem;">
-                                </div>
-                            </div>
-                            <div style="padding-bottom: var(--spacing-md);">
-                                <h4 style="margin-bottom: 0.25rem;">Arrive & Unwind</h4>
-                                <p style="color: var(--theme-text-muted); font-size: 0.95rem; margin: 0;">Step into our
-                                    calming environment. We provide everything you need in your private suite.</p>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 1.5rem; margin-bottom: var(--spacing-md);">
-                            <div style="display: flex; flex-direction: column; align-items: center;">
-                                <div
-                                    style="width: 32px; height: 32px; border-radius: 50%; background-color: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 2;">
-                                    2</div>
-                                <div
-                                    style="width: 2px; height: 100%; background-color: var(--theme-border); margin-top: 0.5rem;">
-                                </div>
-                            </div>
-                            <div style="padding-bottom: var(--spacing-md);">
-                                <h4 style="margin-bottom: 0.25rem;">Float & Recover</h4>
-                                <p style="color: var(--theme-text-muted); font-size: 0.95rem; margin: 0;">Experience 60
-                                    or 90 minutes of absolute weightlessness in skin-temperature water.</p>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 1.5rem;">
-                            <div style="display: flex; flex-direction: column; align-items: center;">
-                                <div
-                                    style="width: 32px; height: 32px; border-radius: 50%; background-color: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 2;">
-                                    3</div>
-                            </div>
+                <div class="h2-testimonials-track">
+                    <article class="h2-testimonial">
+                        <div class="h2-testimonial-stars" aria-label="5 stars">★★★★★</div>
+                        <blockquote class="h2-testimonial-quote">
+                            "I walked in anxious and jet-lagged. I floated out renewed. After one session I understand
+                            why athletes, artists, and executives swear by this."
+                        </blockquote>
+                        <footer class="h2-testimonial-author">
+                            <img class="h2-testimonial-avatar"
+                                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=80&q=80"
+                                alt="Sarah Jenkins">
                             <div>
-                                <h4 style="margin-bottom: 0.25rem;">Integrate</h4>
-                                <p style="color: var(--theme-text-muted); font-size: 0.95rem; margin: 0;">Relax in our
-                                    post-float lounge with organic herbal tea before returning to the world.</p>
+                                <p class="h2-testimonial-name">Sarah Jenkins</p>
+                                <p class="h2-testimonial-role">UX Designer — Member since 2024</p>
                             </div>
-                        </div>
-
-                    </div>
+                        </footer>
+                    </article>
+                    <article class="h2-testimonial">
+                        <div class="h2-testimonial-stars" aria-label="5 stars">★★★★★</div>
+                        <blockquote class="h2-testimonial-quote">
+                            "As a competitive triathlete, recovery is everything. Two floats a month has cut my recovery
+                            time by almost half. The magnesium absorption is real."
+                        </blockquote>
+                        <footer class="h2-testimonial-author">
+                            <img class="h2-testimonial-avatar"
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80"
+                                alt="David Chen">
+                            <div>
+                                <p class="h2-testimonial-name">David Chen</p>
+                                <p class="h2-testimonial-role">Triathlete — Quarterly Member</p>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="h2-testimonial">
+                        <div class="h2-testimonial-stars" aria-label="5 stars">★★★★★</div>
+                        <blockquote class="h2-testimonial-quote">
+                            "I suffer from chronic back pain. I've tried everything. Nothing — absolutely nothing — has
+                            given me the relief that a 90-minute float gives me."
+                        </blockquote>
+                        <footer class="h2-testimonial-author">
+                            <img class="h2-testimonial-avatar"
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
+                                alt="Priya Nair">
+                            <div>
+                                <p class="h2-testimonial-name">Priya Nair</p>
+                                <p class="h2-testimonial-role">Physiotherapist — Annual Member</p>
+                            </div>
+                        </footer>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- The Sanctuary (Facility Insight) -->
-        <section class="section" style="background-color: var(--theme-bg); position: relative; overflow: hidden;">
+        <!-- ====== 7. MEMBERSHIP CARDS ====== -->
+        <section class="section" style="background-color: var(--theme-bg);" aria-label="Membership plans">
             <div class="container">
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl); align-items: center;">
-                    <div>
-                        <h2 style="margin-bottom: var(--spacing-md);">The Sanctuary Design</h2>
-                        <p
-                            style="color: var(--theme-text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--spacing-lg);">
-                            Our facility was architecturally designed from the ground up to support absolute
-                            decompression. From triple-layer acoustic isolation to clinical-grade ozone sanitation,
-                            every detail aims to seamlessly guide you into your float experience.
-                        </p>
-                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
-                            <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)"
-                                    stroke-width="2" style="flex-shrink: 0;">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>
-                                <span>Private, sound-proofed suites with personal climate control.</span>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)"
-                                    stroke-width="2" style="flex-shrink: 0;">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>
-                                <span>Premium organic toiletries and rain showers in every room.</span>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)"
-                                    stroke-width="2" style="flex-shrink: 0;">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>
-                                <span>Post-float integration lounge with artisanal herbal teas.</span>
-                            </li>
+                <div style="margin-bottom: var(--spacing-xl);">
+                    <p class="h2-section-tag">Memberships</p>
+                    <h2
+                        style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3rem); max-width: 550px;">
+                        Choose Your Level of Stillness</h2>
+                    <p style="color: var(--theme-text-muted); max-width: 500px; margin-top: 0.75rem;">All memberships
+                        include towel service, organic toiletries, and access to our post-float integration lounge.</p>
+                </div>
+                <div class="h2-membership-grid">
+                    <!-- Standard -->
+                    <div class="h2-membership-card standard">
+                        <div>
+                            <h3 style="margin: 0 0 0.25rem;">Intro</h3>
+                            <p style="color: var(--theme-text-muted); font-size: 0.9rem; margin: 0;">First-time floaters
+                            </p>
+                        </div>
+                        <div class="h2-membership-price">$89</div>
+                        <ul class="h2-membership-features">
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> 1 × 60-min float</li>
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> Towels &amp; earplugs</li>
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> Post-float lounge access</li>
                         </ul>
+                        <a href="booking.html" class="btn btn-outline" style="text-align:center;">Book Single</a>
+                    </div>
+
+                    <!-- Featured -->
+                    <div class="h2-membership-card featured">
+                        <span class="h2-badge-tag">Most Popular</span>
+                        <div>
+                            <h3 style="margin: 0 0 0.25rem; color: white;">Reset</h3>
+                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0;">Monthly recovery
+                                ritual</p>
+                        </div>
+                        <div class="h2-membership-price">$69 <small>/mo</small></div>
+                        <ul class="h2-membership-features">
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> 1 × float per month</li>
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> 10% off extra floats</li>
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> Guest pass each quarter</li>
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> Priority booking</li>
+                        </ul>
+                        <a href="memberships.html" class="btn"
+                            style="background: white; color: var(--primary); text-align: center; padding: 0.85rem; border-radius: var(--border-radius);">Join
+                            Now</a>
+                    </div>
+
+                    <!-- Studio -->
+                    <div class="h2-membership-card studio">
+                        <div>
+                            <h3 style="margin: 0 0 0.25rem;">Immerse</h3>
+                            <p style="color: var(--theme-text-muted); font-size: 0.9rem; margin: 0;">For the dedicated
+                                floater</p>
+                        </div>
+                        <div class="h2-membership-price">$149 <small style="font-size:1rem;">/mo</small></div>
+                        <ul class="h2-membership-features">
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> 4 × floats per month</li>
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> Unlimited guest passes</li>
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> Private suite reservations</li>
+                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg> Wellness consultation</li>
+                        </ul>
+                        <a href="memberships.html" class="btn btn-outline" style="text-align:center;">Get Immersed</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 8. ASYMMETRIC FINAL CTA ====== -->
+        <section class="section h2-cta-strip" aria-label="Call to action">
+            <div class="container">
+                <div class="h2-cta-inner">
+                    <div>
+                        <p class="h2-section-tag">Ready to Float?</p>
+                        <h2
+                            style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: var(--spacing-sm);">
+                            Your First Float is Waiting.</h2>
+                        <p
+                            style="color: var(--theme-text-muted); font-size: 1rem; max-width: 540px; line-height: 1.6; margin: 0;">
+                            Book online in under 60 seconds. No experience needed. Just bring yourself.</p>
                     </div>
                     <div
-                        style="position: relative; border-radius: var(--border-radius-lg); overflow: hidden; height: 500px;">
-                        <img src="../assets/img/hero-about.jpg" alt="Float Suite Interior"
-                            style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8);">
+                        style="display: flex; flex-direction: column; gap: 1rem; align-items: center; min-width: 200px;">
+                        <a href="booking.html" class="btn btn-primary"
+                            style="padding: 1rem 2rem; font-size: 1.05rem; white-space: nowrap; width: 100%; text-align: center;">Book
+                            a Float</a>
+                        <a href="contact.html"
+                            style="font-size: 0.9rem; color: var(--theme-text-muted); text-decoration: none;">Have
+                            questions? Contact us →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Snippet -->
-        <section class="section" style="background-color: var(--theme-surface);">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
-                    <h2>Simple Options for Deep Rest</h2>
-                    <p style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto;">Whether you are
-                        floating for the first time or looking for a weekly reset, we have a path for you.</p>
-                </div>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md); max-width: 900px; margin: 0 auto;">
-                    <div class="card" style="text-align: center; display: flex; flex-direction: column;">
-                        <h3 style="margin-bottom: 0.5rem;">Intro Float</h3>
-                        <div
-                            style="font-size: 2.5rem; font-weight: bold; color: var(--theme-accent); margin-bottom: 1rem; font-family: var(--font-serif);">
-                            $89</div>
-                        <p style="color: var(--theme-text-muted); flex-grow: 1;">A single 60-minute session to introduce
-                            your mind to the void.</p>
-                        <a href="booking.html" class="btn btn-outline"
-                            style="margin-top: 1rem; width: 100%; border-color: var(--theme-border);">Book Single</a>
-                    </div>
-                    <div class="card"
-                        style="text-align: center; display: flex; flex-direction: column; border: 2px solid var(--primary); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
-                        <div
-                            style="background-color: var(--primary); color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; align-self: center; margin-bottom: 1rem; margin-top: -1.25rem;">
-                            Most Popular</div>
-                        <h3 style="margin-bottom: 0.5rem;">The Monthly Reset</h3>
-                        <div
-                            style="font-size: 2.5rem; font-weight: bold; color: var(--theme-accent); margin-bottom: 1rem; font-family: var(--font-serif);">
-                            $69<span style="font-size: 1rem; color: var(--theme-text-muted);"> /mo</span></div>
-                        <p style="color: var(--theme-text-muted); flex-grow: 1;">One 60-minute float per month.
-                            Additional floats at member rate.</p>
-                        <a href="memberships.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Become
-                            a Member</a>
-                    </div>
-                    <div class="card" style="text-align: center; display: flex; flex-direction: column;">
-                        <h3 style="margin-bottom: 0.5rem;">The Deep Dive</h3>
-                        <div
-                            style="font-size: 2.5rem; font-weight: bold; color: var(--theme-accent); margin-bottom: 1rem; font-family: var(--font-serif);">
-                            $199</div>
-                        <p style="color: var(--theme-text-muted); flex-grow: 1;">Three 60-minute floats to rapidly build
-                            a cumulative calmness.</p>
-                        <a href="booking.html" class="btn btn-outline"
-                            style="margin-top: 1rem; width: 100%; border-color: var(--theme-border);">Buy Package</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Voices of Stillness (Testimonials) -->
-        <section class="section">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
-                    <h2>Voices of Stillness</h2>
-                    <p style="color: var(--theme-text-muted);">Real experiences from our community of floaters.</p>
-                </div>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg);">
-                    <div class="card" style="background-color: var(--theme-surface-2);">
-                        <div style="color: var(--primary); margin-bottom: 1rem;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                            </svg>
-                        </div>
-                        <p style="font-style: italic; margin-bottom: 1.5rem; line-height: 1.6;">"I've struggled with
-                            insomnia for years. After my first 90-minute float, I slept through the night for the first
-                            time in memory. This place is a necessary sanctuary."</p>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div
-                                style="width: 48px; height: 48px; border-radius: 50%; background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80') center/cover;">
-                            </div>
-                            <div>
-                                <h4 style="margin: 0; font-size: 1rem;">Sarah Jenkins</h4>
-                                <span style="color: var(--theme-text-muted); font-size: 0.85rem;">Member since
-                                    2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="background-color: var(--theme-surface-2);">
-                        <div style="color: var(--primary); margin-bottom: 1rem;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                            </svg>
-                        </div>
-                        <p style="font-style: italic; margin-bottom: 1.5rem; line-height: 1.6;">"As a competitive
-                            athlete, recovery is everything. Floating has dramatically reduced my muscle soreness and
-                            improved my focus during competitions. Highly recommend the deep dive package."</p>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div
-                                style="width: 48px; height: 48px; border-radius: 50%; background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80') center/cover;">
-                            </div>
-                            <div>
-                                <h4 style="margin: 0; font-size: 1rem;">David Chen</h4>
-                                <span style="color: var(--theme-text-muted); font-size: 0.85rem;">Athlete</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Integrated Wellness CTA -->
-        <section class="section" style="background-color: var(--theme-surface);">
-            <div class="container">
-                <div class="cta-card">
-                    <div>
-                        <h2 style="margin-bottom: var(--spacing-sm);">Integrated Wellness Awaits</h2>
-                        <p style="margin: 0; opacity: 0.9; font-size: 1.1rem; max-width: 500px;">
-                            Join our community of mindful floaters. Book your introductory session and transform your
-                            recovery routine.
-                        </p>
-                    </div>
-                    <a href="booking.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
-                        Start Your Journey
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
 
+    <!-- ====== FOOTER ====== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -459,8 +1236,8 @@
                             style="color: var(--theme-text-muted); transition: color 0.2s;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-                                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+                                <path d="M4 4l11.733 16h4.267l-11.733-16z"></path>
+                                <path d="M4 20l6.768-6.768m2.46-2.46l6.772-6.772"></path>
                             </svg>
                         </a>
                         <a href="#" aria-label="LinkedIn"
@@ -485,7 +1262,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- Standard Footer Links -->
                 <div class="footer-col">
                     <h4>Explore</h4>
                     <ul class="footer-links">
@@ -509,10 +1285,11 @@
                     <h4>Subscribe</h4>
                     <p style="color: var(--theme-text-muted); margin-bottom: var(--spacing-sm);">Join our newsletter for
                         exclusive wellness insights.</p>
-                    <form action="#" method="POST" style="display: flex; gap: 0.5rem;">
-                        <label for="newsletter-email" class="sr-only">Email</label>
-                        <input type="email" id="newsletter-email" class="form-control" placeholder="Email address"
-                            required style="flex: 1;">
+                    <form action="#" method="POST" style="display: flex; gap: 0.5rem;"
+                        aria-label="Newsletter Subscription">
+                        <label for="h2-newsletter-email" class="sr-only">Email Address</label>
+                        <input type="email" id="h2-newsletter-email" name="email" class="form-control"
+                            placeholder="Email address" required style="flex: 1;">
                         <button type="submit" class="btn btn-primary">Go</button>
                     </form>
                 </div>
@@ -523,8 +1300,21 @@
         </div>
     </footer>
 
+    <style>
+        /* Mobile fallback: show only on devices where bento is hidden */
+        .mobile-only-gallery {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-only-gallery {
+                display: grid;
+            }
+        }
+    </style>
+
     <script src="../assets/js/main.js"></script>
-    <script> document.getElementById('current-year').textContent = new Date().getFullYear(); </script>
+    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>
