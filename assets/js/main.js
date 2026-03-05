@@ -63,6 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     mobileToggle.setAttribute('aria-expanded', 'true');
                 }
             });
+
+            // Close menu on scroll
+            window.addEventListener('scroll', () => {
+                if (nav.classList.contains('is-open')) {
+                    nav.classList.remove('is-open');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            }, { passive: true });
         }
 
         // Dropdown toggles for mobile & touch devices
