@@ -1,1319 +1,2203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("theme") || "dark",
+      );
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Home 2 — The Float Experience | Sensory Deprivation Float Center
+    </title>
+    <meta
+      name="description"
+      content="Discover a new dimension of calm. Premium float therapy for mind, body and soul."
+    />
+    <meta
+      property="og:title"
+      content="Home 2 — The Float Experience | Float Center"
+    />
+    <meta
+      property="og:description"
+      content="Discover a new dimension of calm with premium float therapy."
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home 2 — The Float Experience | Sensory Deprivation Float Center</title>
-    <meta name="description" content="Discover a new dimension of calm. Premium float therapy for mind, body and soul.">
-    <meta property="og:title" content="Home 2 — The Float Experience | Float Center">
-    <meta property="og:description" content="Discover a new dimension of calm with premium float therapy.">
-
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/dark-mode.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        /* ====================================================
-           HOME 2 — UNIQUE EDITORIAL DESIGN SYSTEM
-           All classes prefixed with h2- to avoid conflicts
+      /* ====================================================
+          HOME 2 — UNIQUE EDITORIAL DESIGN SYSTEM
+          All classes prefixed with h2- to avoid conflicts
         ====================================================  */
 
-        /* ---------- Editorial Hero (Full-bleed split screen) ---------- */
+      /* Reset potential browser/body spacing that can create a gap
+        above the hero on some devices */
+      html,body{height:100%;}
+      body{margin:0;padding:0;-webkit-font-smoothing:antialiased}
+      /* Ensure header sits above hero and doesn't create visual gap */
+      .header{position:relative;z-index:50}
+
+      /* Tighter hero padding on small screens and remove top gap */
+      .h2-hero{margin-top:0;padding-top:0}
+      .h2-hero-text{padding-top:clamp(2rem,6vw,4rem);padding-bottom:clamp(2rem,6vw,4rem)}
+
+      /* Facility & card animations */
+      .h2-facility-grid img, .h2-bento-item img, .h2-hero-image img{transition:transform .8s cubic-bezier(.2,.9,.2,1),filter .5s}
+      .h2-facility-grid img:hover, .h2-bento-item img:hover, .h2-hero-image:hover img{transform:scale(1.03);filter:brightness(.98)}
+      .h2-facility-card, .h2-stat-card, .h2-membership-card{transition:transform .45s ease,box-shadow .45s ease}
+      .h2-facility-card:hover, .h2-stat-card:hover, .h2-membership-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.08)}
+
+      /* Improve stat blocks wrapping on small screens */
+      .h2-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
+      @media (max-width:1024px){.h2-stat-row{grid-template-columns:repeat(2,1fr)}}
+      @media (max-width:640px){.h2-stat-row{grid-template-columns:1fr}}
+
+      /* Small utility fade/slide classes */
+      .fade-up{animation:fadeUp .6s cubic-bezier(.2,.9,.2,1) both}
+      @keyframes fadeUp{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+
+      /* ---------- Editorial Hero (Full-bleed split screen) ---------- */
+      .h2-hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .h2-hero-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(5rem, 8vw, 8rem) clamp(1.5rem, 4vw, 3rem) 4rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .h2-overline {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--theme-accent);
+        margin-bottom: var(--spacing-md);
+      }
+
+      .h2-overline::before {
+        content: "";
+        display: block;
+        width: 2.5rem;
+        height: 2px;
+        background-color: var(--theme-accent);
+      }
+
+      .h2-hero-headline {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .h2-hero-headline em {
+        font-style: italic;
+        color: var(--theme-accent);
+      }
+
+      .h2-hero-body {
+        font-size: 1.1rem;
+        color: var(--theme-text-muted);
+        line-height: 1.7;
+        max-width: 480px;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .h2-hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .h2-hero-image {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .h2-hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      .h2-hero-image-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          120deg,
+          var(--theme-bg) 0%,
+          transparent 40%
+        );
+        z-index: 1;
+      }
+
+      .h2-hero-badge {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 2rem;
+        z-index: 3;
+        background: rgba(10, 18, 32, 0.72);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 1rem 1.5rem;
+        border-radius: 16px;
+        text-align: center;
+      }
+
+      .h2-hero-badge .stat-num {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+        color: var(--theme-accent);
+      }
+
+      .h2-hero-badge .stat-label {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.75);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      /* ---------- Floating Metrics Bar ---------- */
+      .h2-metrics {
+        background-color: var(--primary);
+        padding: 2rem 0;
+      }
+
+      .h2-metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .h2-metric-item {
+        padding: 1.5rem var(--spacing-lg);
+        background-color: var(--primary);
+        text-align: center;
+      }
+
+      .h2-metric-num {
+        display: block;
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: white;
+        line-height: 1;
+      }
+
+      .h2-metric-label {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 0.25rem;
+        display: block;
+      }
+
+      /* ---------- Alternating Editorial Blocks ---------- */
+      .h2-editorial {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 580px;
+        overflow: hidden;
+        align-items: stretch;
+      }
+
+      .h2-editorial.reverse {
+        direction: rtl;
+      }
+
+      .h2-editorial.reverse > * {
+        direction: ltr;
+      }
+
+      .h2-editorial-img {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .h2-editorial-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+
+      .h2-editorial-img:hover img {
+        transform: scale(1.03);
+      }
+
+      .h2-editorial-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 5vw, 5rem);
+        background-color: var(--theme-surface);
+        min-height: 100%;
+      }
+
+      /* ---------- Benefits Timeline ---------- */
+      .h2-timeline {
+        counter-reset: timeline;
+      }
+
+      .h2-timeline-item {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+        align-items: flex-start;
+      }
+
+      .h2-timeline-num {
+        counter-increment: timeline;
+        width: 52px;
+        height: 52px;
+        border: 2px solid var(--theme-accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--theme-accent);
+        flex-shrink: 0;
+      }
+
+      .h2-timeline-body h4 {
+        margin-bottom: 0.35rem;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+
+      .h2-timeline-body p {
+        font-size: 0.95rem;
+        color: var(--theme-text-muted);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .h2-timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ---------- Bento Grid ---------- */
+      .h2-bento {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 120px;
+        gap: 1rem;
+      }
+
+      .h2-bento-item {
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .h2-bento--wide {
+        grid-column: span 7;
+        grid-row: span 3;
+      }
+
+      .h2-bento--tall {
+        grid-column: span 5;
+        grid-row: span 4;
+      }
+
+      .h2-bento--med {
+        grid-column: span 5;
+        grid-row: span 2;
+      }
+
+      .h2-bento--sm {
+        grid-column: span 7;
+        grid-row: span 1;
+      }
+
+      .h2-bento--stat {
+        grid-column: span 4;
+        grid-row: span 1;
+        background: var(--theme-surface);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .h2-bento--cta {
+        grid-column: span 8;
+        grid-row: span 1;
+        background: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+      }
+
+      .h2-bento-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .h2-bento-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem 1.25rem;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        font-size: 0.85rem;
+        color: white;
+        font-weight: 500;
+      }
+
+      .h2-bento--stat .stat-val {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--theme-accent);
+        line-height: 1;
+      }
+
+      .h2-bento--stat .stat-desc {
+        font-size: 0.8rem;
+        color: var(--theme-text-muted);
+        margin-top: 0.25rem;
+      }
+
+      .h2-bento--cta .cta-text h3 {
+        color: white;
+        margin: 0 0 0.25rem;
+      }
+
+      .h2-bento--cta .cta-text p {
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      /* ---------- Testimonials Carousel ---------- */
+      .h2-testimonials-track {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+      }
+
+      .h2-testimonial {
+        background: var(--theme-surface);
+        border: 1px solid var(--theme-border);
+        border-radius: 20px;
+        padding: var(--spacing-lg);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        transition: box-shadow 0.3s ease;
+        height: 100%;
+        box-sizing: border-box;
+      }
+
+      .h2-testimonial:hover {
+        box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.15);
+      }
+
+      .h2-testimonial-stars {
+        display: flex;
+        gap: 0.25rem;
+        color: #f0a500;
+        font-size: 0.9rem;
+      }
+
+      .h2-testimonial-quote {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: var(--theme-text);
+        flex-grow: 1;
+      }
+
+      .h2-testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding-top: var(--spacing-sm);
+        border-top: 1px solid var(--theme-border);
+      }
+
+      .h2-testimonial-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .h2-testimonial-name {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .h2-testimonial-role {
+        font-size: 0.8rem;
+        color: var(--theme-text-muted);
+      }
+
+      /* ---------- Membership Cards ---------- */
+      .h2-membership-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+        align-items: stretch;
+      }
+
+      /* Testimonials track ensures equal height cards */
+      .h2-testimonials-track {
+        align-items: stretch;
+      }
+
+      .h2-membership-card {
+        border-radius: 20px;
+        padding: 2rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: transform 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .h2-membership-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .h2-membership-card.standard {
+        background: var(--theme-surface);
+        border: 1px solid var(--theme-border);
+      }
+
+      .h2-membership-card.featured {
+        background: var(--primary);
+        color: white;
+        padding: 2rem 1.75rem;
+        border: none;
+      }
+
+      .h2-membership-card.studio {
+        background: var(--theme-surface);
+        border: 1px solid var(--theme-border);
+      }
+
+      .h2-membership-price {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .h2-membership-card.featured .h2-membership-price {
+        color: white;
+      }
+
+      .h2-membership-card.featured .h2-membership-price small {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .h2-membership-price small {
+        font-size: 0.9rem;
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--theme-text-muted);
+      }
+
+      .h2-membership-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+        flex-grow: 1;
+      }
+
+      .h2-membership-features + a,
+      .h2-membership-features + .btn {
+        margin-top: auto;
+      }
+
+      .h2-membership-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .h2-membership-card.featured .h2-membership-features li {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .h2-check {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        color: var(--theme-accent);
+      }
+
+      .h2-membership-card.featured .h2-check {
+        color: white;
+      }
+
+      .h2-badge-tag {
+        display: inline-block;
+        background: white;
+        color: var(--primary);
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding: 0.2em 0.7em;
+        border-radius: 100px;
+        align-self: flex-start;
+      }
+
+      /* ---------- Section Title Styles ---------- */
+      .h2-section-tag {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--theme-accent);
+        margin-bottom: 1rem;
+      }
+
+      .h2-section-tag::before {
+        content: "";
+        display: inline-block;
+        width: 2rem;
+        height: 2px;
+        background: var(--theme-accent);
+      }
+
+      /* ---------- CTA Section (Asymmetric) ---------- */
+      .h2-cta-strip {
+        background: var(--theme-surface);
+        border-top: 1px solid var(--theme-border);
+        border-bottom: 1px solid var(--theme-border);
+      }
+
+      .h2-cta-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: var(--spacing-xl);
+        align-items: center;
+      }
+
+      .h2-cta-inner > div:last-child {
+        min-width: 220px;
+      }
+
+      /* ---------- Responsive Breakpoints mapped from style.css ---------- */
+      @media (max-width: 1023px) {
+        .h2-bento {
+          display: none;
+        }
+
         .h2-hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            overflow: hidden;
-            position: relative;
+          grid-template-columns: 1fr;
+          min-height: auto;
         }
 
         .h2-hero-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: clamp(5rem, 8vw, 8rem) clamp(1.5rem, 4vw, 3rem) 4rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .h2-overline {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--theme-accent);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .h2-overline::before {
-            content: '';
-            display: block;
-            width: 2.5rem;
-            height: 2px;
-            background-color: var(--theme-accent);
-        }
-
-        .h2-hero-headline {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: clamp(2.8rem, 5vw, 5rem);
-            font-weight: 700;
-            line-height: 1.08;
-            letter-spacing: -0.02em;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .h2-hero-headline em {
-            font-style: italic;
-            color: var(--theme-accent);
+          padding: 3rem 2rem 2rem;
         }
 
         .h2-hero-body {
-            font-size: 1.1rem;
-            color: var(--theme-text-muted);
-            line-height: 1.7;
-            max-width: 480px;
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .h2-hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+          max-width: 100%;
         }
 
         .h2-hero-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .h2-hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
+          height: 450px;
         }
 
         .h2-hero-image-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, var(--theme-bg) 0%, transparent 40%);
-            z-index: 1;
-        }
-
-        .h2-hero-badge {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 2rem;
-            z-index: 3;
-            background: rgba(10, 18, 32, 0.72);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 1rem 1.5rem;
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .h2-hero-badge .stat-num {
-            display: block;
-            font-size: 1.8rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            color: var(--theme-accent);
-        }
-
-        .h2-hero-badge .stat-label {
-            font-size: 0.78rem;
-            color: rgba(255, 255, 255, 0.75);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* ---------- Floating Metrics Bar ---------- */
-        .h2-metrics {
-            background-color: var(--primary);
-            padding: 2rem 0;
+          background: linear-gradient(
+            to bottom,
+            var(--theme-bg) 0%,
+            transparent 30%
+          );
         }
 
         .h2-metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background-color: rgba(255, 255, 255, 0.1);
+          grid-template-columns: repeat(2, 1fr);
         }
 
-        .h2-metric-item {
-            padding: 1.5rem var(--spacing-lg);
-            background-color: var(--primary);
-            text-align: center;
-        }
-
-        .h2-metric-num {
-            display: block;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: white;
-            line-height: 1;
-        }
-
-        .h2-metric-label {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.75);
-            margin-top: 0.25rem;
-            display: block;
-        }
-
-        /* ---------- Alternating Editorial Blocks ---------- */
         .h2-editorial {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 580px;
-            overflow: hidden;
-            align-items: stretch;
+          grid-template-columns: 1fr;
+          min-height: auto;
         }
 
         .h2-editorial.reverse {
-            direction: rtl;
-        }
-
-        .h2-editorial.reverse>* {
-            direction: ltr;
+          direction: ltr;
+          /* Reset visual flow on tablet */
         }
 
         .h2-editorial-img {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .h2-editorial-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .h2-editorial-img:hover img {
-            transform: scale(1.03);
+          height: 400px;
         }
 
         .h2-editorial-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 5vw, 5rem);
-            background-color: var(--theme-surface);
-            min-height: 100%;
+          padding: 3rem 2rem;
         }
 
-        /* ---------- Benefits Timeline ---------- */
-        .h2-timeline {
-            counter-reset: timeline;
-        }
-
-        .h2-timeline-item {
-            display: grid;
-            grid-template-columns: 60px 1fr;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-            align-items: flex-start;
-        }
-
-        .h2-timeline-num {
-            counter-increment: timeline;
-            width: 52px;
-            height: 52px;
-            border: 2px solid var(--theme-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--theme-accent);
-            flex-shrink: 0;
-        }
-
-        .h2-timeline-body h4 {
-            margin-bottom: 0.35rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .h2-timeline-body p {
-            font-size: 0.95rem;
-            color: var(--theme-text-muted);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .h2-timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        /* ---------- Bento Grid ---------- */
-        .h2-bento {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-auto-rows: 120px;
-            gap: 1rem;
-        }
-
-        .h2-bento-item {
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .h2-bento--wide {
-            grid-column: span 7;
-            grid-row: span 3;
-        }
-
-        .h2-bento--tall {
-            grid-column: span 5;
-            grid-row: span 4;
-        }
-
-        .h2-bento--med {
-            grid-column: span 5;
-            grid-row: span 2;
-        }
-
-        .h2-bento--sm {
-            grid-column: span 7;
-            grid-row: span 1;
-        }
-
-        .h2-bento--stat {
-            grid-column: span 4;
-            grid-row: span 1;
-            background: var(--theme-surface);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .h2-bento--cta {
-            grid-column: span 8;
-            grid-row: span 1;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 2rem;
-        }
-
-        .h2-bento-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .h2-bento-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem 1.25rem;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            font-size: 0.85rem;
-            color: white;
-            font-weight: 500;
-        }
-
-        .h2-bento--stat .stat-val {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--theme-accent);
-            line-height: 1;
-        }
-
-        .h2-bento--stat .stat-desc {
-            font-size: 0.8rem;
-            color: var(--theme-text-muted);
-            margin-top: 0.25rem;
-        }
-
-        .h2-bento--cta .cta-text h3 {
-            color: white;
-            margin: 0 0 0.25rem;
-        }
-
-        .h2-bento--cta .cta-text p {
-            color: rgba(255, 255, 255, 0.8);
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        /* ---------- Testimonials Carousel ---------- */
         .h2-testimonials-track {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
         }
 
         .h2-testimonial {
-            background: var(--theme-surface);
-            border: 1px solid var(--theme-border);
-            border-radius: 20px;
-            padding: var(--spacing-lg);
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-            transition: box-shadow 0.3s ease;
-            height: 100%;
-            box-sizing: border-box;
+          height: auto;
         }
 
-        .h2-testimonial:hover {
-            box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.15);
-        }
-
-        .h2-testimonial-stars {
-            display: flex;
-            gap: 0.25rem;
-            color: #F0A500;
-            font-size: 0.9rem;
-        }
-
-        .h2-testimonial-quote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.05rem;
-            line-height: 1.65;
-            color: var(--theme-text);
-            flex-grow: 1;
-        }
-
-        .h2-testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding-top: var(--spacing-sm);
-            border-top: 1px solid var(--theme-border);
-        }
-
-        .h2-testimonial-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .h2-testimonial-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .h2-testimonial-role {
-            font-size: 0.8rem;
-            color: var(--theme-text-muted);
-        }
-
-        /* ---------- Membership Cards ---------- */
         .h2-membership-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
-            align-items: stretch;
-        }
-
-        /* Testimonials track ensures equal height cards */
-        .h2-testimonials-track {
-            align-items: stretch;
-        }
-
-        .h2-membership-card {
-            border-radius: 20px;
-            padding: 2rem 1.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            transition: transform 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        .h2-membership-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .h2-membership-card.standard {
-            background: var(--theme-surface);
-            border: 1px solid var(--theme-border);
+          grid-template-columns: 1fr;
+          align-items: stretch;
         }
 
         .h2-membership-card.featured {
-            background: var(--primary);
-            color: white;
-            padding: 2rem 1.75rem;
-            border: none;
-        }
-
-        .h2-membership-card.studio {
-            background: var(--theme-surface);
-            border: 1px solid var(--theme-border);
-        }
-
-        .h2-membership-price {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .h2-membership-card.featured .h2-membership-price {
-            color: white;
-        }
-
-        .h2-membership-card.featured .h2-membership-price small {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .h2-membership-price small {
-            font-size: 0.9rem;
-            font-family: var(--font-sans);
-            font-weight: 400;
-            color: var(--theme-text-muted);
-        }
-
-        .h2-membership-features {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-            flex-grow: 1;
-        }
-
-        .h2-membership-features+a,
-        .h2-membership-features+.btn {
-            margin-top: auto;
-        }
-
-        .h2-membership-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .h2-membership-card.featured .h2-membership-features li {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .h2-check {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-            color: var(--theme-accent);
-        }
-
-        .h2-membership-card.featured .h2-check {
-            color: white;
-        }
-
-        .h2-badge-tag {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.2em 0.7em;
-            border-radius: 100px;
-            align-self: flex-start;
-        }
-
-        /* ---------- Section Title Styles ---------- */
-        .h2-section-tag {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--theme-accent);
-            margin-bottom: 1rem;
-        }
-
-        .h2-section-tag::before {
-            content: '';
-            display: inline-block;
-            width: 2rem;
-            height: 2px;
-            background: var(--theme-accent);
-        }
-
-        /* ---------- CTA Section (Asymmetric) ---------- */
-        .h2-cta-strip {
-            background: var(--theme-surface);
-            border-top: 1px solid var(--theme-border);
-            border-bottom: 1px solid var(--theme-border);
+          padding: var(--spacing-xl) var(--spacing-lg);
         }
 
         .h2-cta-inner {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: var(--spacing-xl);
-            align-items: center;
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 2rem;
         }
 
-        .h2-cta-inner>div:last-child {
-            min-width: 220px;
+        .h2-cta-inner > div:last-child {
+          min-width: unset;
+          width: 100%;
         }
 
-        /* ---------- Responsive ---------- */
-        @media (max-width: 1024px) {
-            .h2-bento {
-                display: none;
-            }
+        .h2-cta-inner a {
+          justify-content: center;
         }
 
-        @media (max-width: 768px) {
-            .h2-hero {
-                grid-template-columns: 1fr;
-                min-height: auto;
-            }
+        .h2-section-tag {
+          justify-content: center;
+        }
+      }
 
-            .h2-hero-text {
-                padding: 7rem 1.5rem 2.5rem;
-            }
-
-            .h2-hero-body {
-                max-width: 100%;
-            }
-
-            .h2-hero-image {
-                height: 350px;
-            }
-
-            .h2-hero-image-overlay {
-                background: linear-gradient(to bottom, var(--theme-bg) 0%, transparent 30%);
-            }
-
-            .h2-metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .h2-editorial {
-                grid-template-columns: 1fr;
-                min-height: auto;
-            }
-
-            .h2-editorial.reverse {
-                direction: ltr;
-            }
-
-            .h2-editorial-img {
-                height: 300px;
-            }
-
-            .h2-editorial-content {
-                padding: 2rem 1.5rem;
-            }
-
-            .h2-testimonials-track {
-                grid-template-columns: 1fr;
-            }
-
-            .h2-testimonial {
-                height: auto;
-            }
-
-            .h2-membership-grid {
-                grid-template-columns: 1fr;
-                align-items: stretch;
-            }
-
-            .h2-membership-card.featured {
-                padding: var(--spacing-xl) var(--spacing-lg);
-            }
-
-            .h2-cta-inner {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .h2-cta-inner>div:last-child {
-                min-width: unset;
-                width: 100%;
-            }
-
-            .h2-cta-inner a {
-                justify-content: center;
-            }
-
-            .h2-section-tag {
-                justify-content: center;
-            }
+      @media (max-width: 639px) {
+        .h2-hero-text {
+          padding: 0.5rem 1.25rem 2rem;
         }
 
-        @media (max-width: 480px) {
-            .h2-metrics-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .h2-hero-headline {
-                font-size: 2.4rem;
-            }
+        .h2-hero-image {
+          height: 350px;
         }
+
+        .h2-metrics-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .h2-hero-headline {
+          font-size: 2.3rem;
+        }
+
+        .h2-editorial-img {
+          height: 300px;
+        }
+
+        .h2-editorial-content {
+          padding: 2rem 1.25rem;
+        }
+
+        .h2-metric-num {
+          font-size: 1.8rem;
+        }
+      }
     </style>
-    <link rel="stylesheet" href="../assets/css/tailwind.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
+    <link rel="stylesheet" href="../assets/css/responsive.css" />
+    <link rel="stylesheet" href="../assets/css/rtl.css" />
 
-    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-</head>
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  </head>
 
-<body>
+  <body>
     <a href="#main-content" class="sr-only">Skip to main content</a>
 
     <!-- ====== HEADER (same nav keeps brand consistent) ====== -->
     <header class="header">
-        <div class="container header-container">
-            <a href="../index.html" class="logo" aria-label="Sensory Deprivation Float Center Home">FloatHaus</a>
+      <div class="container header-container">
+        <a
+          href="../index.html"
+          class="logo"
+          aria-label="Sensory Deprivation Float Center Home"
+          >FloatHaus</a
+        >
 
-                                                <nav id="main-nav" class="nav" aria-label="Main Navigation">
-                <div class="nav-item-dropdown">
-                    <span style="display: flex; align-items: center; gap: 0.25rem;">
-                        Home
-                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </span>
-                    <div class="dropdown-menu">
-                        <a href="../index.html" class="dropdown-item">Home 1</a>
-                        <a href="home-2.html" class="dropdown-item">Home 2</a>
-                    </div>
-                </div>
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="gallery.html" class="nav-link">Gallery</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <div class="nav-item-dropdown">
-                    <span style="display: flex; align-items: center; gap: 0.25rem;">
-                        Dashboard
-                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </span>
-                    <div class="dropdown-menu">
-                        <a href="dashboard.html?role=user" class="dropdown-item">User</a>
-                        <a href="dashboard.html?role=admin" class="dropdown-item">Admin</a>
-                    </div>
-                </div>
-            </nav>
-
-            <div style="display:flex; gap: 1rem; align-items: center;">
-                <button type="button" id="dir-toggle" class="theme-toggle"
-                    style="width: auto; padding: 0 0.75rem; font-weight: bold; font-family: var(--font-sans);"
-                    aria-label="Toggle Navigation Direction">
-                    <span id="dir-text">RTL</span>
-                </button>
-                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <span id="theme-icon"></span>
-                </button>
-                <button type="button" id="mobile-toggle" class="mobile-toggle" aria-expanded="false"
-                    aria-controls="main-nav" aria-label="Open menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
-                <a href="booking.html" class="btn btn-primary btn-sticky-mobile d-none-mobile">Book Now</a>
+        <nav id="main-nav" class="nav" aria-label="Main Navigation">
+          <div class="nav-item-dropdown">
+            <span style="display: flex; align-items: center; gap: 0.25rem">
+              Home
+              <svg
+                class="dropdown-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+            <div class="dropdown-menu">
+              <a href="../index.html" class="dropdown-item">Home 1</a>
+              <a href="home-2.html" class="dropdown-item">Home 2</a>
             </div>
+          </div>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <div class="nav-item-dropdown">
+            <span style="display: flex; align-items: center; gap: 0.25rem">
+              Dashboard
+              <svg
+                class="dropdown-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+            <div class="dropdown-menu">
+              <a href="dashboard.html?role=user" class="dropdown-item">User</a>
+              <a href="dashboard.html?role=admin" class="dropdown-item"
+                >Admin</a
+              >
+            </div>
+          </div>
+        </nav>
+
+        <div style="display: flex; gap: 1rem; align-items: center">
+          <button
+            type="button"
+            id="dir-toggle"
+            class="theme-toggle"
+            style="
+              width: auto;
+              padding: 0 0.75rem;
+              font-weight: bold;
+              font-family: var(--font-sans);
+            "
+            aria-label="Toggle Navigation Direction"
+          >
+            <span id="dir-text">RTL</span>
+          </button>
+          <button
+            type="button"
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <span id="theme-icon"></span>
+          </button>
+          <button
+            type="button"
+            id="mobile-toggle"
+            class="mobile-toggle"
+            aria-expanded="false"
+            aria-controls="main-nav"
+            aria-label="Open menu"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <a
+            href="booking.html"
+            class="btn btn-primary btn-sticky-mobile d-none-mobile"
+            >Book Now</a
+          >
         </div>
+      </div>
     </header>
 
     <main id="main-content">
+      <!-- ====== 1. FULL-BLEED SPLIT-SCREEN HERO ====== -->
+      <section class="h2-hero animate-fade-up" aria-label="Hero">
+        <div class="h2-hero-text">
+          <p class="h2-overline">Float Therapy</p>
+          <h1 class="h2-hero-headline">
+            Find the Space <em>Within</em> the Silence.
+          </h1>
+          <p class="h2-hero-body">
+            A 60-minute float is equivalent to 4 hours of deep sleep. Step into
+            zero gravity, dissolve the world outside, and rediscover your
+            natural state of calm.
+          </p>
+          <div class="h2-hero-actions">
+            <a
+              href="booking.html"
+              class="btn btn-primary"
+              style="padding: 1rem 2rem; font-size: 1.05rem"
+              >Reserve Your Pod</a
+            >
+            <a
+              href="services.html"
+              class="btn btn-outline"
+              style="padding: 1rem 2rem; font-size: 1.05rem"
+              >Explore Services</a
+            >
+          </div>
+        </div>
+        <div class="h2-hero-image">
+          <img
+            src="../assets/img/hero-home.jpg"
+            alt="Float therapy pod in a dark serene room"
+            loading="eager"
+          />
+          <div class="h2-hero-image-overlay" aria-hidden="true"></div>
+          <div class="h2-hero-badge" aria-label="1000 satisfied members">
+            <span class="stat-num"
+              ><span class="animate-counter" data-target="1000">0</span>+</span
+            >
+            <span class="stat-label">Satisfied Floaters</span>
+          </div>
+        </div>
+      </section>
 
-        <!-- ====== 1. FULL-BLEED SPLIT-SCREEN HERO ====== -->
-        <section class="h2-hero animate-fade-up" aria-label="Hero">
-            <div class="h2-hero-text">
-                <p class="h2-overline">Float Therapy</p>
-                <h1 class="h2-hero-headline">
-                    Find the Space <em>Within</em> the Silence.
-                </h1>
-                <p class="h2-hero-body">
-                    A 60-minute float is equivalent to 4 hours of deep sleep. Step into zero gravity, dissolve the world
-                    outside, and rediscover your natural state of calm.
+      <!-- ====== 2. STAT CARDS ROW ====== -->
+      <section
+        style="
+          background-color: var(--theme-surface);
+          padding: var(--spacing-lg) 0;
+          border-top: 1px solid var(--theme-border);
+          border-bottom: 1px solid var(--theme-border);
+        "
+        aria-label="Wellness statistics"
+      >
+        <div class="container">
+          <div class="h2-stat-row"
+            style="
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 1px;
+              background: var(--theme-border);
+            "
+          >
+            <div
+              style="
+                background: var(--theme-surface);
+                padding: 2rem 1.5rem;
+                text-align: center;
+              "
+            >
+              <span
+                style="
+                  display: block;
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  font-size: 2.4rem;
+                  font-weight: 700;
+                  color: var(--theme-accent);
+                  line-height: 1;
+                  margin-bottom: 0.4rem;
+                "
+                ><span class="animate-counter" data-target="1000">0</span
+                >+</span
+              >
+              <span
+                style="
+                  font-size: 0.82rem;
+                  color: var(--theme-text-muted);
+                  text-transform: uppercase;
+                  letter-spacing: 0.1em;
+                "
+                >Lbs of Epsom Salt Per Pod</span
+              >
+            </div>
+            <div
+              style="
+                background: var(--theme-surface);
+                padding: 2rem 1.5rem;
+                text-align: center;
+              "
+            >
+              <span
+                style="
+                  display: block;
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  font-size: 2.4rem;
+                  font-weight: 700;
+                  color: var(--theme-accent);
+                  line-height: 1;
+                  margin-bottom: 0.4rem;
+                "
+                ><span class="animate-counter" data-target="93.5">0.0</span
+                >°F</span
+              >
+              <span
+                style="
+                  font-size: 0.82rem;
+                  color: var(--theme-text-muted);
+                  text-transform: uppercase;
+                  letter-spacing: 0.1em;
+                "
+                >Skin-Temperature Water</span
+              >
+            </div>
+            <div
+              style="
+                background: var(--theme-surface);
+                padding: 2rem 1.5rem;
+                text-align: center;
+              "
+            >
+              <span
+                style="
+                  display: block;
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  font-size: 2.4rem;
+                  font-weight: 700;
+                  color: var(--theme-accent);
+                  line-height: 1;
+                  margin-bottom: 0.4rem;
+                "
+                ><span class="animate-counter" data-target="60">0</span>–<span
+                  class="animate-counter"
+                  data-target="90"
+                  >0</span
+                ></span
+              >
+              <span
+                style="
+                  font-size: 0.82rem;
+                  color: var(--theme-text-muted);
+                  text-transform: uppercase;
+                  letter-spacing: 0.1em;
+                "
+                >Optimal Float Duration (mins)</span
+              >
+            </div>
+            <div
+              style="
+                background: var(--theme-surface);
+                padding: 2rem 1.5rem;
+                text-align: center;
+              "
+            >
+              <span
+                style="
+                  display: block;
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  font-size: 2.4rem;
+                  font-weight: 700;
+                  color: var(--theme-accent);
+                  line-height: 1;
+                  margin-bottom: 0.4rem;
+                "
+                ><span class="animate-counter" data-target="0">0</span> dB</span
+              >
+              <span
+                style="
+                  font-size: 0.82rem;
+                  color: var(--theme-text-muted);
+                  text-transform: uppercase;
+                  letter-spacing: 0.1em;
+                "
+                >External Sound Inside Pod</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 3. FACILITY SHOWCASE ====== -->
+      <section
+        style="background-color: var(--theme-bg); padding: var(--spacing-xl) 0"
+        aria-label="Facility showcase"
+      >
+        <div class="container">
+          <!-- Heading -->
+          <div
+            style="
+              display: flex;
+              align-items: flex-end;
+              justify-content: space-between;
+              gap: 2rem;
+              margin-bottom: var(--spacing-lg);
+              flex-wrap: wrap;
+            "
+          >
+            <div>
+              <p class="h2-section-tag">The Facility</p>
+              <h2
+                style="
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  font-weight: 700;
+                  font-size: clamp(2rem, 4vw, 3rem);
+                  margin: 0;
+                "
+              >
+                Designed for<br />Total Surrender
+              </h2>
+            </div>
+            <p
+              style="
+                color: var(--theme-text-muted);
+                font-size: 1rem;
+                line-height: 1.6;
+                max-width: 380px;
+                margin: 0;
+              "
+            >
+              Each suite is architecturally crafted to melt away the boundary
+              between mind and body.
+            </p>
+          </div>
+
+          <!-- Main Image Grid: 2 large + sidebar stats -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr 280px;
+              grid-template-rows: 300px 300px;
+              gap: 1rem;
+            "
+          >
+            <!-- Big left image, spans 2 rows -->
+            <div class="h2-facility-card"
+              style="
+                grid-row: span 2;
+                border-radius: 20px;
+                overflow: hidden;
+                position: relative;
+              "
+            >
+              <img
+                src="../assets/img/gallery-pod-ambient.jpg"
+                alt="Float pod with ambient lighting"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+              <div
+                style="
+                  position: absolute;
+                  bottom: 1.5rem;
+                  left: 1.5rem;
+                  background: rgba(0, 0, 0, 0.55);
+                  backdrop-filter: blur(8px);
+                  padding: 0.6rem 1rem;
+                  border-radius: 10px;
+                  color: white;
+                  font-size: 0.85rem;
+                  font-weight: 500;
+                "
+              >
+                Oasis Float Pods
+              </div>
+            </div>
+            <!-- Top right image -->
+            <div class="h2-facility-card"
+              style="border-radius: 20px; overflow: hidden; position: relative"
+            >
+              <img
+                src="../assets/img/gallery-lounge.jpg"
+                alt="Post-float integration lounge"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+              <div
+                style="
+                  position: absolute;
+                  bottom: 1.5rem;
+                  left: 1.5rem;
+                  background: rgba(0, 0, 0, 0.55);
+                  backdrop-filter: blur(8px);
+                  padding: 0.6rem 1rem;
+                  border-radius: 10px;
+                  color: white;
+                  font-size: 0.85rem;
+                  font-weight: 500;
+                "
+              >
+                Integration Lounge
+              </div>
+            </div>
+            <!-- Sidebar: 2 stacked stats -->
+            <div style="display: flex; flex-direction: column; gap: 1rem">
+              <div class="h2-stat-card"
+                style="
+                  flex: 1;
+                  background: var(--theme-surface);
+                  border: 1px solid var(--theme-border);
+                  border-radius: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  padding: 1.5rem;
+                "
+              >
+                <span
+                  style="
+                    font-family: &quot;Playfair Display&quot;, serif;
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    color: var(--theme-accent);
+                    line-height: 1;
+                    display: block;
+                  "
+                  ><span class="animate-counter" data-target="5">0</span>
+                  ★</span
+                >
+                <span
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--theme-text-muted);
+                    margin-top: 0.4rem;
+                    display: block;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                  "
+                  >Member Rating</span
+                >
+              </div>
+              <div class="h2-stat-card"
+                style="
+                  flex: 1;
+                  background: var(--primary);
+                  border-radius: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  padding: 1.5rem;
+                "
+              >
+                <span
+                  style="
+                    font-family: &quot;Playfair Display&quot;, serif;
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    color: white;
+                    line-height: 1;
+                    display: block;
+                  "
+                  ><span class="animate-counter" data-target="8">0</span>+</span
+                >
+                <span
+                  style="
+                    font-size: 0.8rem;
+                    color: rgba(255, 255, 255, 0.75);
+                    margin-top: 0.4rem;
+                    display: block;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                  "
+                  >Private Suites</span
+                >
+              </div>
+            </div>
+            <!-- Bottom center image -->
+            <div class="h2-facility-card"
+              style="border-radius: 20px; overflow: hidden; position: relative"
+            >
+              <img
+                src="../assets/img/gallery-suite-amen.jpg"
+                alt="Private suite amenities"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+              <div
+                style="
+                  position: absolute;
+                  bottom: 1.5rem;
+                  left: 1.5rem;
+                  background: rgba(0, 0, 0, 0.55);
+                  backdrop-filter: blur(8px);
+                  padding: 0.6rem 1rem;
+                  border-radius: 10px;
+                  color: white;
+                  font-size: 0.85rem;
+                  font-weight: 500;
+                "
+              >
+                Suite Amenities
+              </div>
+            </div>
+            <!-- Bottom sidebar stats -->
+            <div style="display: flex; flex-direction: column; gap: 1rem">
+              <div class="h2-stat-card"
+                style="
+                  flex: 1;
+                  background: var(--theme-surface);
+                  border: 1px solid var(--theme-border);
+                  border-radius: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  padding: 1.5rem;
+                "
+              >
+                <span
+                  style="
+                    font-family: &quot;Playfair Display&quot;, serif;
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    color: var(--theme-accent);
+                    line-height: 1;
+                    display: block;
+                  "
+                  ><span class="animate-counter" data-target="100">0</span
+                  >%</span
+                >
+                <span
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--theme-text-muted);
+                    margin-top: 0.4rem;
+                    display: block;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                  "
+                  >Sanitised Per Session</span
+                >
+              </div>
+              <div class="h2-stat-card"
+                style="
+                  flex: 1;
+                  background: var(--theme-surface);
+                  border: 1px solid var(--theme-border);
+                  border-radius: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  padding: 1.5rem;
+                "
+              >
+                <span
+                  style="
+                    font-family: &quot;Playfair Display&quot;, serif;
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    color: var(--theme-accent);
+                    line-height: 1;
+                    display: block;
+                  "
+                  ><span class="animate-counter" data-target="30">0</span
+                  >+</span
+                >
+                <span
+                  style="
+                    font-size: 0.8rem;
+                    color: var(--theme-text-muted);
+                    margin-top: 0.4rem;
+                    display: block;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                  "
+                  >Countries of Guests</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- View Gallery CTA -->
+          <div style="text-align: center; margin-top: var(--spacing-lg)">
+            <a
+              href="gallery.html"
+              class="btn btn-outline"
+              style="padding: 0.85rem 2.5rem"
+              >View Full Gallery →</a
+            >
+          </div>
+        </div>
+
+        <!-- Responsive overrides scoped to this section -->
+        <style>
+          @media (max-width: 900px) {
+            .h2-facility-grid {
+              grid-template-columns: 1fr 1fr !important;
+              grid-template-rows: auto !important;
+            }
+          }
+
+          @media (max-width: 600px) {
+            .h2-stat-row {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+          }
+        </style>
+      </section>
+
+      <!-- ====== 4. EXPERIENCE TIMELINE (Alternating Layout) ====== -->
+      <section class="h2-editorial" aria-label="The float experience">
+        <div class="h2-editorial-img">
+          <img
+            src="../assets/img/gallery-entrance.jpg"
+            alt="Float center entrance"
+            loading="lazy"
+          />
+        </div>
+        <div class="h2-editorial-content">
+          <p class="h2-section-tag">The Experience</p>
+          <h2
+            style="
+              font-family: &quot;Playfair Display&quot;, serif;
+              font-weight: 700;
+              font-size: clamp(1.8rem, 3vw, 2.5rem);
+              margin-bottom: var(--spacing-lg);
+            "
+          >
+            Your Journey Into<br />Complete Stillness
+          </h2>
+          <div class="h2-timeline" role="list">
+            <div class="h2-timeline-item" role="listitem">
+              <div class="h2-timeline-num">1</div>
+              <div class="h2-timeline-body">
+                <h4>Arrive &amp; Prepare</h4>
+                <p>
+                  Check in, shower, and enter your private pod suite. We provide
+                  everything you need.
                 </p>
-                <div class="h2-hero-actions">
-                    <a href="booking.html" class="btn btn-primary"
-                        style="padding: 1rem 2rem; font-size: 1.05rem;">Reserve Your Pod</a>
-                    <a href="services.html" class="btn btn-outline"
-                        style="padding: 1rem 2rem; font-size: 1.05rem;">Explore Services</a>
-                </div>
+              </div>
             </div>
-            <div class="h2-hero-image">
-                <img src="../assets/img/hero-home.jpg" alt="Float therapy pod in a dark serene room" loading="eager">
-                <div class="h2-hero-image-overlay" aria-hidden="true"></div>
-                <div class="h2-hero-badge" aria-label="1000 satisfied members">
-                    <span class="stat-num">1,000+</span>
-                    <span class="stat-label">Satisfied Floaters</span>
-                </div>
+            <div class="h2-timeline-item" role="listitem">
+              <div class="h2-timeline-num">2</div>
+              <div class="h2-timeline-body">
+                <h4>Enter the Void</h4>
+                <p>
+                  Float effortlessly in skin-temperature, heavily salinated
+                  water. All external stimuli vanish.
+                </p>
+              </div>
             </div>
-        </section>
-
-        <!-- ====== 2. STAT CARDS ROW ====== -->
-        <section
-            style="background-color: var(--theme-surface); padding: var(--spacing-lg) 0; border-top: 1px solid var(--theme-border); border-bottom: 1px solid var(--theme-border);"
-            aria-label="Wellness statistics">
-            <div class="container">
-                <div
-                    style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--theme-border);">
-                    <div style="background: var(--theme-surface); padding: 2rem 1.5rem; text-align: center;">
-                        <span
-                            style="display: block; font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--theme-accent); line-height: 1; margin-bottom: 0.4rem;">1,000+</span>
-                        <span
-                            style="font-size: 0.82rem; color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Lbs
-                            of Epsom Salt Per Pod</span>
-                    </div>
-                    <div style="background: var(--theme-surface); padding: 2rem 1.5rem; text-align: center;">
-                        <span
-                            style="display: block; font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--theme-accent); line-height: 1; margin-bottom: 0.4rem;">93.5°F</span>
-                        <span
-                            style="font-size: 0.82rem; color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Skin-Temperature
-                            Water</span>
-                    </div>
-                    <div style="background: var(--theme-surface); padding: 2rem 1.5rem; text-align: center;">
-                        <span
-                            style="display: block; font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--theme-accent); line-height: 1; margin-bottom: 0.4rem;">60–90</span>
-                        <span
-                            style="font-size: 0.82rem; color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Optimal
-                            Float Duration (mins)</span>
-                    </div>
-                    <div style="background: var(--theme-surface); padding: 2rem 1.5rem; text-align: center;">
-                        <span
-                            style="display: block; font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--theme-accent); line-height: 1; margin-bottom: 0.4rem;">0
-                            dB</span>
-                        <span
-                            style="font-size: 0.82rem; color: var(--theme-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">External
-                            Sound Inside Pod</span>
-                    </div>
-                </div>
+            <div class="h2-timeline-item" role="listitem">
+              <div class="h2-timeline-num">3</div>
+              <div class="h2-timeline-body">
+                <h4>The Theta State</h4>
+                <p>
+                  Your mind drifts into deep theta brainwaves — a place between
+                  waking and sleep.
+                </p>
+              </div>
             </div>
-        </section>
-
-        <!-- ====== 3. FACILITY SHOWCASE ====== -->
-        <section style="background-color: var(--theme-bg); padding: var(--spacing-xl) 0;"
-            aria-label="Facility showcase">
-            <div class="container">
-                <!-- Heading -->
-                <div
-                    style="display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: var(--spacing-lg); flex-wrap: wrap;">
-                    <div>
-                        <p class="h2-section-tag">The Facility</p>
-                        <h2
-                            style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3rem); margin: 0;">
-                            Designed for<br>Total Surrender</h2>
-                    </div>
-                    <p
-                        style="color: var(--theme-text-muted); font-size: 1rem; line-height: 1.6; max-width: 380px; margin: 0;">
-                        Each suite is architecturally crafted to melt away the boundary between mind and body.</p>
-                </div>
-
-                <!-- Main Image Grid: 2 large + sidebar stats -->
-                <div
-                    style="display: grid; grid-template-columns: 1fr 1fr 280px; grid-template-rows: 300px 300px; gap: 1rem;">
-                    <!-- Big left image, spans 2 rows -->
-                    <div style="grid-row: span 2; border-radius: 20px; overflow: hidden; position: relative;">
-                        <img src="../assets/img/gallery-pod-ambient.jpg" alt="Float pod with ambient lighting"
-                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                        <div
-                            style="position: absolute; bottom: 1.5rem; left: 1.5rem; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); padding: 0.6rem 1rem; border-radius: 10px; color: white; font-size: 0.85rem; font-weight: 500;">
-                            Oasis Float Pods
-                        </div>
-                    </div>
-                    <!-- Top right image -->
-                    <div style="border-radius: 20px; overflow: hidden; position: relative;">
-                        <img src="../assets/img/gallery-lounge.jpg" alt="Post-float integration lounge"
-                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                        <div
-                            style="position: absolute; bottom: 1.5rem; left: 1.5rem; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); padding: 0.6rem 1rem; border-radius: 10px; color: white; font-size: 0.85rem; font-weight: 500;">
-                            Integration Lounge
-                        </div>
-                    </div>
-                    <!-- Sidebar: 2 stacked stats -->
-                    <div style="display: flex; flex-direction: column; gap: 1rem;">
-                        <div
-                            style="flex: 1; background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;">
-                            <span
-                                style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--theme-accent); line-height: 1; display: block;">5
-                                ★</span>
-                            <span
-                                style="font-size: 0.8rem; color: var(--theme-text-muted); margin-top: 0.4rem; display: block; text-transform: uppercase; letter-spacing: 0.08em;">Member
-                                Rating</span>
-                        </div>
-                        <div
-                            style="flex: 1; background: var(--primary); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;">
-                            <span
-                                style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: white; line-height: 1; display: block;">8+</span>
-                            <span
-                                style="font-size: 0.8rem; color: rgba(255,255,255,0.75); margin-top: 0.4rem; display: block; text-transform: uppercase; letter-spacing: 0.08em;">Private
-                                Suites</span>
-                        </div>
-                    </div>
-                    <!-- Bottom center image -->
-                    <div style="border-radius: 20px; overflow: hidden; position: relative;">
-                        <img src="../assets/img/gallery-suite-amen.jpg" alt="Private suite amenities"
-                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                        <div
-                            style="position: absolute; bottom: 1.5rem; left: 1.5rem; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); padding: 0.6rem 1rem; border-radius: 10px; color: white; font-size: 0.85rem; font-weight: 500;">
-                            Suite Amenities
-                        </div>
-                    </div>
-                    <!-- Bottom sidebar stats -->
-                    <div style="display: flex; flex-direction: column; gap: 1rem;">
-                        <div
-                            style="flex: 1; background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;">
-                            <span
-                                style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--theme-accent); line-height: 1; display: block;">100%</span>
-                            <span
-                                style="font-size: 0.8rem; color: var(--theme-text-muted); margin-top: 0.4rem; display: block; text-transform: uppercase; letter-spacing: 0.08em;">Sanitised
-                                Per Session</span>
-                        </div>
-                        <div
-                            style="flex: 1; background: var(--theme-surface); border: 1px solid var(--theme-border); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;">
-                            <span
-                                style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--theme-accent); line-height: 1; display: block;">30+</span>
-                            <span
-                                style="font-size: 0.8rem; color: var(--theme-text-muted); margin-top: 0.4rem; display: block; text-transform: uppercase; letter-spacing: 0.08em;">Countries
-                                of Guests</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- View Gallery CTA -->
-                <div style="text-align: center; margin-top: var(--spacing-lg);">
-                    <a href="gallery.html" class="btn btn-outline" style="padding: 0.85rem 2.5rem;">View Full Gallery
-                        →</a>
-                </div>
+            <div class="h2-timeline-item" role="listitem">
+              <div class="h2-timeline-num">4</div>
+              <div class="h2-timeline-body">
+                <h4>Integrate &amp; Restore</h4>
+                <p>
+                  Emerge refreshed. Enjoy artisan tea in our post-float lounge
+                  and carry the calm with you.
+                </p>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- Responsive overrides scoped to this section -->
-            <style>
-                @media (max-width: 900px) {
-                    .h2-facility-grid {
-                        grid-template-columns: 1fr 1fr !important;
-                        grid-template-rows: auto !important;
-                    }
-                }
-
-                @media (max-width: 600px) {
-                    .h2-stat-row {
-                        grid-template-columns: repeat(2, 1fr) !important;
-                    }
-                }
-            </style>
-        </section>
-
-        <!-- ====== 4. EXPERIENCE TIMELINE (Alternating Layout) ====== -->
-        <section class="h2-editorial" aria-label="The float experience">
-            <div class="h2-editorial-img">
-                <img src="../assets/img/gallery-entrance.jpg" alt="Float center entrance" loading="lazy">
+      <!-- ====== 5. EDITORIAL BLOCK: Science Reversed ====== -->
+      <section
+        class="h2-editorial reverse"
+        aria-label="The science of float therapy"
+      >
+        <div class="h2-editorial-img">
+          <img
+            src="../assets/img/gallery-suite-shower.jpg"
+            alt="Float suite shower room"
+            loading="lazy"
+          />
+        </div>
+        <div class="h2-editorial-content">
+          <p class="h2-section-tag">The Science</p>
+          <h2
+            style="
+              font-family: &quot;Playfair Display&quot;, serif;
+              font-weight: 700;
+              font-size: clamp(1.8rem, 3vw, 2.5rem);
+              margin-bottom: var(--spacing-md);
+            "
+          >
+            What Happens to Your Body Inside the Pod?
+          </h2>
+          <p
+            class="animate-text-reading"
+            style="
+              color: var(--theme-text-muted);
+              font-size: 1rem;
+              line-height: 1.7;
+              margin-bottom: var(--spacing-lg);
+            "
+          >
+            Buoyed by over 1,000 lbs of dissolved Epsom salts, your body
+            achieves zero-gravity spinal decompression, while cortisol drops and
+            magnesium absorption aids muscular recovery.
+          </p>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: var(--spacing-md);
+            "
+          >
+            <div
+              style="
+                padding: 1rem;
+                background: var(--theme-bg);
+                border-radius: 12px;
+                text-align: center;
+              "
+            >
+              <div style="font-size: 1.6rem; margin-bottom: 0.25rem">🧠</div>
+              <h5 style="margin: 0 0 0.25rem">Theta Waves</h5>
+              <p
+                style="
+                  font-size: 0.82rem;
+                  color: var(--theme-text-muted);
+                  margin: 0;
+                "
+              >
+                Deep meditative calm
+              </p>
             </div>
-            <div class="h2-editorial-content">
-                <p class="h2-section-tag">The Experience</p>
-                <h2
-                    style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: var(--spacing-lg);">
-                    Your Journey Into<br>Complete Stillness
-                </h2>
-                <div class="h2-timeline" role="list">
-                    <div class="h2-timeline-item" role="listitem">
-                        <div class="h2-timeline-num">1</div>
-                        <div class="h2-timeline-body">
-                            <h4>Arrive &amp; Prepare</h4>
-                            <p>Check in, shower, and enter your private pod suite. We provide everything you need.</p>
-                        </div>
-                    </div>
-                    <div class="h2-timeline-item" role="listitem">
-                        <div class="h2-timeline-num">2</div>
-                        <div class="h2-timeline-body">
-                            <h4>Enter the Void</h4>
-                            <p>Float effortlessly in skin-temperature, heavily salinated water. All external stimuli
-                                vanish.</p>
-                        </div>
-                    </div>
-                    <div class="h2-timeline-item" role="listitem">
-                        <div class="h2-timeline-num">3</div>
-                        <div class="h2-timeline-body">
-                            <h4>The Theta State</h4>
-                            <p>Your mind drifts into deep theta brainwaves — a place between waking and sleep.</p>
-                        </div>
-                    </div>
-                    <div class="h2-timeline-item" role="listitem">
-                        <div class="h2-timeline-num">4</div>
-                        <div class="h2-timeline-body">
-                            <h4>Integrate &amp; Restore</h4>
-                            <p>Emerge refreshed. Enjoy artisan tea in our post-float lounge and carry the calm with you.
-                            </p>
-                        </div>
-                    </div>
+            <div
+              style="
+                padding: 1rem;
+                background: var(--theme-bg);
+                border-radius: 12px;
+                text-align: center;
+              "
+            >
+              <div style="font-size: 1.6rem; margin-bottom: 0.25rem">⚖️</div>
+              <h5 style="margin: 0 0 0.25rem">Zero Gravity</h5>
+              <p
+                style="
+                  font-size: 0.82rem;
+                  color: var(--theme-text-muted);
+                  margin: 0;
+                "
+              >
+                Spinal decompression
+              </p>
+            </div>
+            <div
+              style="
+                padding: 1rem;
+                background: var(--theme-bg);
+                border-radius: 12px;
+                text-align: center;
+              "
+            >
+              <div style="font-size: 1.6rem; margin-bottom: 0.25rem">💧</div>
+              <h5 style="margin: 0 0 0.25rem">Magnesium Boost</h5>
+              <p
+                style="
+                  font-size: 0.82rem;
+                  color: var(--theme-text-muted);
+                  margin: 0;
+                "
+              >
+                Natural muscle repair
+              </p>
+            </div>
+            <div
+              style="
+                padding: 1rem;
+                background: var(--theme-bg);
+                border-radius: 12px;
+                text-align: center;
+              "
+            >
+              <div style="font-size: 1.6rem; margin-bottom: 0.25rem">😌</div>
+              <h5 style="margin: 0 0 0.25rem">Cortisol Drop</h5>
+              <p
+                style="
+                  font-size: 0.82rem;
+                  color: var(--theme-text-muted);
+                  margin: 0;
+                "
+              >
+                Stress hormone relief
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 6. TESTIMONIALS GRID ====== -->
+      <section
+        class="section"
+        style="background-color: var(--theme-surface)"
+        aria-label="Testimonials"
+      >
+        <div class="container">
+          <div style="text-align: center; margin-bottom: var(--spacing-xl)">
+            <p class="h2-section-tag" style="justify-content: center">
+              What Our Members Say
+            </p>
+            <h2
+              style="
+                font-family: &quot;Playfair Display&quot;, serif;
+                font-weight: 700;
+                font-size: clamp(2rem, 4vw, 3rem);
+              "
+            >
+              Voices from the Void
+            </h2>
+          </div>
+          <div class="h2-testimonials-track">
+            <article class="h2-testimonial">
+              <div class="h2-testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <blockquote class="h2-testimonial-quote">
+                "I walked in anxious and jet-lagged. I floated out renewed.
+                After one session I understand why athletes, artists, and
+                executives swear by this."
+              </blockquote>
+              <footer class="h2-testimonial-author">
+                <img
+                  class="h2-testimonial-avatar"
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=80&q=80"
+                  alt="Sarah Jenkins"
+                />
+                <div>
+                  <p class="h2-testimonial-name">Sarah Jenkins</p>
+                  <p class="h2-testimonial-role">
+                    UX Designer — Member since 2024
+                  </p>
                 </div>
-            </div>
-        </section>
+              </footer>
+            </article>
+            <article class="h2-testimonial">
+              <div class="h2-testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <blockquote class="h2-testimonial-quote">
+                "As a competitive triathlete, recovery is everything. Two floats
+                a month has cut my recovery time by almost half. The magnesium
+                absorption is real."
+              </blockquote>
+              <footer class="h2-testimonial-author">
+                <img
+                  class="h2-testimonial-avatar"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80"
+                  alt="David Chen"
+                />
+                <div>
+                  <p class="h2-testimonial-name">David Chen</p>
+                  <p class="h2-testimonial-role">
+                    Triathlete — Quarterly Member
+                  </p>
+                </div>
+              </footer>
+            </article>
+            <article class="h2-testimonial">
+              <div class="h2-testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <blockquote class="h2-testimonial-quote">
+                "I suffer from chronic back pain. I've tried everything. Nothing
+                — absolutely nothing — has given me the relief that a 90-minute
+                float gives me."
+              </blockquote>
+              <footer class="h2-testimonial-author">
+                <img
+                  class="h2-testimonial-avatar"
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
+                  alt="Priya Nair"
+                />
+                <div>
+                  <p class="h2-testimonial-name">Priya Nair</p>
+                  <p class="h2-testimonial-role">
+                    Physiotherapist — Annual Member
+                  </p>
+                </div>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </section>
 
-        <!-- ====== 5. EDITORIAL BLOCK: Science Reversed ====== -->
-        <section class="h2-editorial reverse" aria-label="The science of float therapy">
-            <div class="h2-editorial-img">
-                <img src="../assets/img/gallery-suite-shower.jpg" alt="Float suite shower room" loading="lazy">
-            </div>
-            <div class="h2-editorial-content">
-                <p class="h2-section-tag">The Science</p>
-                <h2
-                    style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: var(--spacing-md);">
-                    What Happens to Your Body Inside the Pod?
-                </h2>
+      <!-- ====== 7. MEMBERSHIP CARDS ====== -->
+      <section
+        class="section"
+        style="background-color: var(--theme-bg)"
+        aria-label="Membership plans"
+      >
+        <div class="container">
+          <div style="margin-bottom: var(--spacing-xl)">
+            <p class="h2-section-tag">Memberships</p>
+            <h2
+              style="
+                font-family: &quot;Playfair Display&quot;, serif;
+                font-weight: 700;
+                font-size: clamp(2rem, 4vw, 3rem);
+                max-width: 550px;
+              "
+            >
+              Choose Your Level of Stillness
+            </h2>
+            <p
+              style="
+                color: var(--theme-text-muted);
+                max-width: 500px;
+                margin-top: 0.75rem;
+              "
+            >
+              All memberships include towel service, organic toiletries, and
+              access to our post-float integration lounge.
+            </p>
+          </div>
+          <div class="h2-membership-grid">
+            <!-- Standard -->
+            <div class="h2-membership-card standard">
+              <div>
+                <h3 style="margin: 0 0 0.25rem">Intro</h3>
                 <p
-                    style="color: var(--theme-text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: var(--spacing-lg);">
-                    Buoyed by over 1,000 lbs of dissolved Epsom salts, your body achieves zero-gravity spinal
-                    decompression, while cortisol drops and magnesium absorption aids muscular recovery.
+                  style="
+                    color: var(--theme-text-muted);
+                    font-size: 0.9rem;
+                    margin: 0;
+                  "
+                >
+                  First-time floaters
                 </p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
-                    <div style="padding: 1rem; background: var(--theme-bg); border-radius: 12px; text-align: center;">
-                        <div style="font-size: 1.6rem; margin-bottom: 0.25rem;">🧠</div>
-                        <h5 style="margin: 0 0 0.25rem;">Theta Waves</h5>
-                        <p style="font-size: 0.82rem; color: var(--theme-text-muted); margin: 0;">Deep meditative calm
-                        </p>
-                    </div>
-                    <div style="padding: 1rem; background: var(--theme-bg); border-radius: 12px; text-align: center;">
-                        <div style="font-size: 1.6rem; margin-bottom: 0.25rem;">⚖️</div>
-                        <h5 style="margin: 0 0 0.25rem;">Zero Gravity</h5>
-                        <p style="font-size: 0.82rem; color: var(--theme-text-muted); margin: 0;">Spinal decompression
-                        </p>
-                    </div>
-                    <div style="padding: 1rem; background: var(--theme-bg); border-radius: 12px; text-align: center;">
-                        <div style="font-size: 1.6rem; margin-bottom: 0.25rem;">💧</div>
-                        <h5 style="margin: 0 0 0.25rem;">Magnesium Boost</h5>
-                        <p style="font-size: 0.82rem; color: var(--theme-text-muted); margin: 0;">Natural muscle repair
-                        </p>
-                    </div>
-                    <div style="padding: 1rem; background: var(--theme-bg); border-radius: 12px; text-align: center;">
-                        <div style="font-size: 1.6rem; margin-bottom: 0.25rem;">😌</div>
-                        <h5 style="margin: 0 0 0.25rem;">Cortisol Drop</h5>
-                        <p style="font-size: 0.82rem; color: var(--theme-text-muted); margin: 0;">Stress hormone relief
-                        </p>
-                    </div>
-                </div>
+              </div>
+              <div class="h2-membership-price">$89</div>
+              <ul class="h2-membership-features">
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  1 × 60-min float
+                </li>
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  Towels &amp; earplugs
+                </li>
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  Post-float lounge access
+                </li>
+              </ul>
+              <a
+                href="booking.html"
+                class="btn btn-outline"
+                style="text-align: center"
+                >Book Single</a
+              >
             </div>
-        </section>
 
-        <!-- ====== 6. TESTIMONIALS GRID ====== -->
-        <section class="section" style="background-color: var(--theme-surface);" aria-label="Testimonials">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
-                    <p class="h2-section-tag" style="justify-content: center;">What Our Members Say</p>
-                    <h2
-                        style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3rem);">
-                        Voices from the Void</h2>
-                </div>
-                <div class="h2-testimonials-track">
-                    <article class="h2-testimonial">
-                        <div class="h2-testimonial-stars" aria-label="5 stars">★★★★★</div>
-                        <blockquote class="h2-testimonial-quote">
-                            "I walked in anxious and jet-lagged. I floated out renewed. After one session I understand
-                            why athletes, artists, and executives swear by this."
-                        </blockquote>
-                        <footer class="h2-testimonial-author">
-                            <img class="h2-testimonial-avatar"
-                                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=80&q=80"
-                                alt="Sarah Jenkins">
-                            <div>
-                                <p class="h2-testimonial-name">Sarah Jenkins</p>
-                                <p class="h2-testimonial-role">UX Designer — Member since 2024</p>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="h2-testimonial">
-                        <div class="h2-testimonial-stars" aria-label="5 stars">★★★★★</div>
-                        <blockquote class="h2-testimonial-quote">
-                            "As a competitive triathlete, recovery is everything. Two floats a month has cut my recovery
-                            time by almost half. The magnesium absorption is real."
-                        </blockquote>
-                        <footer class="h2-testimonial-author">
-                            <img class="h2-testimonial-avatar"
-                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80"
-                                alt="David Chen">
-                            <div>
-                                <p class="h2-testimonial-name">David Chen</p>
-                                <p class="h2-testimonial-role">Triathlete — Quarterly Member</p>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="h2-testimonial">
-                        <div class="h2-testimonial-stars" aria-label="5 stars">★★★★★</div>
-                        <blockquote class="h2-testimonial-quote">
-                            "I suffer from chronic back pain. I've tried everything. Nothing — absolutely nothing — has
-                            given me the relief that a 90-minute float gives me."
-                        </blockquote>
-                        <footer class="h2-testimonial-author">
-                            <img class="h2-testimonial-avatar"
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
-                                alt="Priya Nair">
-                            <div>
-                                <p class="h2-testimonial-name">Priya Nair</p>
-                                <p class="h2-testimonial-role">Physiotherapist — Annual Member</p>
-                            </div>
-                        </footer>
-                    </article>
-                </div>
+            <!-- Featured -->
+            <div class="h2-membership-card featured">
+              <span class="h2-badge-tag">Most Popular</span>
+              <div>
+                <h3 style="margin: 0 0 0.25rem; color: white">Reset</h3>
+                <p
+                  style="
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 0.9rem;
+                    margin: 0;
+                  "
+                >
+                  Monthly recovery ritual
+                </p>
+              </div>
+              <div class="h2-membership-price">$69 <small>/mo</small></div>
+              <ul class="h2-membership-features">
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  1 × float per month
+                </li>
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  10% off extra floats
+                </li>
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  Guest pass each quarter
+                </li>
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  Priority booking
+                </li>
+              </ul>
+              <a
+                href="memberships.html"
+                class="btn"
+                style="
+                  background: white;
+                  color: var(--primary);
+                  text-align: center;
+                  padding: 0.85rem;
+                  border-radius: var(--border-radius);
+                "
+                >Join Now</a
+              >
             </div>
-        </section>
 
-        <!-- ====== 7. MEMBERSHIP CARDS ====== -->
-        <section class="section" style="background-color: var(--theme-bg);" aria-label="Membership plans">
-            <div class="container">
-                <div style="margin-bottom: var(--spacing-xl);">
-                    <p class="h2-section-tag">Memberships</p>
-                    <h2
-                        style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3rem); max-width: 550px;">
-                        Choose Your Level of Stillness</h2>
-                    <p style="color: var(--theme-text-muted); max-width: 500px; margin-top: 0.75rem;">All memberships
-                        include towel service, organic toiletries, and access to our post-float integration lounge.</p>
-                </div>
-                <div class="h2-membership-grid">
-                    <!-- Standard -->
-                    <div class="h2-membership-card standard">
-                        <div>
-                            <h3 style="margin: 0 0 0.25rem;">Intro</h3>
-                            <p style="color: var(--theme-text-muted); font-size: 0.9rem; margin: 0;">First-time floaters
-                            </p>
-                        </div>
-                        <div class="h2-membership-price">$89</div>
-                        <ul class="h2-membership-features">
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> 1 × 60-min float</li>
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> Towels &amp; earplugs</li>
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> Post-float lounge access</li>
-                        </ul>
-                        <a href="booking.html" class="btn btn-outline" style="text-align:center;">Book Single</a>
-                    </div>
-
-                    <!-- Featured -->
-                    <div class="h2-membership-card featured">
-                        <span class="h2-badge-tag">Most Popular</span>
-                        <div>
-                            <h3 style="margin: 0 0 0.25rem; color: white;">Reset</h3>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0;">Monthly recovery
-                                ritual</p>
-                        </div>
-                        <div class="h2-membership-price">$69 <small>/mo</small></div>
-                        <ul class="h2-membership-features">
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> 1 × float per month</li>
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> 10% off extra floats</li>
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> Guest pass each quarter</li>
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> Priority booking</li>
-                        </ul>
-                        <a href="memberships.html" class="btn"
-                            style="background: white; color: var(--primary); text-align: center; padding: 0.85rem; border-radius: var(--border-radius);">Join
-                            Now</a>
-                    </div>
-
-                    <!-- Studio -->
-                    <div class="h2-membership-card studio">
-                        <div>
-                            <h3 style="margin: 0 0 0.25rem;">Immerse</h3>
-                            <p style="color: var(--theme-text-muted); font-size: 0.9rem; margin: 0;">For the dedicated
-                                floater</p>
-                        </div>
-                        <div class="h2-membership-price">$149 <small style="font-size:1rem;">/mo</small></div>
-                        <ul class="h2-membership-features">
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> 4 × floats per month</li>
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> Unlimited guest passes</li>
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> Private suite reservations</li>
-                            <li><svg class="h2-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
-                                    <path d="M20 6L9 17l-5-5" />
-                                </svg> Wellness consultation</li>
-                        </ul>
-                        <a href="memberships.html" class="btn btn-outline" style="text-align:center;">Get Immersed</a>
-                    </div>
-                </div>
+            <!-- Studio -->
+            <div class="h2-membership-card studio">
+              <div>
+                <h3 style="margin: 0 0 0.25rem">Immerse</h3>
+                <p
+                  style="
+                    color: var(--theme-text-muted);
+                    font-size: 0.9rem;
+                    margin: 0;
+                  "
+                >
+                  For the dedicated floater
+                </p>
+              </div>
+              <div class="h2-membership-price">
+                $149 <small style="font-size: 1rem">/mo</small>
+              </div>
+              <ul class="h2-membership-features">
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  4 × floats per month
+                </li>
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  Unlimited guest passes
+                </li>
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  Private suite reservations
+                </li>
+                <li>
+                  <svg
+                    class="h2-check"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  Wellness consultation
+                </li>
+              </ul>
+              <a
+                href="memberships.html"
+                class="btn btn-outline"
+                style="text-align: center"
+                >Get Immersed</a
+              >
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- ====== 8. ASYMMETRIC FINAL CTA ====== -->
-        <section class="section h2-cta-strip" aria-label="Call to action">
-            <div class="container">
-                <div class="h2-cta-inner">
-                    <div>
-                        <p class="h2-section-tag">Ready to Float?</p>
-                        <h2
-                            style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: var(--spacing-sm);">
-                            Your First Float is Waiting.</h2>
-                        <p
-                            style="color: var(--theme-text-muted); font-size: 1rem; max-width: 540px; line-height: 1.6; margin: 0;">
-                            Book online in under 60 seconds. No experience needed. Just bring yourself.</p>
-                    </div>
-                    <div
-                        style="display: flex; flex-direction: column; gap: 1rem; align-items: center; min-width: 200px;">
-                        <a href="booking.html" class="btn btn-primary"
-                            style="padding: 1rem 2rem; font-size: 1.05rem; white-space: nowrap; width: 100%; text-align: center;">Book
-                            a Float</a>
-                        <a href="contact.html"
-                            style="font-size: 0.9rem; color: var(--theme-text-muted); text-decoration: none;">Have
-                            questions? Contact us →</a>
-                    </div>
-                </div>
+      <!-- ====== 8. ASYMMETRIC FINAL CTA ====== -->
+      <section class="section h2-cta-strip" aria-label="Call to action">
+        <div class="container">
+          <div class="h2-cta-inner">
+            <div>
+              <p class="h2-section-tag">Ready to Float?</p>
+              <h2
+                style="
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  font-weight: 700;
+                  font-size: clamp(1.8rem, 3vw, 2.8rem);
+                  margin-bottom: var(--spacing-sm);
+                "
+              >
+                Your First Float is Waiting.
+              </h2>
+              <p
+                class="animate-text-reading"
+                style="
+                  color: rgba(255, 255, 255, 0.9);
+                  font-size: 1.15rem;
+                  max-width: 500px;
+                  line-height: 1.6;
+                  margin-bottom: 2rem;
+                "
+              >
+                Find the space between the notes. Step into one of our private,
+                zero gravity, dissolve the world outside, and rediscover your
+                natural state of calm.
+              </p>
             </div>
-        </section>
-
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                min-width: 200px;
+              "
+            >
+              <a
+                href="booking.html"
+                class="btn btn-primary"
+                style="
+                  padding: 1rem 2rem;
+                  font-size: 1.05rem;
+                  white-space: nowrap;
+                  width: 100%;
+                  text-align: center;
+                "
+                >Book a Float</a
+              >
+              <a
+                href="contact.html"
+                style="
+                  font-size: 0.9rem;
+                  color: var(--theme-text-muted);
+                  text-decoration: none;
+                "
+                >Have questions? Contact us →</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- ====== FOOTER ====== -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: var(--spacing-md);">FLOAT.</div>
-                    <p style="color: var(--theme-text-muted); margin-bottom: var(--spacing-lg);">Elevating human
-                        potential through nothingness.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="#" aria-label="Instagram"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Facebook"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="X (Twitter)"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4l11.733 16h4.267l-11.733-16z"></path>
-                                <path d="M4 20l6.768-6.768m2.46-2.46l6.772-6.772"></path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="LinkedIn"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="WhatsApp"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Explore</h4>
-                    <ul class="footer-links">
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul class="footer-links">
-                        <li><a href="404.html">Privacy Policy</a></li>
-                        <li><a href="404.html">Terms of Service</a></li>
-                        <li><a href="404.html">FAQ</a></li>
-                        <li><a href="404.html">404 Page</a></li>
-                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Subscribe</h4>
-                    <p style="color: var(--theme-text-muted); margin-bottom: var(--spacing-sm);">Join our newsletter for
-                        exclusive wellness insights.</p>
-                    <form action="#" method="POST" style="display: flex; gap: 0.5rem;"
-                        aria-label="Newsletter Subscription">
-                        <label for="h2-newsletter-email" class="sr-only">Email Address</label>
-                        <input type="email" id="h2-newsletter-email" name="email" class="form-control"
-                            placeholder="Email address" required style="flex: 1;">
-                        <button type="submit" class="btn btn-primary">Go</button>
-                    </form>
-                </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="logo" style="margin-bottom: var(--spacing-md)">
+              FLOAT.
             </div>
-            <div class="footer-bottom">
-                &copy; <span id="current-year">2026</span> Sensory Deprivation Float Center. All rights reserved.
+            <p
+              style="
+                color: var(--theme-text-muted);
+                margin-bottom: var(--spacing-lg);
+              "
+            >
+              Elevating human potential through nothingness.
+            </p>
+            <div style="display: flex; gap: 1rem">
+              <a
+                href="#"
+                aria-label="Instagram"
+                style="color: var(--theme-text-muted); transition: color 0.2s"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a
+                href="#"
+                aria-label="Facebook"
+                style="color: var(--theme-text-muted); transition: color 0.2s"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                aria-label="X (Twitter)"
+                style="color: var(--theme-text-muted); transition: color 0.2s"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 4l11.733 16h4.267l-11.733-16z"></path>
+                  <path d="M4 20l6.768-6.768m2.46-2.46l6.772-6.772"></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                style="color: var(--theme-text-muted); transition: color 0.2s"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a
+                href="#"
+                aria-label="WhatsApp"
+                style="color: var(--theme-text-muted); transition: color 0.2s"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  ></path>
+                </svg>
+              </a>
             </div>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul class="footer-links">
+              <li><a href="services.html">Our Services</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul class="footer-links">
+              <li><a href="404.html">Privacy Policy</a></li>
+              <li><a href="404.html">Terms of Service</a></li>
+              <li><a href="404.html">FAQ</a></li>
+              <li><a href="404.html">404 Page</a></li>
+              <li><a href="coming-soon.html">Coming Soon</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Subscribe</h4>
+            <p
+              style="
+                color: var(--theme-text-muted);
+                margin-bottom: var(--spacing-sm);
+              "
+            >
+              Join our newsletter for exclusive wellness insights.
+            </p>
+            <form
+              action="#"
+              method="POST"
+              style="display: flex; gap: 0.5rem"
+              aria-label="Newsletter Subscription"
+            >
+              <label for="h2-newsletter-email" class="sr-only"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="h2-newsletter-email"
+                name="email"
+                class="form-control"
+                placeholder="Email address"
+                required
+                style="flex: 1"
+              />
+              <button type="submit" class="btn btn-primary">Go</button>
+            </form>
+          </div>
         </div>
+        <div class="footer-bottom">
+          &copy; <span id="current-year">2026</span> Sensory Deprivation Float
+          Center. All rights reserved.
+        </div>
+      </div>
     </footer>
 
     <style>
-        /* Mobile fallback: show only on devices where bento is hidden */
-        .mobile-only-gallery {
-            display: none;
-        }
+      /* Mobile fallback: show only on devices where bento is hidden */
+      .mobile-only-gallery {
+        display: none;
+      }
 
-        @media (max-width: 1024px) {
-            .mobile-only-gallery {
-                display: grid;
-            }
+      @media (max-width: 1024px) {
+        .mobile-only-gallery {
+          display: grid;
         }
+      }
     </style>
 
     <script src="../assets/js/main.js"></script>
-    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
-</body>
-
+    <script>
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
 </html>

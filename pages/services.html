@@ -1,551 +1,732 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Sensory Deprivation Float Center</title>
-    <meta name="description"
-        content="Explore our full range of float therapy services — 60, 90, and 120-minute sessions, couple floats, and wellness packages.">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/dark-mode.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        .price-tag {
-            display: inline-block;
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--theme-accent);
-            margin: var(--spacing-sm) 0;
-        }
+  <meta charset="UTF-8" />
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.getItem("theme") || "dark",
+    );
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Sensory Deprivation Float Center</title>
+  <meta name="description"
+    content="Explore our full range of float therapy services — 60, 90, and 120-minute sessions, couple floats, and wellness packages." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    .price-tag {
+      display: inline-block;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--theme-accent);
+      margin: var(--spacing-sm) 0;
+    }
 
-        .price-tag sup {
-            font-size: 1rem;
-            vertical-align: super;
-        }
+    .price-tag sup {
+      font-size: 1rem;
+      vertical-align: super;
+    }
 
-        .service-badge {
-            display: inline-block;
-            padding: 2px 10px;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            background: var(--primary);
-            color: #fff;
-            margin-bottom: var(--spacing-sm);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+    .service-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--primary);
+      color: #fff;
+      margin-bottom: var(--spacing-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-        .service-features {
-            list-style: none;
-            margin: var(--spacing-md) 0;
-        }
+    .service-features {
+      list-style: none;
+      margin: var(--spacing-md) 0;
+    }
 
-        .service-features li {
-            color: var(--theme-text-muted);
-            padding: 0.3rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
+    .service-features li {
+      color: var(--theme-text-muted);
+      padding: 0.3rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
 
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--theme-accent);
-            font-weight: 600;
-        }
+    .service-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--theme-accent);
+      font-weight: 600;
+    }
 
-        .availability-indicator {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-        }
+    .availability-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
 
-        .availability-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--success);
-            animation: pulse-dot 2s infinite;
-        }
+    .availability-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      animation: pulse-dot 2s infinite;
+    }
 
-        @keyframes pulse-dot {
+    @keyframes pulse-dot {
 
-            0%,
-            100% {
-                opacity: 1;
-            }
+      0%,
+      100% {
+        opacity: 1;
+      }
 
-            50% {
-                opacity: 0.4;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="../assets/css/tailwind.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="../assets/css/rtl.css">
+      50% {
+        opacity: 0.4;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/css/tailwind.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="../assets/css/rtl.css" />
 
-    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
 </head>
 
 <body>
-    <a href="#main-content" class="sr-only">Skip to main content</a>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
 
-    <header class="header">
-        <div class="container header-container">
-            <a href="../index.html" class="logo" aria-label="Sensory Deprivation Float Center Home">FloatHaus</a>
+  <header class="header">
+    <div class="container header-container">
+      <a href="../index.html" class="logo" aria-label="Sensory Deprivation Float Center Home">FloatHaus</a>
 
-                                    <nav id="main-nav" class="nav" aria-label="Main Navigation">
-                <div class="nav-item-dropdown">
-                    <span style="display: flex; align-items: center; gap: 0.25rem;">
-                        Home
-                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </span>
-                    <div class="dropdown-menu">
-                        <a href="../index.html" class="dropdown-item">Home 1</a>
-                        <a href="home-2.html" class="dropdown-item">Home 2</a>
-                    </div>
-                </div>
-                <a href="services.html" class="nav-link active">Services</a>
-                <a href="gallery.html" class="nav-link">Gallery</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <div class="nav-item-dropdown">
-                    <span style="display: flex; align-items: center; gap: 0.25rem;">
-                        Dashboard
-                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </span>
-                    <div class="dropdown-menu">
-                        <a href="dashboard.html?role=user" class="dropdown-item">User</a>
-                        <a href="dashboard.html?role=admin" class="dropdown-item">Admin</a>
-                    </div>
-                </div>
-            </nav>
-
-            <div style="display:flex; gap: 1rem; align-items: center;">
-                <button type="button" id="dir-toggle" class="theme-toggle"
-                    style="width: auto; padding: 0 0.75rem; font-weight: bold; font-family: var(--font-sans);"
-                    aria-label="Toggle Navigation Direction">
-                    <span id="dir-text">RTL</span>
-                </button>
-                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <span id="theme-icon"></span>
-                </button>
-                <button type="button" id="mobile-toggle" class="mobile-toggle" aria-expanded="false"
-                    aria-controls="main-nav" aria-label="Open menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
-                <a href="booking.html" class="btn btn-primary btn-sticky-mobile d-none-mobile">Book Now</a>
-            </div>
-    </header>
-
-    <main id="main-content">
-        <!-- Full-Width Hero Banner -->
-        <section class="hero-section animate-fade-up"
-            style="position: relative; min-height: 55vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;">
-            <div style="position: absolute; inset: 0; z-index: 1;">
-                <img src="../assets/img/hero-services.jpg" alt="Float Therapy Services"
-                    style="width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: brightness(0.5);">
-            </div>
-            <!-- Subtle dark gradient overlay -->
-            <div
-                style="position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(10,15,14,0.25) 0%, rgba(10,15,14,0.55) 100%);">
-            </div>
-            <div class="container" style="position: relative; z-index: 3; padding: var(--spacing-xl) 0;">
-                <span
-                    style="color: rgba(255,255,255,0.75); font-weight: 600; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; display: block; margin-bottom: var(--spacing-sm);">Curated
-                    Experiences</span>
-                <h1
-                    style="color: #ffffff; margin-bottom: var(--spacing-md); text-shadow: 0 4px 24px rgba(0,0,0,0.6); font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.02em;">
-                    Our Services</h1>
-                <p
-                    style="color: rgba(255,255,255,0.88); font-size: 1.2rem; max-width: 600px; margin: 0 auto var(--spacing-lg); text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.6;">
-                    Choose the float experience that fits your session. Each service includes a private suite, shower,
-                    and post-float integration lounge access.
-                </p>
-            </div>
-        </section>
-
-        <!-- Service Listings (Editorial Layout) -->
-        <section class="section">
-            <div class="container">
-                <style>
-                    .service-row {
-                        display: grid;
-                        grid-template-columns: 1fr;
-                        gap: var(--spacing-xl);
-                        margin-bottom: 5rem;
-                        align-items: center;
-                    }
-
-                    @media (min-width: 1024px) {
-                        .service-row {
-                            grid-template-columns: 1fr 1fr;
-                            gap: 4rem;
-                            margin-bottom: 8rem;
-                        }
-
-                        /* Start with text on left, image on right for odd rows */
-                        .service-row:nth-child(odd) .service-row-content {
-                            order: 1;
-                        }
-
-                        .service-row:nth-child(odd) .service-row-image {
-                            order: 2;
-                        }
-
-                        /* Image on left, text on right for even rows */
-                        .service-row:nth-child(even) .service-row-image {
-                            order: 1;
-                        }
-
-                        .service-row:nth-child(even) .service-row-content {
-                            order: 2;
-                        }
-                    }
-
-                    .service-row-image img {
-                        width: 100%;
-                        height: 400px;
-                        object-fit: cover;
-                        border-radius: var(--border-radius-lg);
-                        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-                    }
-
-                    .service-row-content h2 {
-                        margin-bottom: 0.5rem;
-                    }
-                </style>
-
-                <!-- 60 min -->
-                <div class="service-row animate-fade-up">
-                    <div class="service-row-content">
-                        <span class="service-badge">Intro</span>
-                        <h2>60-Minute Float</h2>
-                        <div class="price-tag" style="margin-bottom: 1rem;"><sup>$</sup>89</div>
-                        <p
-                            style="color: var(--theme-text-muted); font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                            The perfect introduction to sensory deprivation. Ideal for first-timers seeking a mental
-                            reset, or regulars needing a quick mid-week recovery session.
-                        </p>
-                        <ul class="service-features" style="margin-bottom: 2rem;">
-                            <li>Private suite with walk-in shower</li>
-                            <li>Premium organic toiletries & towels</li>
-                            <li>Post-float integration lounge access (15 min)</li>
-                        </ul>
-                        <div style="display: flex; align-items: center; gap: 1.5rem;">
-                            <a href="booking.html?service=60min" class="btn btn-primary">Book This Session</a>
-                            <div class="availability-indicator">
-                                <span class="availability-dot"></span>
-                                <span style="color: var(--theme-text-muted);">5 slots today</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-row-image">
-                        <img src="../assets/img/service-60min.jpg" alt="60-minute float session" loading="lazy">
-                    </div>
-                </div>
-
-                <!-- 90 min — Featured -->
-                <div class="service-row animate-fade-up">
-                    <div class="service-row-image">
-                        <div
-                            style="position: absolute; top: 1.5rem; right: 1.5rem; background: var(--theme-bg); color: var(--theme-accent); padding: 0.5rem 1rem; border-radius: 99px; font-weight: 600; font-size: 0.85rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 2;">
-                            ⭐ MOST POPULAR
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1000"
-                            alt="90-minute float session" loading="lazy" style="position: relative;">
-                    </div>
-                    <div class="service-row-content">
-                        <span class="service-badge" style="background: var(--theme-accent);">Best Value</span>
-                        <h2>90-Minute Float</h2>
-                        <div class="price-tag" style="margin-bottom: 1rem;"><sup>$</sup>119</div>
-                        <p
-                            style="color: var(--theme-text-muted); font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                            The optimal duration for physical and mental restoration. It typically takes 30-40 minutes
-                            for the brain to transition into theta waves. A 90-minute session ensures you spend
-                            significant time in deep stillness.
-                        </p>
-                        <ul class="service-features" style="margin-bottom: 2rem;">
-                            <li>Everything in the 60-min package</li>
-                            <li>Extended lounge access (30 min)</li>
-                            <li>Complimentary magnesium body butter</li>
-                        </ul>
-                        <div style="display: flex; align-items: center; gap: 1.5rem;">
-                            <a href="booking.html?service=90min" class="btn btn-primary">Book This Session</a>
-                            <div class="availability-indicator">
-                                <span class="availability-dot"></span>
-                                <span style="color: var(--theme-text-muted);">3 slots today</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 120 min -->
-                <div class="service-row animate-fade-up">
-                    <div class="service-row-content">
-                        <span class="service-badge">Deep Dive</span>
-                        <h2>120-Minute Float</h2>
-                        <div class="price-tag" style="margin-bottom: 1rem;"><sup>$</sup>149</div>
-                        <p
-                            style="color: var(--theme-text-muted); font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                            Designed for experienced floaters, athletes, and those seeking profound states of
-                            meditation. Two hours allows for unparalleled muscle recovery and deep subconscious
-                            exploration.
-                        </p>
-                        <ul class="service-features" style="margin-bottom: 2rem;">
-                            <li>Unlimited post-float lounge & tea service</li>
-                            <li>Optional guided meditation or binaural beats</li>
-                            <li>Aromatherapy shower booster</li>
-                        </ul>
-                        <div style="display: flex; align-items: center; gap: 1.5rem;">
-                            <a href="booking.html?service=120min" class="btn btn-primary">Book This Session</a>
-                            <div class="availability-indicator">
-                                <span class="availability-dot"></span>
-                                <span style="color: var(--theme-text-muted);">2 slots today</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-row-image">
-                        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=1000"
-                            alt="120-minute deep float session" loading="lazy">
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Wellness Packages -->
-        <section class="section" style="background-color: var(--theme-surface);">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
-                    <h2>Wellness Packages</h2>
-                    <p style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto;">
-                        For those committed to regular practice. Packages offer the best per-session rate and unlock
-                        member-only benefits.
-                    </p>
-                </div>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg);">
-
-                    <div class="card">
-                        <h4>Starter Pack</h4>
-                        <p
-                            style="font-size: 2rem; font-weight: 700; color: var(--theme-accent); margin: var(--spacing-sm) 0;">
-                            $239
-                            <span style="font-size: 1rem; color: var(--theme-text-muted); font-weight: 400;">/ 3
-                                floats</span>
-                        </p>
-                        <p style="color: var(--theme-text-muted);">3 × 90-minute floats. Valid 90 days. Save 33% per
-                            float.</p>
-                        <a href="booking.html?service=pack3" class="btn btn-outline"
-                            style="width: 100%; margin-top: var(--spacing-md);">Get Started</a>
-                    </div>
-
-                    <div class="card" style="border-color: var(--theme-accent);">
-                        <h4 style="color: var(--theme-accent);">Devotee Pack</h4>
-                        <p
-                            style="font-size: 2rem; font-weight: 700; color: var(--theme-accent); margin: var(--spacing-sm) 0;">
-                            $399
-                            <span style="font-size: 1rem; color: var(--theme-text-muted); font-weight: 400;">/ 6
-                                floats</span>
-                        </p>
-                        <p style="color: var(--theme-text-muted);">6 × 90-minute floats. Valid 6 months. Save 44% per
-                            float. Priority bookings.</p>
-                        <a href="booking.html?service=pack6" class="btn btn-primary"
-                            style="width: 100%; margin-top: var(--spacing-md);">Most Popular</a>
-                    </div>
-
-                    <div class="card">
-                        <h4>Unlimited Monthly</h4>
-                        <p
-                            style="font-size: 2rem; font-weight: 700; color: var(--theme-accent); margin: var(--spacing-sm) 0;">
-                            $199
-                            <span style="font-size: 1rem; color: var(--theme-text-muted); font-weight: 400;">/
-                                month</span>
-                        </p>
-                        <p style="color: var(--theme-text-muted);">Unlimited 60-min floats. Cancel anytime. Guest pass
-                            included each month.</p>
-                        <a href="booking.html?service=monthly" class="btn btn-outline"
-                            style="width: 100%; margin-top: var(--spacing-md);">Subscribe</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Quick -->
-        <section class="section">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
-                    <h2>What to Expect</h2>
-                </div>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md);">
-                    <div class="card"
-                        style="display: flex; gap: 1rem; align-items: flex-start; padding: var(--spacing-md);">
-                        <div style="font-size: 2rem; flex-shrink: 0;">🚿</div>
-                        <div>
-                            <strong>Arrive 15 min early</strong>
-                            <p style="color: var(--theme-text-muted); margin: 0; font-size: 0.9rem;">Shower, change, and
-                                relax before your session starts.</p>
-                        </div>
-                    </div>
-                    <div class="card"
-                        style="display: flex; gap: 1rem; align-items: flex-start; padding: var(--spacing-md);">
-                        <div style="font-size: 2rem; flex-shrink: 0;">🫧</div>
-                        <div>
-                            <strong>1,000 lbs of Epsom salt</strong>
-                            <p style="color: var(--theme-text-muted); margin: 0; font-size: 0.9rem;">Effortless floating
-                                — no swimming skills required.</p>
-                        </div>
-                    </div>
-                    <div class="card"
-                        style="display: flex; gap: 1rem; align-items: flex-start; padding: var(--spacing-md);">
-                        <div style="font-size: 2rem; flex-shrink: 0;">🎵</div>
-                        <div>
-                            <strong>Gentle wake-up music</strong>
-                            <p style="color: var(--theme-text-muted); margin: 0; font-size: 0.9rem;">Soft chimes signal
-                                the end of your session — no harsh alarms.</p>
-                        </div>
-                    </div>
-                    <div class="card"
-                        style="display: flex; gap: 1rem; align-items: flex-start; padding: var(--spacing-md);">
-                        <div style="font-size: 2rem; flex-shrink: 0;">🍵</div>
-                        <div>
-                            <strong>Integration lounge</strong>
-                            <p style="color: var(--theme-text-muted); margin: 0; font-size: 0.9rem;">Journal, tea, and
-                                quiet time to re-enter the world gently.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="section" style="background-color: var(--theme-surface); text-align: center;">
-            <div class="container">
-                <h2 style="margin-bottom: var(--spacing-md);">Ready to Start Your Journey?</h2>
-                <p style="color: var(--theme-text-muted); max-width: 500px; margin: 0 auto var(--spacing-lg);">Whether you're a first-time floater or a devoted practitioner, we have the perfect session waiting for you. Take the first step toward deep relaxation and mental clarity.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="booking.html" class="btn btn-primary" style="padding: 1rem 2.5rem;">Book a Float</a>
-                    <a href="memberships.html" class="btn"
-                        style="padding: 1rem 2.5rem; border: 1px solid var(--theme-border);">View Memberships</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: var(--spacing-md);">FLOAT.</div>
-                    <p style="color: var(--theme-text-muted); margin-bottom: var(--spacing-lg);">Elevating human
-                        potential through nothingness.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="#" aria-label="Instagram"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Facebook"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="X (Twitter)"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-                                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="LinkedIn"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="WhatsApp"
-                            style="color: var(--theme-text-muted); transition: color 0.2s;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Explore</h4>
-                    <ul class="footer-links">
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul class="footer-links">
-                        <li><a href="404.html">Privacy Policy</a></li>
-                        <li><a href="404.html">Terms of Service</a></li>
-                        <li><a href="404.html">FAQ</a></li>
-                        <li><a href="404.html">404 Page</a></li>
-                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Subscribe</h4>
-                    <p style="color: var(--theme-text-muted); margin-bottom: var(--spacing-sm);">Join our newsletter
-                        for
-                        exclusive wellness insights.</p>
-                    <form action="https://mailchimp.com/placeholder" method="POST" style="display: flex; gap: 0.5rem;"
-                        aria-label="Newsletter Subscription">
-                        <label for="newsletter-email" class="sr-only">Email Address</label>
-                        <input type="email" id="newsletter-email" name="email" class="form-control"
-                            placeholder="Email address" required style="flex: 1;">
-                        <button type="submit" class="btn btn-primary" aria-label="Subscribe">
-                            <span class="spinner" aria-hidden="true"></span>
-                            Go
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; <span id="current-year">2026</span> Sensory Deprivation Float Center. All rights reserved.
-            </div>
+      <nav id="main-nav" class="nav" aria-label="Main Navigation">
+        <div class="nav-item-dropdown">
+          <span style="display: flex; align-items: center; gap: 0.25rem">
+            Home
+            <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+          <div class="dropdown-menu">
+            <a href="../index.html" class="dropdown-item">Home 1</a>
+            <a href="home-2.html" class="dropdown-item">Home 2</a>
+          </div>
         </div>
-    </footer>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <div class="nav-item-dropdown">
+          <span style="display: flex; align-items: center; gap: 0.25rem">
+            Dashboard
+            <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+          <div class="dropdown-menu">
+            <a href="dashboard.html?role=user" class="dropdown-item">User</a>
+            <a href="dashboard.html?role=admin" class="dropdown-item">Admin</a>
+          </div>
+        </div>
+      </nav>
 
-    <script src="../assets/js/main.js"></script>
-    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+      <div style="display: flex; gap: 1rem; align-items: center">
+        <button type="button" id="dir-toggle" class="theme-toggle" style="
+              width: auto;
+              padding: 0 0.75rem;
+              font-weight: bold;
+              font-family: var(--font-sans);
+            " aria-label="Toggle Navigation Direction">
+          <span id="dir-text">RTL</span>
+        </button>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <span id="theme-icon"></span>
+        </button>
+        <button type="button" id="mobile-toggle" class="mobile-toggle" aria-expanded="false" aria-controls="main-nav"
+          aria-label="Open menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <a href="booking.html" class="btn btn-primary btn-sticky-mobile d-none-mobile">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Full-Width Hero Banner -->
+    <section class="hero-section animate-fade-up" style="
+          position: relative;
+          min-height: 55vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          overflow: hidden;
+        ">
+      <div style="position: absolute; inset: 0; z-index: 1">
+        <img src="../assets/img/hero-services.jpg" alt="Float Therapy Services" style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center 40%;
+              filter: brightness(0.5);
+            " />
+      </div>
+      <!-- Subtle dark gradient overlay -->
+      <div style="
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: linear-gradient(
+              180deg,
+              rgba(10, 15, 14, 0.25) 0%,
+              rgba(10, 15, 14, 0.55) 100%
+            );
+          "></div>
+      <div class="container" style="position: relative; z-index: 3; padding: var(--spacing-xl) 0">
+        <span style="
+              color: rgba(255, 255, 255, 0.75);
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 3px;
+              font-size: 0.85rem;
+              display: block;
+              margin-bottom: var(--spacing-sm);
+            ">Curated Experiences</span>
+        <h1 style="
+              color: #ffffff;
+              margin-bottom: var(--spacing-md);
+              text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+              font-size: clamp(3rem, 6vw, 5rem);
+              letter-spacing: -0.02em;
+            ">
+          Our Services
+        </h1>
+        <p class="animate-text-reading" style="
+              color: rgba(255, 255, 255, 0.88);
+              font-size: 1.2rem;
+              max-width: 600px;
+              margin: 0 auto var(--spacing-lg);
+              text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+              line-height: 1.6;
+            ">
+          Choose the float experience that fits your session. Each service
+          includes a private suite, shower, and post-float integration lounge
+          access.
+        </p>
+      </div>
+    </section>
+
+    <!-- Service Listings (Editorial Layout) -->
+    <section class="section">
+      <div class="container">
+        <style>
+          .service-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: 5rem;
+            align-items: center;
+          }
+
+          @media (min-width: 1024px) {
+            .service-row {
+              grid-template-columns: 1fr 1fr;
+              gap: 4rem;
+              margin-bottom: 8rem;
+            }
+
+            /* Start with text on left, image on right for odd rows */
+            .service-row:nth-child(odd) .service-row-content {
+              order: 1;
+            }
+
+            .service-row:nth-child(odd) .service-row-image {
+              order: 2;
+            }
+
+            /* Image on left, text on right for even rows */
+            .service-row:nth-child(even) .service-row-image {
+              order: 1;
+            }
+
+            .service-row:nth-child(even) .service-row-content {
+              order: 2;
+            }
+          }
+
+          .service-row-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+          }
+
+          .service-row-content h2 {
+            margin-bottom: 0.5rem;
+          }
+        </style>
+
+        <!-- 60 min -->
+        <div class="service-row reveal-pending">
+          <div class="service-row-content">
+            <span class="service-badge">Intro</span>
+            <h2>60-Minute Float</h2>
+            <div class="price-tag" style="margin-bottom: 1rem">
+              <sup>$</sup>89
+            </div>
+            <p class="animate-text-reading" style="
+                  color: var(--theme-text-muted);
+                  font-size: 1.1rem;
+                  line-height: 1.7;
+                  margin-bottom: 1.5rem;
+                ">
+              The perfect introduction to sensory deprivation. Ideal for
+              first-timers seeking a mental reset, or regulars needing a quick
+              mid-week recovery session.
+            </p>
+            <ul class="service-features" style="margin-bottom: 2rem">
+              <li>Private suite with walk-in shower</li>
+              <li>Premium organic toiletries & towels</li>
+              <li>Post-float integration lounge access (15 min)</li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1.5rem">
+              <a href="booking.html?service=60min" class="btn btn-primary">Book This Session</a>
+              <div class="availability-indicator">
+                <span class="availability-dot"></span>
+                <span style="color: var(--theme-text-muted)">5 slots today</span>
+              </div>
+            </div>
+          </div>
+          <div class="service-row-image">
+            <img src="../assets/img/service-60min.jpg" alt="60-minute float session" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- 90 min — Featured -->
+        <div class="service-row reveal-pending">
+          <div class="service-row-image">
+            <div style="
+                  position: absolute;
+                  top: 1.5rem;
+                  right: 1.5rem;
+                  background: var(--theme-bg);
+                  color: var(--theme-accent);
+                  padding: 0.5rem 1rem;
+                  border-radius: 99px;
+                  font-weight: 600;
+                  font-size: 0.85rem;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  z-index: 2;
+                ">
+              ⭐ MOST POPULAR
+            </div>
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1000"
+              alt="90-minute float session" loading="lazy" style="position: relative" />
+          </div>
+          <div class="service-row-content">
+            <span class="service-badge" style="background: var(--theme-accent)">Best Value</span>
+            <h2>90-Minute Float</h2>
+            <div class="price-tag" style="margin-bottom: 1rem">
+              <sup>$</sup>119
+            </div>
+            <p class="animate-text-reading" style="
+                  color: var(--theme-text-muted);
+                  font-size: 1.1rem;
+                  line-height: 1.7;
+                  margin-bottom: 1.5rem;
+                ">
+              The optimal duration for physical and mental restoration. It
+              typically takes 30-40 minutes for the brain to transition into
+              theta waves. A 90-minute session ensures you spend significant
+              time in deep stillness.
+            </p>
+            <ul class="service-features" style="margin-bottom: 2rem">
+              <li>Everything in the 60-min package</li>
+              <li>Extended lounge access (30 min)</li>
+              <li>Complimentary magnesium body butter</li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1.5rem">
+              <a href="booking.html?service=90min" class="btn btn-primary">Book This Session</a>
+              <div class="availability-indicator">
+                <span class="availability-dot"></span>
+                <span style="color: var(--theme-text-muted)">3 slots today</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 120 min -->
+        <div class="service-row reveal-pending">
+          <div class="service-row-content">
+            <span class="service-badge">Deep Dive</span>
+            <h2>120-Minute Float</h2>
+            <div class="price-tag" style="margin-bottom: 1rem">
+              <sup>$</sup>149
+            </div>
+            <p class="animate-text-reading" style="
+                  color: var(--theme-text-muted);
+                  font-size: 1.1rem;
+                  line-height: 1.7;
+                  margin-bottom: 1.5rem;
+                ">
+              Designed for experienced floaters, athletes, and those seeking
+              profound states of meditation. Two hours allows for unparalleled
+              muscle recovery and deep subconscious exploration.
+            </p>
+            <ul class="service-features" style="margin-bottom: 2rem">
+              <li>Unlimited post-float lounge & tea service</li>
+              <li>Optional guided meditation or binaural beats</li>
+              <li>Aromatherapy shower booster</li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1.5rem">
+              <a href="booking.html?service=120min" class="btn btn-primary">Book This Session</a>
+              <div class="availability-indicator">
+                <span class="availability-dot"></span>
+                <span style="color: var(--theme-text-muted)">2 slots today</span>
+              </div>
+            </div>
+          </div>
+          <div class="service-row-image">
+            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=1000"
+              alt="120-minute deep float session" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wellness Packages -->
+    <section class="section" style="background-color: var(--theme-surface)">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--spacing-xl)">
+          <h2>Wellness Packages</h2>
+          <p style="
+                color: var(--theme-text-muted);
+                max-width: 600px;
+                margin: 0 auto;
+              ">
+            For those committed to regular practice. Packages offer the best
+            per-session rate and unlock member-only benefits.
+          </p>
+        </div>
+        <div style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: var(--spacing-lg);
+            ">
+          <div class="card">
+            <h4>Starter Pack</h4>
+            <p style="
+                  font-size: 2rem;
+                  font-weight: 700;
+                  color: var(--theme-accent);
+                  margin: var(--spacing-sm) 0;
+                ">
+              $<span class="animate-counter" data-target="239">0</span>
+              <span style="
+                    font-size: 1rem;
+                    color: var(--theme-text-muted);
+                    font-weight: 400;
+                  ">/
+                <span class="animate-counter" data-target="3">0</span>
+                floats</span>
+            </p>
+            <p style="color: var(--theme-text-muted)">
+              3 × 90-minute floats. Valid 90 days. Save 33% per float.
+            </p>
+            <a href="booking.html?service=pack3" class="btn btn-outline"
+              style="width: 100%; margin-top: var(--spacing-md)">Get Started</a>
+          </div>
+
+          <div class="card" style="border-color: var(--theme-accent)">
+            <h4 style="color: var(--theme-accent)">Devotee Pack</h4>
+            <p style="
+                  font-size: 2rem;
+                  font-weight: 700;
+                  color: var(--theme-accent);
+                  margin: var(--spacing-sm) 0;
+                ">
+              $<span class="animate-counter" data-target="399">0</span>
+              <span style="
+                    font-size: 1rem;
+                    color: var(--theme-text-muted);
+                    font-weight: 400;
+                  ">/
+                <span class="animate-counter" data-target="6">0</span>
+                floats</span>
+            </p>
+            <p style="color: var(--theme-text-muted)">
+              6 × 90-minute floats. Valid 6 months. Save 44% per float.
+              Priority bookings.
+            </p>
+            <a href="booking.html?service=pack6" class="btn btn-primary"
+              style="width: 100%; margin-top: var(--spacing-md)">Most Popular</a>
+          </div>
+
+          <div class="card">
+            <h4>Unlimited Monthly</h4>
+            <p style="
+                  font-size: 2rem;
+                  font-weight: 700;
+                  color: var(--theme-accent);
+                  margin: var(--spacing-sm) 0;
+                ">
+              $<span class="animate-counter" data-target="199">0</span>
+              <span style="
+                    font-size: 1rem;
+                    color: var(--theme-text-muted);
+                    font-weight: 400;
+                  ">/ month</span>
+            </p>
+            <p style="color: var(--theme-text-muted)">
+              Unlimited 60-min floats. Cancel anytime. Guest pass included
+              each month.
+            </p>
+            <a href="booking.html?service=monthly" class="btn btn-outline"
+              style="width: 100%; margin-top: var(--spacing-md)">Subscribe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Quick -->
+    <section class="section">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: var(--spacing-xl)">
+          <h2>What to Expect</h2>
+        </div>
+        <div style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: var(--spacing-md);
+            ">
+          <div class="card" style="
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+                padding: var(--spacing-md);
+              ">
+            <div style="font-size: 2rem; flex-shrink: 0">🚿</div>
+            <div>
+              <strong>Arrive 15 min early</strong>
+              <p style="
+                    color: var(--theme-text-muted);
+                    margin: 0;
+                    font-size: 0.9rem;
+                  ">
+                Shower, change, and relax before your session starts.
+              </p>
+            </div>
+          </div>
+          <div class="card" style="
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+                padding: var(--spacing-md);
+              ">
+            <div style="font-size: 2rem; flex-shrink: 0">🫧</div>
+            <div>
+              <strong>1,000 lbs of Epsom salt</strong>
+              <p style="
+                    color: var(--theme-text-muted);
+                    margin: 0;
+                    font-size: 0.9rem;
+                  ">
+                Effortless floating — no swimming skills required.
+              </p>
+            </div>
+          </div>
+          <div class="card" style="
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+                padding: var(--spacing-md);
+              ">
+            <div style="font-size: 2rem; flex-shrink: 0">🎵</div>
+            <div>
+              <strong>Gentle wake-up music</strong>
+              <p style="
+                    color: var(--theme-text-muted);
+                    margin: 0;
+                    font-size: 0.9rem;
+                  ">
+                Soft chimes signal the end of your session — no harsh alarms.
+              </p>
+            </div>
+          </div>
+          <div class="card" style="
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+                padding: var(--spacing-md);
+              ">
+            <div style="font-size: 2rem; flex-shrink: 0">🍵</div>
+            <div>
+              <strong>Integration lounge</strong>
+              <p style="
+                    color: var(--theme-text-muted);
+                    margin: 0;
+                    font-size: 0.9rem;
+                  ">
+                Journal, tea, and quiet time to re-enter the world gently.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="background-color: var(--theme-surface); text-align: center">
+      <div class="container">
+        <h2 style="margin-bottom: var(--spacing-md)">
+          Ready to Start Your Journey?
+        </h2>
+        <p class="animate-text-reading" style="
+              color: var(--theme-text-muted);
+              max-width: 500px;
+              margin: 0 auto var(--spacing-lg);
+            ">
+          Whether you're a first-time floater or a devoted practitioner, we
+          have the perfect session waiting for you. Take the first step toward
+          deep relaxation and mental clarity.
+        </p>
+        <div style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            ">
+          <a href="booking.html" class="btn btn-primary" style="padding: 1rem 2.5rem">Book a Float</a>
+          <a href="memberships.html" class="btn" style="
+                padding: 1rem 2.5rem;
+                border: 1px solid var(--theme-border);
+              ">View Memberships</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="margin-bottom: var(--spacing-md)">
+            FLOAT.
+          </div>
+          <p style="
+                color: var(--theme-text-muted);
+                margin-bottom: var(--spacing-lg);
+              ">
+            Elevating human potential through nothingness.
+          </p>
+          <div style="display: flex; gap: 1rem">
+            <a href="#" aria-label="Instagram" style="color: var(--theme-text-muted); transition: color 0.2s">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook" style="color: var(--theme-text-muted); transition: color 0.2s">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="X (Twitter)" style="color: var(--theme-text-muted); transition: color 0.2s">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" style="color: var(--theme-text-muted); transition: color 0.2s">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" aria-label="WhatsApp" style="color: var(--theme-text-muted); transition: color 0.2s">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Privacy Policy</a></li>
+            <li><a href="404.html">Terms of Service</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">404 Page</a></li>
+            <li><a href="coming-soon.html">Coming Soon</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Subscribe</h4>
+          <p style="
+                color: var(--theme-text-muted);
+                margin-bottom: var(--spacing-sm);
+              ">
+            Join our newsletter for exclusive wellness insights.
+          </p>
+          <form action="https://mailchimp.com/placeholder" method="POST" style="display: flex; gap: 0.5rem"
+            aria-label="Newsletter Subscription">
+            <label for="newsletter-email" class="sr-only">Email Address</label>
+            <input type="email" id="newsletter-email" name="email" class="form-control" placeholder="Email address"
+              required style="flex: 1" />
+            <button type="submit" class="btn btn-primary" aria-label="Subscribe">
+              <span class="spinner" aria-hidden="true"></span>
+              Go
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="current-year">2026</span> Sensory Deprivation Float
+        Center. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 
 </html>

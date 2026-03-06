@@ -657,9 +657,243 @@
                 </div>
 
                 <div id="user-bookings" class="view-section">
-                    <h3 style="margin-bottom: var(--spacing-md);">Booking History</h3>
-                    <div class="card">
-                        <p style="color: var(--theme-text-muted);">No past bookings found.</p>
+                    <h3 style="margin-bottom: var(--spacing-lg);">Booking History</h3>
+                    <!-- Filter & Sort Controls -->
+                    <div class="card" style="margin-bottom: var(--spacing-lg); display: flex; gap: var(--spacing-md); flex-wrap: wrap; align-items: center;">
+                        <div>
+                            <label class="form-label" style="margin-bottom: 0.5rem; display: block; font-size: 0.85rem;">Date Range:</label>
+                            <input type="month" class="form-control" value="2026-03" style="max-width: 180px;">
+                        </div>
+                        <div>
+                            <label class="form-label" style="margin-bottom: 0.5rem; display: block; font-size: 0.85rem;">Filter by Status:</label>
+                            <select class="form-control" style="max-width: 180px;">
+                                <option>All Sessions</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn btn-outline" style="font-size: 0.85rem;">Apply Filters</button>
+                        </div>
+                    </div>
+
+                    <!-- Booking Cards Grid -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-md);">
+                        <!-- Booking 1 - Recent -->
+                        <div class="card" style="border-left: 3px solid var(--success);">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.1rem;">90-Minute Float</h4>
+                                    <p style="margin: 0.25rem 0 0; color: var(--theme-text-muted); font-size: 0.85rem;">Mar 4, 2025 • 2:00 PM</p>
+                                </div>
+                                <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;">Completed</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: var(--spacing-sm) 0; margin-bottom: var(--spacing-sm); border-top: 1px solid var(--theme-border); border-bottom: 1px solid var(--theme-border);">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Pod Assignment:</span>
+                                    <strong>Pod #2 (93.5°F)</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Duration:</span>
+                                    <strong>90 minutes</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Membership Used:</span>
+                                    <strong>1 Float</strong>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: var(--spacing-sm);">
+                                <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0 0 0.5rem;">Your Rating:</p>
+                                <div style="display: flex; gap: 0.25rem;">
+                                    <span style="color: #fbbf24;">★★★★★</span>
+                                    <span style="color: var(--theme-text-muted); font-size: 0.85rem;">(5.0)</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: var(--spacing-sm);">
+                                <button class="btn btn-primary" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">Rebook</button>
+                                <button class="btn btn-outline" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">View Receipt</button>
+                            </div>
+                        </div>
+
+                        <!-- Booking 2 -->
+                        <div class="card" style="border-left: 3px solid var(--success);">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.1rem;">60-Minute Float</h4>
+                                    <p style="margin: 0.25rem 0 0; color: var(--theme-text-muted); font-size: 0.85rem;">Mar 1, 2025 • 10:00 AM</p>
+                                </div>
+                                <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;">Completed</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: var(--spacing-sm) 0; margin-bottom: var(--spacing-sm); border-top: 1px solid var(--theme-border); border-bottom: 1px solid var(--theme-border);">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Pod Assignment:</span>
+                                    <strong>Pod #1 (93°F)</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Duration:</span>
+                                    <strong>60 minutes</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Membership Used:</span>
+                                    <strong>1 Float</strong>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: var(--spacing-sm);">
+                                <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0 0 0.5rem;">Your Rating:</p>
+                                <div style="display: flex; gap: 0.25rem;">
+                                    <span style="color: #fbbf24;">★★★★★</span>
+                                    <span style="color: var(--theme-text-muted); font-size: 0.85rem;">(5.0)</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: var(--spacing-sm);">
+                                <button class="btn btn-primary" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">Rebook</button>
+                                <button class="btn btn-outline" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">View Receipt</button>
+                            </div>
+                        </div>
+
+                        <!-- Booking 3 -->
+                        <div class="card" style="border-left: 3px solid var(--success);">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.1rem;">120-Minute Float</h4>
+                                    <p style="margin: 0.25rem 0 0; color: var(--theme-text-muted); font-size: 0.85rem;">Feb 28, 2025 • 4:00 PM</p>
+                                </div>
+                                <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;">Completed</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: var(--spacing-sm) 0; margin-bottom: var(--spacing-sm); border-top: 1px solid var(--theme-border); border-bottom: 1px solid var(--theme-border);">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Pod Assignment:</span>
+                                    <strong>Pod #3 (93.5°F)</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Duration:</span>
+                                    <strong>120 minutes</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Membership Used:</span>
+                                    <strong>2 Floats</strong>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: var(--spacing-sm);">
+                                <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0 0 0.5rem;">Your Rating:</p>
+                                <div style="display: flex; gap: 0.25rem;">
+                                    <span style="color: #fbbf24;">★★★★★</span>
+                                    <span style="color: var(--theme-text-muted); font-size: 0.85rem;">(5.0)</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: var(--spacing-sm);">
+                                <button class="btn btn-primary" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">Rebook</button>
+                                <button class="btn btn-outline" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">View Receipt</button>
+                            </div>
+                        </div>
+
+                        <!-- Booking 4 - Cancelled -->
+                        <div class="card" style="border-left: 3px solid var(--error, #ef4444);">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.1rem;">90-Minute Float</h4>
+                                    <p style="margin: 0.25rem 0 0; color: var(--theme-text-muted); font-size: 0.85rem;">Feb 24, 2025 • 7:00 PM</p>
+                                </div>
+                                <span style="background: var(--error, #ef4444); color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;">Cancelled</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: var(--spacing-sm) 0; margin-bottom: var(--spacing-sm); border-top: 1px solid var(--theme-border); border-bottom: 1px solid var(--theme-border);">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Pod Assignment:</span>
+                                    <strong>Pod #1 (93°F)</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Cancellation Reason:</span>
+                                    <strong>Work conflict</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Refund Status:</span>
+                                    <strong style="color: var(--success);">Refunded</strong>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: var(--spacing-sm);">
+                                <button class="btn btn-primary" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">Book Another</button>
+                                <button class="btn btn-outline" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">View Details</button>
+                            </div>
+                        </div>
+
+                        <!-- Booking 5 -->
+                        <div class="card" style="border-left: 3px solid var(--success);">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.1rem;">90-Minute Float</h4>
+                                    <p style="margin: 0.25rem 0 0; color: var(--theme-text-muted); font-size: 0.85rem;">Feb 21, 2025 • 1:00 PM</p>
+                                </div>
+                                <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;">Completed</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: var(--spacing-sm) 0; margin-bottom: var(--spacing-sm); border-top: 1px solid var(--theme-border); border-bottom: 1px solid var(--theme-border);">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Pod Assignment:</span>
+                                    <strong>Pod #2 (93.5°F)</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Duration:</span>
+                                    <strong>90 minutes</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Membership Used:</span>
+                                    <strong>1 Float</strong>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: var(--spacing-sm);">
+                                <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0 0 0.5rem;">Your Rating:</p>
+                                <div style="display: flex; gap: 0.25rem;">
+                                    <span style="color: #fbbf24;">★★★★☆</span>
+                                    <span style="color: var(--theme-text-muted); font-size: 0.85rem;">(4.0)</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: var(--spacing-sm);">
+                                <button class="btn btn-primary" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">Rebook</button>
+                                <button class="btn btn-outline" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">View Receipt</button>
+                            </div>
+                        </div>
+
+                        <!-- Booking 6 -->
+                        <div class="card" style="border-left: 3px solid var(--success);">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.1rem;">60-Minute Float</h4>
+                                    <p style="margin: 0.25rem 0 0; color: var(--theme-text-muted); font-size: 0.85rem;">Feb 18, 2025 • 11:00 AM</p>
+                                </div>
+                                <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;">Completed</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: var(--spacing-sm) 0; margin-bottom: var(--spacing-sm); border-top: 1px solid var(--theme-border); border-bottom: 1px solid var(--theme-border);">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Pod Assignment:</span>
+                                    <strong>Pod #3 (93.5°F)</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Duration:</span>
+                                    <strong>60 minutes</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                                    <span style="color: var(--theme-text-muted);">Membership Used:</span>
+                                    <strong>1 Float</strong>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: var(--spacing-sm);">
+                                <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0 0 0.5rem;">Your Rating:</p>
+                                <div style="display: flex; gap: 0.25rem;">
+                                    <span style="color: #fbbf24;">★★★★★</span>
+                                    <span style="color: var(--theme-text-muted); font-size: 0.85rem;">(5.0)</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: var(--spacing-sm);">
+                                <button class="btn btn-primary" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">Rebook</button>
+                                <button class="btn btn-outline" style="flex: 1; padding: 0.4rem; font-size: 0.85rem;">View Receipt</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div style="display: flex; justify-content: center; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+                        <button class="btn btn-outline" style="padding: 0.4rem 1rem;">← Previous</button>
+                        <div style="padding: 0.4rem 1rem; display: flex; align-items: center;">Page 1 of 8</div>
+                        <button class="btn btn-primary" style="padding: 0.4rem 1rem;">Next →</button>
                     </div>
                 </div>
 
@@ -673,9 +907,104 @@
                 </div>
 
                 <div id="user-profile" class="view-section">
-                    <h3 style="margin-bottom: var(--spacing-md);">Profile Settings</h3>
-                    <div class="card">
-                        <p style="color: var(--theme-text-muted);">Profile forms placeholder.</p>
+                    <h3 style="margin-bottom: var(--spacing-lg);">Your Profile</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                        <!-- Profile Avatar & Quick Stats -->
+                        <div>
+                            <div class="card" style="text-align: center;">
+                                <div style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto var(--spacing-md);">👤</div>
+                                <h4 style="margin-bottom: 0.25rem;">Sarah Mitchell</h4>
+                                <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin-bottom: var(--spacing-md);">Devotee Member</p>
+                                <div style="display: flex; flex-direction: column; gap: var(--spacing-sm); text-align: left; padding: var(--spacing-md) 0; border-top: 1px solid var(--theme-border); border-bottom: 1px solid var(--theme-border);">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span style="color: var(--theme-text-muted); font-size: 0.85rem;">Total Floats:</span>
+                                        <strong style="color: var(--theme-accent);">48</strong>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span style="color: var(--theme-text-muted); font-size: 0.85rem;">Member Since:</span>
+                                        <strong>Jan 2024</strong>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span style="color: var(--theme-text-muted); font-size: 0.85rem;">Total Saved:</span>
+                                        <strong style="color: var(--success);">$240</strong>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline" style="width: 100%; margin-top: var(--spacing-md);">Change Avatar</button>
+                            </div>
+                        </div>
+                        <!-- Profile Form -->
+                        <div>
+                            <div class="card">
+                                <h4 style="margin-bottom: var(--spacing-md);">Personal Information</h4>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                                    <div class="form-group">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-control" value="Sarah">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" value="Mitchell">
+                                    </div>
+                                </div>
+                                <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" value="sarah.mitchell@email.com">
+                                </div>
+                                <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" value="+1 (555) 234-5678">
+                                </div>
+                                <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                    <label class="form-label">Bio</label>
+                                    <textarea class="form-control" rows="3" placeholder="Tell us about yourself…">Digital nomad seeking ultimate relaxation & creativity through float therapy</textarea>
+                                </div>
+                                <div style="display: flex; gap: var(--spacing-md);">
+                                    <button class="btn btn-primary">Save Changes</button>
+                                    <button class="btn btn-outline">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional Profile Sections -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-md);">
+                        <div class="card">
+                            <h4 style="margin-bottom: var(--spacing-md);">Current Membership</h4>
+                            <div style="padding: var(--spacing-md); background: rgba(13, 148, 136, 0.05); border-radius: 8px; margin-bottom: var(--spacing-md);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                    <div>
+                                        <div style="color: var(--theme-text-muted); font-size: 0.85rem;">Devotee Membership</div>
+                                        <strong style="font-size: 1.25rem;">$199/month</strong>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="color: var(--success); font-weight: 600; font-size: 1.1rem;">7 Floats Left</div>
+                                        <div style="color: var(--theme-text-muted); font-size: 0.75rem;">of 8/month</div>
+                                    </div>
+                                </div>
+                                <div style="width: 100%; height: 8px; background: var(--theme-border); border-radius: 999px; overflow: hidden;">
+                                    <div style="width: 87.5%; height: 100%; background: var(--success);"></div>
+                                </div>
+                                <div style="color: var(--theme-text-muted); font-size: 0.8rem; margin-top: 0.5rem;">Renews in <strong>25 days</strong></div>
+                            </div>
+                            <button class="btn btn-outline" style="width: 100%;">Upgrade / Modify Plan</button>
+                        </div>
+                        <div class="card">
+                            <h4 style="margin-bottom: var(--spacing-md);">Health & Preferences</h4>
+                            <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                                <div>
+                                    <div style="color: var(--theme-text-muted); font-size: 0.85rem; margin-bottom: 0.25rem;">Preferred Session Length</div>
+                                    <strong>90 minutes</strong>
+                                </div>
+                                <div style="border-top: 1px solid var(--theme-border); padding-top: var(--spacing-sm);">
+                                    <div style="color: var(--theme-text-muted); font-size: 0.85rem; margin-bottom: 0.25rem;">Preferred Pod</div>
+                                    <strong>Pod #2 (Temperature: 93.5°F)</strong>
+                                </div>
+                                <div style="border-top: 1px solid var(--theme-border); padding-top: var(--spacing-sm);">
+                                    <div style="color: var(--theme-text-muted); font-size: 0.85rem; margin-bottom: 0.25rem;">Health Conditions (if applicable)</div>
+                                    <strong>None reported</strong>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: var(--spacing-md);">Edit Preferences</button>
+                        </div>
                     </div>
                 </div>
 
@@ -807,38 +1136,147 @@
                 </div>
 
                 <div id="user-prep" class="view-section">
-                    <h3 style="margin-bottom: var(--spacing-md);">Pre-Float Instructions</h3>
-                    <div class="card" style="margin-bottom: var(--spacing-md);">
-                        <h4>Before Your Session</h4>
-                        <ul
-                            style="color: var(--theme-text-muted); padding-left: 1.25rem; margin-top: var(--spacing-sm); line-height: 2;">
-                            <li>Avoid shaving or waxing 12 hours before floating</li>
-                            <li>Don't drink caffeine 3 hours before your session</li>
-                            <li>Eat a light meal 1–2 hours beforehand</li>
-                            <li>Remove contact lenses before entering the pod</li>
-                            <li>Arrive 15 minutes early to complete check-in</li>
-                        </ul>
+                    <h3 style="margin-bottom: var(--spacing-lg);">Pre-Float Instructions</h3>
+                    <div style="background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(6, 78, 84, 0.05) 100%); border: 1px solid var(--theme-accent); border-radius: 8px; padding: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                        <div style="display: flex; gap: var(--spacing-md); align-items: flex-start;">
+                            <div style="font-size: 2rem; flex-shrink: 0;">⏱️</div>
+                            <div>
+                                <h4 style="margin: 0 0 0.5rem 0; color: var(--theme-accent);">Arrive Early</h4>
+                                <p style="margin: 0; color: var(--theme-text-muted);">Please arrive <strong style="color: var(--theme-text);">15 minutes early</strong> to complete check-in and get settled. Our staff will guide you through orientation if it's your first visit.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card" style="margin-bottom: var(--spacing-md);">
-                        <h4>During Your Float</h4>
-                        <ul
-                            style="color: var(--theme-text-muted); padding-left: 1.25rem; margin-top: var(--spacing-sm); line-height: 2;">
-                            <li>Shower before entering the pod (soap provided)</li>
-                            <li>Insert provided earplugs to keep water out</li>
-                            <li>You control the lid and light — open or closed, your choice</li>
-                            <li>If Epsom salt gets in your eyes, use the spray bottle provided</li>
-                            <li>Gentle music signals the end of your session</li>
-                        </ul>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                        <!-- Before Float -->
+                        <div class="card">
+                            <h4 style="margin-bottom: var(--spacing-md); color: var(--theme-accent); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.5rem;">📋</span> Before Your Session
+                            </h4>
+                            <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">✋</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Avoid Shaving/Waxing</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">12 hours before float to prevent stinging</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">☕</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Limit Caffeine</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Avoid 3 hours before your session</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">🍽️</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Light Meal</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">1-2 hours beforehand (not on full stomach)</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">👁️</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Remove Contacts</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Take out before entering the pod</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- During Float -->
+                        <div class="card">
+                            <h4 style="margin-bottom: var(--spacing-md); color: var(--theme-accent); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.5rem;">🛁</span> During Your Float
+                            </h4>
+                            <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">🚿</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Pre-Float Shower</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Use provided soap to rinse off lotion & dirt</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">👂</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Insert Earplugs</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Keeps salt water out of your ears</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">💡</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Control Your Environment</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Open or close lid & light—completely your choice</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">💧</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Salt in Eyes?</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Use the spray bottle provided in your pod</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- After Float -->
+                        <div class="card">
+                            <h4 style="margin-bottom: var(--spacing-md); color: var(--theme-accent); display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.5rem;">☕</span> After Your Float
+                            </h4>
+                            <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">🚿</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Final Shower</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Rinse off remaining Epsom salt water</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">🧘</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Integration Lounge</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Take your time here—don't rush back to reality</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">💧</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Hydrate & Nourish</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Water and herbal teas available complimentary</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="font-size: 1.2rem; flex-shrink: 0;">📝</div>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Journal Your Experience</strong>
+                                        <p style="color: var(--theme-text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">Journals provided to capture insights & feelings</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- FAQ Section -->
                     <div class="card">
-                        <h4>After Your Float</h4>
-                        <ul
-                            style="color: var(--theme-text-muted); padding-left: 1.25rem; margin-top: var(--spacing-sm); line-height: 2;">
-                            <li>Shower again to rinse off the salt water</li>
-                            <li>Take your time in the integration lounge — don't rush</li>
-                            <li>Drink water and enjoy the herbal teas provided</li>
-                            <li>Journal your experience if you'd like — journals available</li>
-                        </ul>
+                        <h4 style="margin-bottom: var(--spacing-md); color: var(--theme-accent);">Common Questions</h4>
+                        <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                            <div>
+                                <strong style="color: var(--theme-text);">❓ Can I float if I'm pregnant?</strong>
+                                <p style="color: var(--theme-text-muted); font-size: 0.9rem; margin: 0.5rem 0 0 0;">Yes! Floating is wonderful for pregnant clients. We have maternity pods and our staff is trained to assist. Please mention this when booking.</p>
+                            </div>
+                            <div>
+                                <strong style="color: var(--theme-text);">❓ Will my hair get damaged by salt water?</strong>
+                                <p style="color: var(--theme-text-muted); font-size: 0.9rem; margin: 0.5rem 0 0 0;">Our Epsom salt is gentler than ocean salt. Rinse thoroughly after to prevent drying. Consider wearing a shower cap if you have treated hair.</p>
+                            </div>
+                            <div>
+                                <strong style="color: var(--theme-text);">❓ Can I bring earbuds or music?</strong>
+                                <p style="color: var(--theme-text-muted); font-size: 0.9rem; margin: 0.5rem 0 0 0;">We recommend floating in silence to maximize benefits, but some pods support audio if you prefer gentle music.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -883,52 +1321,142 @@
 
                 <!-- User: Messages -->
                 <div id="user-messages" class="view-section">
-                    <h3 style="margin-bottom: var(--spacing-md);">Messages</h3>
-                    <div class="card">
-                        <div style="display: flex; flex-direction: column; gap: 0;">
-                            <div
-                                style="display: flex; gap: 1rem; padding: var(--spacing-md) 0; border-bottom: 1px solid var(--theme-border); cursor: pointer;">
-                                <div
-                                    style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0;">
-                                    FC</div>
-                                <div style="flex: 1; min-width: 0;">
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
-                                        <strong>Float Center Team</strong>
-                                        <span style="font-size: 0.75rem; color: var(--theme-text-muted);">Today, 9:14
-                                            AM</span>
-                                    </div>
-                                    <p
-                                        style="color: var(--theme-text-muted); font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                        Your upcoming float session on Oct 15 is confirmed. Please arrive 15 minutes
-                                        early…</p>
+                    <h3 style="margin-bottom: var(--spacing-lg);">Messages</h3>
+                    <!-- Message Filters & Search -->
+                    <div class="card" style="margin-bottom: var(--spacing-lg); display: flex; gap: var(--spacing-sm); align-items: center;">
+                        <input type="text" class="form-control" placeholder="Search messages…" style="flex: 1; max-width: none;">
+                        <select class="form-control" style="max-width: 150px;">
+                            <option>All Messages</option>
+                            <option>Unread</option>
+                            <option>Bookings</option>
+                            <option>Wellness Tips</option>
+                            <option>Promotions</option>
+                        </select>
+                    </div>
+
+                    <!-- Message List -->
+                    <div class="card" style="display: flex; flex-direction: column; gap: 0; margin-bottom: var(--spacing-lg);">
+                        <!-- Unread Message 1 -->
+                        <div style="display: flex; gap: 1rem; padding: var(--spacing-md); border-bottom: 1px solid var(--theme-border); cursor: pointer; background: rgba(13, 148, 136, 0.03);">
+                            <div style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">FC</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <strong>Float Center Team</strong>
+                                    <span style="font-size: 0.75rem; color: var(--theme-text-muted);">Today, 2:45 PM</span>
                                 </div>
-                                <span
-                                    style="width: 8px; height: 8px; border-radius: 50%; background: var(--primary); flex-shrink: 0; margin-top: 6px;"></span>
+                                <p style="color: var(--theme-text-muted); font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0;">🎉 You've earned a $20 referral bonus! Share your unique code with friends…</p>
+                                <p style="color: var(--theme-text-muted); font-size: 0.75rem; margin: 0.5rem 0 0;">Promotions</p>
                             </div>
-                            <div style="display: flex; gap: 1rem; padding: var(--spacing-md) 0; cursor: pointer;">
-                                <div
-                                    style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0;">
-                                    FC</div>
-                                <div style="flex: 1; min-width: 0;">
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
-                                        <strong>Float Center Team</strong>
-                                        <span style="font-size: 0.75rem; color: var(--theme-text-muted);">Mar 1,
-                                            2026</span>
-                                    </div>
-                                    <p
-                                        style="color: var(--theme-text-muted); font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                        Your Devotee Membership has been renewed for another month. Thank you!</p>
+                            <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--theme-accent); flex-shrink: 0; margin-top: 6px;"></span>
+                        </div>
+
+                        <!-- Unread Message 2 -->
+                        <div style="display: flex; gap: 1rem; padding: var(--spacing-md); border-bottom: 1px solid var(--theme-border); cursor: pointer; background: rgba(13, 148, 136, 0.03);">
+                            <div style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">FC</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <strong>Float Center Team</strong>
+                                    <span style="font-size: 0.75rem; color: var(--theme-text-muted);">Today, 10:30 AM</span>
                                 </div>
+                                <p style="color: var(--theme-text-muted); font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0;">⏰ Reminder: Your session starts in 2 hours at 12:00 PM in Pod #2…</p>
+                                <p style="color: var(--theme-text-muted); font-size: 0.75rem; margin: 0.5rem 0 0;">Bookings</p>
+                            </div>
+                            <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--theme-accent); flex-shrink: 0; margin-top: 6px;"></span>
+                        </div>
+
+                        <!-- Read Message 1 -->
+                        <div style="display: flex; gap: 1rem; padding: var(--spacing-md); border-bottom: 1px solid var(--theme-border); cursor: pointer;">
+                            <div style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">FC</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <strong>Float Center Team</strong>
+                                    <span style="font-size: 0.75rem; color: var(--theme-text-muted);">Mar 5, 2026</span>
+                                </div>
+                                <p style="color: var(--theme-text-muted); font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0;">✅ Your float session on Mar 4 has been completed. Thank you for floating!</p>
+                                <p style="color: var(--theme-text-muted); font-size: 0.75rem; margin: 0.5rem 0 0;">Bookings</p>
+                            </div>
+                        </div>
+
+                        <!-- Read Message 2 -->
+                        <div style="display: flex; gap: 1rem; padding: var(--spacing-md); border-bottom: 1px solid var(--theme-border); cursor: pointer;">
+                            <div style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">FC</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <strong>Float Center Team</strong>
+                                    <span style="font-size: 0.75rem; color: var(--theme-text-muted);">Mar 3, 2026</span>
+                                </div>
+                                <p style="color: var(--theme-text-muted); font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0;">💡 Wellness Tip: Float therapy helps reduce cortisol levels and improves sleep quality…</p>
+                                <p style="color: var(--theme-text-muted); font-size: 0.75rem; margin: 0.5rem 0 0;">Wellness Tips</p>
+                            </div>
+                        </div>
+
+                        <!-- Read Message 3 -->
+                        <div style="display: flex; gap: 1rem; padding: var(--spacing-md); border-bottom: 1px solid var(--theme-border); cursor: pointer;">
+                            <div style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">FC</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <strong>Float Center Team</strong>
+                                    <span style="font-size: 0.75rem; color: var(--theme-text-muted);">Mar 1, 2026</span>
+                                </div>
+                                <p style="color: var(--theme-text-muted); font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0;">🎊 Your Devotee Membership has been renewed for another month. Thank you for your loyalty!</p>
+                                <p style="color: var(--theme-text-muted); font-size: 0.75rem; margin: 0.5rem 0 0;">Bookings</p>
+                            </div>
+                        </div>
+
+                        <!-- Read Message 4 -->
+                        <div style="display: flex; gap: 1rem; padding: var(--spacing-md); border-bottom: 1px solid var(--theme-border); cursor: pointer;">
+                            <div style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">FC</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <strong>Float Center Team</strong>
+                                    <span style="font-size: 0.75rem; color: var(--theme-text-muted);">Feb 27, 2026</span>
+                                </div>
+                                <p style="color: var(--theme-text-muted); font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0;">🌙 Try our new midnight float sessions! Book your slot now for 25% off…</p>
+                                <p style="color: var(--theme-text-muted); font-size: 0.75rem; margin: 0.5rem 0 0;">Promotions</p>
+                            </div>
+                        </div>
+
+                        <!-- Read Message 5 -->
+                        <div style="display: flex; gap: 1rem; padding: var(--spacing-md); cursor: pointer;">
+                            <div style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">FC</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <strong>Float Center Team</strong>
+                                    <span style="font-size: 0.75rem; color: var(--theme-text-muted);">Feb 21, 2026</span>
+                                </div>
+                                <p style="color: var(--theme-text-muted); font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0;">🧘 5 Benefits of Regular Float Therapy: Stress relief, Better sleep, Enhanced creativity…</p>
+                                <p style="color: var(--theme-text-muted); font-size: 0.75rem; margin: 0.5rem 0 0;">Wellness Tips</p>
                             </div>
                         </div>
                     </div>
-                    <div style="margin-top: var(--spacing-md);">
-                        <div class="form-group">
-                            <label class="form-label">Send a Message</label>
-                            <textarea class="form-control" rows="3"
-                                placeholder="Ask a question or request support…"></textarea>
+
+                    <!-- Compose Message -->
+                    <div class="card">
+                        <h4 style="margin-bottom: var(--spacing-md);">Send a Message to Support</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                            <div class="form-group">
+                                <label class="form-label">Subject</label>
+                                <input type="text" class="form-control" placeholder="e.g., Question about booking…">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <select class="form-control">
+                                    <option>General Inquiry</option>
+                                    <option>Booking Help</option>
+                                    <option>Technical Issue</option>
+                                    <option>Feedback</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
                         </div>
-                        <button class="btn btn-primary">Send Message</button>
+                        <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" placeholder="Please describe your message or question…"></textarea>
+                        </div>
+                        <div style="display: flex; gap: var(--spacing-sm);">
+                            <button class="btn btn-primary">Send Message</button>
+                            <button class="btn btn-outline">Save Draft</button>
+                        </div>
                     </div>
                 </div>
 
@@ -978,87 +1506,164 @@
 
                 <!-- Admin: User Management -->
                 <div id="admin-users" class="view-section">
-                    <h3 style="margin-bottom: var(--spacing-md);">User Management</h3>
-                    <div style="display: flex; gap: 1rem; margin-bottom: var(--spacing-md);">
-                        <input type="search" class="form-control" placeholder="Search users…" style="max-width: 320px;">
-                        <button class="btn btn-primary"
-                            style="min-height: 0; padding: 0.5rem 1rem; white-space: nowrap;">+
-                            Invite User</button>
+                    <h3 style="margin-bottom: var(--spacing-lg);">User Management</h3>
+                    <!-- Filters & Controls -->
+                    <div class="card" style="margin-bottom: var(--spacing-lg); display: flex; gap: var(--spacing-sm); flex-wrap: wrap; align-items: flex-end;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <input type="search" class="form-control" placeholder="Search by name or email…">
+                        </div>
+                        <select class="form-control" style="max-width: 150px;">
+                            <option>All Members</option>
+                            <option>Devotee</option>
+                            <option>Explorer</option>
+                            <option>Zen Seeker</option>
+                            <option>Inactive</option>
+                        </select>
+                        <select class="form-control" style="max-width: 150px;">
+                            <option>All Status</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                            <option>Paused</option>
+                        </select>
+                        <button class="btn btn-primary" style="min-height: 0; padding: 0.5rem 1rem; white-space: nowrap;">+ Invite User</button>
+                        <button class="btn btn-outline" style="min-height: 0; padding: 0.5rem 1rem; white-space: nowrap;">Export</button>
                     </div>
+
+                    <!-- User Statistics -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
+                        <div class="card" style="text-align: center;">
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary);">284</div>
+                            <div style="color: var(--theme-text-muted); font-size: 0.8rem;">Total Members</div>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--success);">198</div>
+                            <div style="color: var(--theme-text-muted); font-size: 0.8rem;">Active This Month</div>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--theme-accent);">12</div>
+                            <div style="color: var(--theme-text-muted); font-size: 0.8rem;">New This Month</div>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--warning);">15</div>
+                            <div style="color: var(--theme-text-muted); font-size: 0.8rem;">At-Risk (Inactive)</div>
+                        </div>
+                    </div>
+
+                    <!-- Users Table -->
                     <div class="card" style="overflow-x: auto;">
                         <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
                             <thead>
-                                <tr style="border-bottom: 1px solid var(--theme-border);">
-                                    <th
-                                        style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 500;">
-                                        Name</th>
-                                    <th
-                                        style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 500;">
-                                        Email</th>
-                                    <th
-                                        style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 500;">
-                                        Role</th>
-                                    <th
-                                        style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 500;">
-                                        Sessions</th>
-                                    <th
-                                        style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 500;">
-                                        Status</th>
-                                    <th
-                                        style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 500;">
-                                        Action</th>
+                                <tr style="border-bottom: 2px solid var(--theme-border);">
+                                    <th style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 600;">Name</th>
+                                    <th style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 600;">Email</th>
+                                    <th style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 600;">Membership</th>
+                                    <th style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 600;">Sessions</th>
+                                    <th style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 600;">Joined</th>
+                                    <th style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 600;">Last Session</th>
+                                    <th style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 600;">Status</th>
+                                    <th style="text-align: left; padding: 0.75rem; color: var(--theme-text-muted); font-weight: 600;">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr style="border-bottom: 1px solid var(--theme-border);">
+                                    <td style="padding: 0.75rem; font-weight: 500;">Sarah Mitchell</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">sarah.mitchell@email.com</td>
+                                    <td style="padding: 0.75rem;"><span style="background: rgba(13,148,136,0.15); color: var(--theme-accent); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 500;">Devotee</span></td>
+                                    <td style="padding: 0.75rem; font-weight: 500;">48</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Jan 15, 2024</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Today, 2:00 PM</td>
+                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span></td>
+                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">View</button><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--theme-border);">
                                     <td style="padding: 0.75rem; font-weight: 500;">Jane Doe</td>
-                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">jane.doe@email.com
-                                    </td>
-                                    <td style="padding: 0.75rem;"><span
-                                            style="background: rgba(13,148,136,0.15); color: var(--theme-accent); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem;">Member</span>
-                                    </td>
-                                    <td style="padding: 0.75rem;">12</td>
-                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span>
-                                    </td>
-                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button
-                                            class="btn btn-outline"
-                                            style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button><button
-                                            class="btn"
-                                            style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem; background:rgba(239,68,68,0.1); color:var(--error); border:1px solid var(--error);">Ban</button>
-                                    </td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">jane.doe@email.com</td>
+                                    <td style="padding: 0.75rem;"><span style="background: rgba(13,148,136,0.15); color: var(--theme-accent); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 500;">Devotee</span></td>
+                                    <td style="padding: 0.75rem; font-weight: 500;">35</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">May 22, 2024</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Mar 3, 2:15 PM</td>
+                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span></td>
+                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">View</button><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button></td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid var(--theme-border);">
                                     <td style="padding: 0.75rem; font-weight: 500;">David Kim</td>
                                     <td style="padding: 0.75rem; color: var(--theme-text-muted);">d.kim@email.com</td>
-                                    <td style="padding: 0.75rem;"><span
-                                            style="background: rgba(13,148,136,0.15); color: var(--theme-accent); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem;">Member</span>
-                                    </td>
-                                    <td style="padding: 0.75rem;">4</td>
-                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span>
-                                    </td>
-                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button
-                                            class="btn btn-outline"
-                                            style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button><button
-                                            class="btn"
-                                            style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem; background:rgba(239,68,68,0.1); color:var(--error); border:1px solid var(--error);">Ban</button>
-                                    </td>
+                                    <td style="padding: 0.75rem;"><span style="background: rgba(139,92,246,0.15); color: rgb(139,92,246); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 500;">Explorer</span></td>
+                                    <td style="padding: 0.75rem; font-weight: 500;">12</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Oct 8, 2024</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Mar 1, 10:30 AM</td>
+                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span></td>
+                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">View</button><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--theme-border);">
+                                    <td style="padding: 0.75rem; font-weight: 500;">Emily Rodriguez</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">emily.r@email.com</td>
+                                    <td style="padding: 0.75rem;"><span style="background: rgba(59,130,246,0.15); color: rgb(59,130,246); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 500;">Zen Seeker</span></td>
+                                    <td style="padding: 0.75rem; font-weight: 500;">26</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Feb 3, 2024</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Feb 28, 4:45 PM</td>
+                                    <td style="padding: 0.75rem;"><span style="color: var(--warning);">● Inactive</span></td>
+                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">View</button><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--theme-border);">
+                                    <td style="padding: 0.75rem; font-weight: 500;">Marcus Johnson</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">m.johnson@email.com</td>
+                                    <td style="padding: 0.75rem;"><span style="background: rgba(13,148,136,0.15); color: var(--theme-accent); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 500;">Devotee</span></td>
+                                    <td style="padding: 0.75rem; font-weight: 500;">52</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Dec 10, 2023</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Mar 6, 11:00 AM</td>
+                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span></td>
+                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">View</button><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--theme-border);">
+                                    <td style="padding: 0.75rem; font-weight: 500;">Lisa Chen</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">lisa.chen@email.com</td>
+                                    <td style="padding: 0.75rem;"><span style="background: rgba(139,92,246,0.15); color: rgb(139,92,246); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 500;">Explorer</span></td>
+                                    <td style="padding: 0.75rem; font-weight: 500;">8</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Feb 14, 2025</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Mar 4, 3:20 PM</td>
+                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span></td>
+                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">View</button><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--theme-border);">
+                                    <td style="padding: 0.75rem; font-weight: 500;">Robert Walsh</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">r.walsh@email.com</td>
+                                    <td style="padding: 0.75rem;"><span style="background: rgba(59,130,246,0.15); color: rgb(59,130,246); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 500;">Zen Seeker</span></td>
+                                    <td style="padding: 0.75rem; font-weight: 500;">19</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Jun 20, 2024</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Feb 15, 9:00 AM</td>
+                                    <td style="padding: 0.75rem;"><span style="color: var(--warning);">● Inactive</span></td>
+                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">View</button><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--theme-border);">
+                                    <td style="padding: 0.75rem; font-weight: 500;">Sophia Petrov</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">sophia.p@email.com</td>
+                                    <td style="padding: 0.75rem;"><span style="background: rgba(13,148,136,0.15); color: var(--theme-accent); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 500;">Devotee</span></td>
+                                    <td style="padding: 0.75rem; font-weight: 500;">41</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Mar 1, 2024</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Mar 5, 7:00 PM</td>
+                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span></td>
+                                    <td style="padding: 0.75rem; display: flex; gap: 0.5rem;"><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">View</button><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 0.75rem; font-weight: 500;">Admin User</td>
-                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">admin@floatcenter.com
-                                    </td>
-                                    <td style="padding: 0.75rem;"><span
-                                            style="background: rgba(239,68,68,0.1); color: var(--error); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem;">Admin</span>
-                                    </td>
-                                    <td style="padding: 0.75rem;">—</td>
-                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span>
-                                    </td>
-                                    <td style="padding: 0.75rem;"><button class="btn btn-outline"
-                                            style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button>
-                                    </td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted);">admin@floatcenter.com</td>
+                                    <td style="padding: 0.75rem;"><span style="background: rgba(239,68,68,0.1); color: var(--error); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 500;">Administrator</span></td>
+                                    <td style="padding: 0.75rem; font-weight: 500;">—</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Jan 1, 2023</td>
+                                    <td style="padding: 0.75rem; color: var(--theme-text-muted); font-size: 0.85rem;">Today, 9:15 AM</td>
+                                    <td style="padding: 0.75rem;"><span style="color: var(--success);">● Active</span></td>
+                                    <td style="padding: 0.75rem;"><button class="btn btn-outline" style="padding: 0.25rem 0.6rem; min-height:0; font-size:0.8rem;">Edit</button></td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div style="display: flex; justify-content: center; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+                        <button class="btn btn-outline" style="padding: 0.4rem 1rem;">← Previous</button>
+                        <div style="padding: 0.4rem 1rem;">Page 1 of 12</div>
+                        <button class="btn btn-primary" style="padding: 0.4rem 1rem;">Next →</button>
                     </div>
                 </div>
 
@@ -1289,37 +1894,62 @@
                 </div>
 
                 <div id="admin-customers" class="view-section">
-                    <h3 style="margin-bottom: var(--spacing-md);">Customers</h3>
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md);">
+                    <h3 style="margin-bottom: var(--spacing-lg);">Top Customers</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md);">
                         <div class="card" style="display: flex; gap: 1rem; align-items: center;">
-                            <div
-                                style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
-                                JD</div>
-                            <div>
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">SM</div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600;">Sarah Mitchell</div>
+                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">48 sessions · Devotee</div>
+                                <div style="color: var(--success); font-size: 0.75rem; margin-top: 0.25rem;">★★★★★ 5.0</div>
+                            </div>
+                        </div>
+                        <div class="card" style="display: flex; gap: 1rem; align-items: center;">
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">JD</div>
+                            <div style="flex: 1;">
                                 <div style="font-weight: 600;">Jane Doe</div>
-                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">12 sessions · Devotee
-                                    Member</div>
+                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">35 sessions · Devotee</div>
+                                <div style="color: var(--success); font-size: 0.75rem; margin-top: 0.25rem;">★★★★★ 5.0</div>
                             </div>
                         </div>
                         <div class="card" style="display: flex; gap: 1rem; align-items: center;">
-                            <div
-                                style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
-                                DK</div>
-                            <div>
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">MJ</div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600;">Marcus Johnson</div>
+                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">52 sessions · Devotee</div>
+                                <div style="color: var(--success); font-size: 0.75rem; margin-top: 0.25rem;">★★★★★ 5.0</div>
+                            </div>
+                        </div>
+                        <div class="card" style="display: flex; gap: 1rem; align-items: center;">
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">SP</div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600;">Sophia Petrov</div>
+                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">41 sessions · Devotee</div>
+                                <div style="color: var(--success); font-size: 0.75rem; margin-top: 0.25rem;">★★★★☆ 4.5</div>
+                            </div>
+                        </div>
+                        <div class="card" style="display: flex; gap: 1rem; align-items: center;">
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">DK</div>
+                            <div style="flex: 1;">
                                 <div style="font-weight: 600;">David Kim</div>
-                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">4 sessions · Starter
-                                    Pack</div>
+                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">12 sessions · Explorer</div>
+                                <div style="color: var(--success); font-size: 0.75rem; margin-top: 0.25rem;">★★★★★ 5.0</div>
                             </div>
                         </div>
                         <div class="card" style="display: flex; gap: 1rem; align-items: center;">
-                            <div
-                                style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
-                                ER</div>
-                            <div>
-                                <div style="font-weight: 600;">Emily R.</div>
-                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">22 sessions · Monthly
-                                </div>
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">LC</div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600;">Lisa Chen</div>
+                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">28 sessions · Explorer</div>
+                                <div style="color: var(--success); font-size: 0.75rem; margin-top: 0.25rem;">★★★★★ 5.0</div>
+                            </div>
+                        </div>
+                        <div class="card" style="display: flex; gap: 1rem; align-items: center;">
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #0f766e); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">ER</div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600;">Emily Rodriguez</div>
+                                <div style="color: var(--theme-text-muted); font-size: 0.85rem;">26 sessions · Zen Seeker</div>
+                                <div style="color: var(--warning); font-size: 0.75rem; margin-top: 0.25rem;">★★★☆☆ 3.5</div>
                             </div>
                         </div>
                     </div>
@@ -1328,7 +1958,7 @@
                 <div id="admin-revenue" class="view-section">
                     <h3 style="margin-bottom: var(--spacing-md);">Revenue Overview</h3>
                     <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
                         <div class="card" style="text-align: center;">
                             <div style="color: var(--theme-text-muted); font-size: 0.85rem;">This Month</div>
                             <div style="font-size: 2rem; font-weight: 700; color: var(--theme-accent);">$45,820</div>
@@ -1346,9 +1976,64 @@
                             <div style="font-size: 2rem; font-weight: 700;">$187k</div>
                         </div>
                     </div>
-                    <div class="card"
-                        style="height: 300px; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--theme-border);">
-                        <p style="color: var(--theme-text-muted);">Chart.js Revenue Graph — Integration Point</p>
+                    <!-- Revenue Chart -->
+                    <div class="card" style="margin-bottom: var(--spacing-lg);">
+                        <h4 style="margin-bottom: var(--spacing-md);">Monthly Revenue Trend</h4>
+                        <div style="display: flex; justify-content: space-around; align-items: flex-end; height: 280px; padding: var(--spacing-md) 0; gap: var(--spacing-md);">
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                                <div style="width: 100%; height: 112px; background: linear-gradient(180deg, var(--theme-accent), rgba(13, 148, 136, 0.6)); border-radius: 4px 4px 0 0; display: flex; align-items: flex-end; justify-content: center;"></div>
+                                <div style="font-size: 0.75rem; color: var(--theme-text-muted); margin-top: 0.75rem; font-weight: 500;">Jan</div>
+                            </div>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                                <div style="width: 100%; height: 145px; background: linear-gradient(180deg, var(--theme-accent), rgba(13, 148, 136, 0.6)); border-radius: 4px 4px 0 0; display: flex; align-items: flex-end; justify-content: center;"></div>
+                                <div style="font-size: 0.75rem; color: var(--theme-text-muted); margin-top: 0.75rem; font-weight: 500;">Feb</div>
+                            </div>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                                <div style="width: 100%; height: 190px; background: linear-gradient(180deg, var(--success), rgba(34, 197, 94, 0.6)); border-radius: 4px 4px 0 0; display: flex; align-items: flex-end; justify-content: center; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);"></div>
+                                <div style="font-size: 0.75rem; color: var(--theme-text-muted); margin-top: 0.75rem; font-weight: 600;">Mar</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding-top: var(--spacing-md); border-top: 1px solid var(--theme-border);">
+                            <div style="text-align: center;">
+                                <div style="font-size: 0.75rem; color: var(--theme-text-muted);">Memberships</div>
+                                <div style="font-weight: 600; margin-top: 0.25rem;">$28,500</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 0.75rem; color: var(--theme-text-muted);">One-Time Sessions</div>
+                                <div style="font-weight: 600; margin-top: 0.25rem;">$12,850</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 0.75rem; color: var(--theme-text-muted);">Packages</div>
+                                <div style="font-weight: 600; margin-top: 0.25rem;">$4,470</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Payment Methods -->
+                    <div class="card">
+                        <h4 style="margin-bottom: var(--spacing-md);">Revenue by Payment Method</h4>
+                        <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                    <div style="width: 12px; height: 12px; background: var(--theme-accent); border-radius: 2px;"></div>
+                                    <span style="color: var(--theme-text-muted); font-size: 0.9rem;">Credit Card</span>
+                                </div>
+                                <div style="font-weight: 600;">$32,415 (71%)</div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                    <div style="width: 12px; height: 12px; background: var(--success); border-radius: 2px;"></div>
+                                    <span style="color: var(--theme-text-muted); font-size: 0.9rem;">Bank Transfer</span>
+                                </div>
+                                <div style="font-weight: 600;">$9,128 (20%)</div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                    <div style="width: 12px; height: 12px; background: var(--warning); border-radius: 2px;"></div>
+                                    <span style="color: var(--theme-text-muted); font-size: 0.9rem;">PayPal</span>
+                                </div>
+                                <div style="font-weight: 600;">$4,277 (9%)</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
