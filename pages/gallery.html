@@ -152,11 +152,14 @@
         <div class="container header-container">
             <a href="../index.html" class="logo" aria-label="Sensory Deprivation Float Center Home">FloatHaus</a>
 
-                                                            <nav id="main-nav" class="nav" aria-label="Main Navigation">
+            <nav id="main-nav" class="nav" aria-label="Main Navigation">
                 <div class="nav-item-dropdown">
                     <span style="display: flex; align-items: center; gap: 0.25rem;">
                         Home
-                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </span>
                     <div class="dropdown-menu">
                         <a href="../index.html" class="dropdown-item">Home 1</a>
@@ -170,7 +173,10 @@
                 <div class="nav-item-dropdown">
                     <span style="display: flex; align-items: center; gap: 0.25rem;">
                         Dashboard
-                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </span>
                     <div class="dropdown-menu">
                         <a href="dashboard.html?role=user" class="dropdown-item">User</a>
@@ -203,25 +209,45 @@
 
     <main id="main-content">
         <!-- Wide Banner Hero -->
-        <section class="hero-section animate-fade-up"
-            style="position: relative; min-height: 55vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;">
-            <div style="position: absolute; inset: 0; z-index: 1;">
-                <img src="../assets/img/gallery-entrance.jpg" alt="Gallery Hero Background"
-                    style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(0.48);">
-            </div>
-            <!-- Premium dark gradient overlay -->
-            <div
-                style="position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(6,12,20,0.3) 0%, rgba(6,12,20,0.6) 100%);">
-            </div>
-            <div class="container" style="position: relative; z-index: 3; padding: var(--spacing-xl) 0;">
-                <span
-                    style="color: #a8c4d4; font-weight: 600; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; margin-bottom: var(--spacing-sm); display: block;">The
-                    Sanctuary</span>
-                <h1
-                    style="color: #dde8f0; margin-bottom: var(--spacing-md); font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; letter-spacing: -0.02em; text-shadow: 0 2px 30px rgba(0,0,0,0.4);">
-                    Gallery</h1>
-                <p
-                    style="color: rgba(180,210,230,0.9); font-size: 1.2rem; max-width: 580px; margin: 0 auto; line-height: 1.6;">
+        <section class="section hero-section" style="
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image:
+              var(--hero-gradient), url('../assets/img/gallery-entrance.jpg');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+          ">
+            <div class="container animate-fade-up" style="text-align: center; padding-top: 4rem">
+                <span style="
+                  color: var(--theme-accent);
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 4px;
+                  font-size: 0.9rem;
+                  display: block;
+                  margin-bottom: var(--spacing-sm);
+                ">The Sanctuary</span>
+                <h1 style="
+                margin-bottom: var(--spacing-lg);
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                line-height: 1.1;
+              ">
+                    Gallery
+                </h1>
+                <p class="animate-text-reading" style="
+                font-size: 1.25rem;
+                color: var(--hero-text);
+                max-width: 650px;
+                margin: 0 auto;
+                opacity: 1;
+                line-height: 1.6;
+                font-weight: 500;
+              ">
                     A visual journey through our spaces designed for deep rest and sensory deprivation.
                 </p>
             </div>
@@ -245,10 +271,11 @@
             <div class="container">
                 <div class="gallery-grid" id="gallery-grid">
 
-                    
+
                     <!-- Float Pods -->
                     <div class="gallery-item animate-fade-up" data-category="pods">
-                        <img src="../assets/img/feature_pods.png" alt="Clinical-Grade Float Pod Interior" loading="lazy">
+                        <img src="../assets/img/feature_pods.png" alt="Clinical-Grade Float Pod Interior"
+                            loading="lazy">
                         <div class="gallery-item-overlay"><span class="gallery-item-label">Modern Float Pod</span></div>
                     </div>
 
@@ -259,12 +286,14 @@
 
                     <div class="gallery-item animate-fade-up animate-stagger-2" data-category="lounge">
                         <img src="../assets/img/feature_lounge.png" alt="Zen Integration Lounge" loading="lazy">
-                        <div class="gallery-item-overlay"><span class="gallery-item-label">Integration Lounge</span></div>
+                        <div class="gallery-item-overlay"><span class="gallery-item-label">Integration Lounge</span>
+                        </div>
                     </div>
 
                     <div class="gallery-item animate-fade-up animate-stagger-3" data-category="suites">
                         <img src="../assets/img/feature_isolation.png" alt="Acoustic Isolation Wall" loading="lazy">
-                        <div class="gallery-item-overlay"><span class="gallery-item-label">Acoustic Isolation</span></div>
+                        <div class="gallery-item-overlay"><span class="gallery-item-label">Acoustic Isolation</span>
+                        </div>
                     </div>
 
                     <div class="gallery-item animate-fade-up" data-category="pods">
@@ -338,7 +367,8 @@
                 <p style="color: var(--theme-text-muted); max-width: 500px; margin: 0 auto var(--spacing-lg);">
                     A tour is just a taste. Book a session and discover what absolute stillness feels like.
                 </p>
-                <a href="booking.html" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem;">Book a Float</a>
+                <a href="booking.html" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem;">Book a
+                    Float</a>
             </div>
         </section>
     </main>
@@ -354,7 +384,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="logo" style="margin-bottom: var(--spacing-md);">FLOAT.</div>
+                    <div class="logo" style="margin-bottom: var(--spacing-md);"><a href="../index.html"
+                            aria-label="Sensory Deprivation Float Center Home">FloatHaus</a></div>
                     <p style="color: var(--theme-text-muted); margin-bottom: var(--spacing-lg);">Elevating human
                         potential through nothingness.</p>
                     <div style="display: flex; gap: 1rem;">

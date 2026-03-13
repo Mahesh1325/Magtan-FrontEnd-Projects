@@ -34,11 +34,14 @@
         <div class="container header-container">
             <a href="../index.html" class="logo" aria-label="Sensory Deprivation Float Center Home">FloatHaus</a>
 
-                                    <nav id="main-nav" class="nav" aria-label="Main Navigation">
+            <nav id="main-nav" class="nav" aria-label="Main Navigation">
                 <div class="nav-item-dropdown">
                     <span style="display: flex; align-items: center; gap: 0.25rem;">
                         Home
-                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </span>
                     <div class="dropdown-menu">
                         <a href="../index.html" class="dropdown-item">Home 1</a>
@@ -52,7 +55,10 @@
                 <div class="nav-item-dropdown">
                     <span style="display: flex; align-items: center; gap: 0.25rem;">
                         Dashboard
-                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </span>
                     <div class="dropdown-menu">
                         <a href="dashboard.html?role=user" class="dropdown-item">User</a>
@@ -85,59 +91,93 @@
 
     <main id="main-content">
         <!-- Contact Hero -->
-        <section class="hero-section animate-fade-up"
-            style="position: relative; min-height: clamp(40vh, 50vh, 60vh); display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;">
-            <div style="position: absolute; inset: 0; z-index: 1;">
-                <img src="../assets/img/hero-contact.jpg" alt="Float Center Reception"
-                    style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5);">
-            </div>
-            <!-- Cool teal gradient overlay -->
-            <div
-                style="position: absolute; inset: 0; z-index: 2; background: linear-gradient(135deg, rgba(14,70,80,0.5) 0%, rgba(10,15,30,0.45) 100%);">
-            </div>
-            <div class="container" style="position: relative; z-index: 3; padding: clamp(1.5rem, 4vw, 3rem) var(--spacing-xl);">
-                <span
-                    style="color: #a8c4d4; font-weight: 600; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; display: block; margin-bottom: var(--spacing-sm);">Get In Touch</span>
-                <h1
-                    style="color: #dde8f0; margin-bottom: var(--spacing-md); font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; letter-spacing: -0.02em; text-shadow: 0 2px 30px rgba(0,0,0,0.4);">
-                    Contact Us</h1>
-                <p
-                    style="color: rgba(180, 210, 230, 0.9); font-size: 1.2rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-                    We're here to answer any questions about your float experience.</p>
+        <section class="section hero-section" style="
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background-image:
+              var(--hero-gradient), url('../assets/img/hero-contact.jpg');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+          ">
+            <div class="container animate-fade-up" style="text-align: center; padding-top: 4rem">
+                <span style="
+                  color: var(--theme-accent);
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 4px;
+                  font-size: 0.9rem;
+                  display: block;
+                  margin-bottom: var(--spacing-sm);
+                ">Get In Touch</span>
+                <h1 style="
+                margin-bottom: var(--spacing-lg);
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                line-height: 1.1;
+              ">
+                    Contact Us
+                </h1>
+                <p class="animate-text-reading" style="
+                font-size: 1.25rem;
+                color: var(--hero-text);
+                max-width: 650px;
+                margin: 0 auto;
+                opacity: 1;
+                line-height: 1.6;
+                font-weight: 500;
+              ">
+                    We're here to answer any questions about your float experience.
+                </p>
             </div>
         </section>
 
         <section class="section animate-fade-up">
             <div class="container">
                 <div style="text-align: center; margin-bottom: clamp(2rem, 5vw, var(--spacing-xl));">
-                    <span style="color: var(--theme-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: clamp(0.75rem, 2vw, 0.85rem); display: block; margin-bottom: clamp(0.5rem, 1.5vw, var(--spacing-sm));">Get in Touch</span>
+                    <span
+                        style="color: var(--theme-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: clamp(0.75rem, 2vw, 0.85rem); display: block; margin-bottom: clamp(0.5rem, 1.5vw, var(--spacing-sm));">Get
+                        in Touch</span>
                     <h2 style="margin-bottom: clamp(1rem, 2vw, var(--spacing-md));">Let's Connect</h2>
-                    <p style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto; font-size: clamp(0.95rem, 2vw, 1rem); line-height: 1.6;">Have questions about float therapy? Our wellness concierges are here to help you book sessions, explore memberships, or discuss whether floating is right for you.</p>
+                    <p
+                        style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto; font-size: clamp(0.95rem, 2vw, 1rem); line-height: 1.6;">
+                        Have questions about float therapy? Our wellness concierges are here to help you book sessions,
+                        explore memberships, or discuss whether floating is right for you.</p>
                 </div>
                 <div
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(1.5rem, 3vw, var(--spacing-xl));">
                     <!-- Contact Form with gradient -->
-                    <div class="card animate-stagger-1" style="position: relative; overflow: hidden; border: 1px solid var(--theme-border); background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(13, 148, 136, 0.02) 100%); padding: clamp(1.5rem, 4vw, var(--spacing-xl));">
+                    <div class="card animate-stagger-1"
+                        style="position: relative; overflow: hidden; border: 1px solid var(--theme-border); background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(13, 148, 136, 0.02) 100%); padding: clamp(1.5rem, 4vw, var(--spacing-xl));">
                         <!-- Decorative gradient blob -->
-                        <div style="position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(13, 148, 136, 0.2) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+                        <div
+                            style="position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(13, 148, 136, 0.2) 0%, transparent 70%); border-radius: 50%; pointer-events: none;">
+                        </div>
                         <div style="position: relative; z-index: 1;">
-                            <h3 style="margin-bottom: clamp(1rem, 2vw, var(--spacing-lg)); color: var(--theme-accent); font-size: clamp(1.25rem, 3vw, 1.5rem);">Send a Message</h3>
+                            <h3
+                                style="margin-bottom: clamp(1rem, 2vw, var(--spacing-lg)); color: var(--theme-accent); font-size: clamp(1.25rem, 3vw, 1.5rem);">
+                                Send a Message</h3>
                             <!-- Formspree Integration Placeholder -->
                             <form action="https://formspree.io/f/placeholder" method="POST" id="contact-form">
                                 <div class="form-group">
                                     <label for="contact-name" class="form-label">Full Name</label>
                                     <input type="text" id="contact-name" name="name" class="form-control" required
-                                        aria-required="true" style="transition: all 0.3s ease; border: 1px solid var(--theme-border);">
+                                        aria-required="true"
+                                        style="transition: all 0.3s ease; border: 1px solid var(--theme-border);">
                                 </div>
                                 <div class="form-group">
                                     <label for="contact-email" class="form-label">Email Address</label>
                                     <input type="email" id="contact-email" name="email" class="form-control" required
-                                        aria-required="true" style="transition: all 0.3s ease; border: 1px solid var(--theme-border);">
+                                        aria-required="true"
+                                        style="transition: all 0.3s ease; border: 1px solid var(--theme-border);">
                                 </div>
                                 <div class="form-group">
                                     <label for="contact-subject" class="form-label">Subject</label>
                                     <select id="contact-subject" name="subject" class="form-control" required
-                                        aria-required="true" style="transition: all 0.3s ease; border: 1px solid var(--theme-border);">
+                                        aria-required="true"
+                                        style="transition: all 0.3s ease; border: 1px solid var(--theme-border);">
                                         <option value="">Select a topic</option>
                                         <option value="booking">Booking Inquiry</option>
                                         <option value="membership">Memberships</option>
@@ -149,32 +189,52 @@
                                 <div class="form-group">
                                     <label for="contact-message" class="form-label">Message</label>
                                     <textarea id="contact-message" name="message" class="form-control" rows="5" required
-                                        aria-required="true" style="transition: all 0.3s ease; border: 1px solid var(--theme-border);"></textarea>
+                                        aria-required="true"
+                                        style="transition: all 0.3s ease; border: 1px solid var(--theme-border);"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-weight: 600;">Send Message</button>
+                                <button type="submit" class="btn btn-primary"
+                                    style="width: 100%; padding: 1rem; font-weight: 600;">Send Message</button>
                             </form>
                         </div>
                     </div>
 
                     <!-- Contact Benefits Grid -->
                     <div style="display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2vw, var(--spacing-md));">
-                        <div class="card animate-stagger-2" style="position: relative; overflow: hidden; padding: clamp(1rem, 3vw, var(--spacing-lg)); background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(6, 78, 84, 0.05) 100%); border: 1px solid var(--theme-accent); border-opacity: 0.3; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center;">
-                            <div style="width: clamp(45px, 8vw, 50px); height: clamp(45px, 8vw, 50px); border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: clamp(1.3rem, 3vw, 1.5rem); flex-shrink: 0; box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3); margin-bottom: clamp(0.75rem, 2vw, 1rem);">
+                        <div class="card animate-stagger-2"
+                            style="position: relative; overflow: hidden; padding: clamp(1rem, 3vw, var(--spacing-lg)); background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(6, 78, 84, 0.05) 100%); border: 1px solid rgba(13, 148, 136, 0.3); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center;">
+                            <div
+                                style="width: clamp(45px, 8vw, 50px); height: clamp(45px, 8vw, 50px); border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: clamp(1.3rem, 3vw, 1.5rem); flex-shrink: 0; box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3); margin-bottom: clamp(0.75rem, 2vw, 1rem);">
                                 ⚡</div>
-                            <h4 style="margin: 0 0 0.5rem 0; color: var(--theme-accent); font-weight: 600; font-size: clamp(0.85rem, 2vw, 0.95rem); line-height: 1.3;">24-Hour Response</h4>
-                            <p style="margin: 0; color: var(--theme-text-muted); font-size: clamp(0.8rem, 1.8vw, 0.85rem); line-height: 1.4;">We prioritize every inquiry and respond within 24 hours</p>
+                            <h4
+                                style="margin: 0 0 0.5rem 0; color: var(--theme-accent); font-weight: 600; font-size: clamp(0.85rem, 2vw, 0.95rem); line-height: 1.3;">
+                                24-Hour Response</h4>
+                            <p
+                                style="margin: 0; color: var(--theme-text-muted); font-size: clamp(0.8rem, 1.8vw, 0.85rem); line-height: 1.4;">
+                                We prioritize every inquiry and respond within 24 hours</p>
                         </div>
-                        <div class="card animate-stagger-3" style="position: relative; overflow: hidden; padding: clamp(1rem, 3vw, var(--spacing-lg)); background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(6, 78, 84, 0.05) 100%); border: 1px solid var(--theme-accent); border-opacity: 0.3; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center;">
-                            <div style="width: clamp(45px, 8vw, 50px); height: clamp(45px, 8vw, 50px); border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: clamp(1.3rem, 3vw, 1.5rem); flex-shrink: 0; box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3); margin-bottom: clamp(0.75rem, 2vw, 1rem);">
+                        <div class="card animate-stagger-3"
+                            style="position: relative; overflow: hidden; padding: clamp(1rem, 3vw, var(--spacing-lg)); background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(6, 78, 84, 0.05) 100%); border: 1px solid rgba(13, 148, 136, 0.3); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center;">
+                            <div
+                                style="width: clamp(45px, 8vw, 50px); height: clamp(45px, 8vw, 50px); border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: clamp(1.3rem, 3vw, 1.5rem); flex-shrink: 0; box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3); margin-bottom: clamp(0.75rem, 2vw, 1rem);">
                                 🎯</div>
-                            <h4 style="margin: 0 0 0.5rem 0; color: var(--theme-accent); font-weight: 600; font-size: clamp(0.85rem, 2vw, 0.95rem); line-height: 1.3;">Expert Guidance</h4>
-                            <p style="margin: 0; color: var(--theme-text-muted); font-size: clamp(0.8rem, 1.8vw, 0.85rem); line-height: 1.4;">Wellness concierges with years of float therapy experience</p>
+                            <h4
+                                style="margin: 0 0 0.5rem 0; color: var(--theme-accent); font-weight: 600; font-size: clamp(0.85rem, 2vw, 0.95rem); line-height: 1.3;">
+                                Expert Guidance</h4>
+                            <p
+                                style="margin: 0; color: var(--theme-text-muted); font-size: clamp(0.8rem, 1.8vw, 0.85rem); line-height: 1.4;">
+                                Wellness concierges with years of float therapy experience</p>
                         </div>
-                        <div class="card animate-stagger-4" style="position: relative; overflow: hidden; padding: clamp(1rem, 3vw, var(--spacing-lg)); background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(6, 78, 84, 0.05) 100%); border: 1px solid var(--theme-accent); border-opacity: 0.3; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center;">
-                            <div style="width: clamp(45px, 8vw, 50px); height: clamp(45px, 8vw, 50px); border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: clamp(1.3rem, 3vw, 1.5rem); flex-shrink: 0; box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3); margin-bottom: clamp(0.75rem, 2vw, 1rem);">
+                        <div class="card animate-stagger-4"
+                            style="position: relative; overflow: hidden; padding: clamp(1rem, 3vw, var(--spacing-lg)); background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(6, 78, 84, 0.05) 100%); border: 1px solid rgba(13, 148, 136, 0.3); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center;">
+                            <div
+                                style="width: clamp(45px, 8vw, 50px); height: clamp(45px, 8vw, 50px); border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: clamp(1.3rem, 3vw, 1.5rem); flex-shrink: 0; box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3); margin-bottom: clamp(0.75rem, 2vw, 1rem);">
                                 📱</div>
-                            <h4 style="margin: 0 0 0.5rem 0; color: var(--theme-accent); font-weight: 600; font-size: clamp(0.85rem, 2vw, 0.95rem); line-height: 1.3;">Multiple Channels</h4>
-                            <p style="margin: 0; color: var(--theme-text-muted); font-size: clamp(0.8rem, 1.8vw, 0.85rem); line-height: 1.4;">Reach us via phone, email, or message form — your choice</p>
+                            <h4
+                                style="margin: 0 0 0.5rem 0; color: var(--theme-accent); font-weight: 600; font-size: clamp(0.85rem, 2vw, 0.95rem); line-height: 1.3;">
+                                Multiple Channels</h4>
+                            <p
+                                style="margin: 0; color: var(--theme-text-muted); font-size: clamp(0.8rem, 1.8vw, 0.85rem); line-height: 1.4;">
+                                Reach us via phone, email, or message form — your choice</p>
                         </div>
                     </div>
                 </div>
@@ -183,21 +243,33 @@
 
 
         <!-- Visit Our Center -->
-        <section class="section" style="background: linear-gradient(180deg, rgba(13, 148, 136, 0.05) 0%, rgba(6, 78, 84, 0.02) 100%);">
+        <section class="section"
+            style="background: linear-gradient(180deg, rgba(13, 148, 136, 0.05) 0%, rgba(6, 78, 84, 0.02) 100%);">
             <div class="container">
-                <div style="text-align: center; margin-bottom: clamp(2rem, 5vw, var(--spacing-xl)); position: relative; z-index: 2;">
-                    <span style="color: var(--theme-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: clamp(0.75rem, 2vw, 0.85rem); display: block; margin-bottom: clamp(0.5rem, 1.5vw, var(--spacing-sm));">Location</span>
+                <div
+                    style="text-align: center; margin-bottom: clamp(2rem, 5vw, var(--spacing-xl)); position: relative; z-index: 2;">
+                    <span
+                        style="color: var(--theme-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: clamp(0.75rem, 2vw, 0.85rem); display: block; margin-bottom: clamp(0.5rem, 1.5vw, var(--spacing-sm));">Location</span>
                     <h2 style="margin-bottom: clamp(1rem, 2vw, var(--spacing-md));">Visit Our Center</h2>
-                    <p style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto; font-size: clamp(0.95rem, 2vw, 1rem); line-height: 1.6;">Walk in today to experience float therapy first-hand, or schedule an appointment at a time that works best for you</p>
+                    <p
+                        style="color: var(--theme-text-muted); max-width: 600px; margin: 0 auto; font-size: clamp(0.95rem, 2vw, 1rem); line-height: 1.6;">
+                        Walk in today to experience float therapy first-hand, or schedule an appointment at a time that
+                        works best for you</p>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: clamp(1rem, 3vw, var(--spacing-lg)); margin-bottom: clamp(2rem, 5vw, var(--spacing-xl));">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: clamp(1rem, 3vw, var(--spacing-lg)); margin-bottom: clamp(2rem, 5vw, var(--spacing-xl));">
                     <!-- Address Card -->
-                    <div class="card animate-stagger-1" style="position: relative; overflow: hidden; padding: var(--spacing-lg); border: 1px solid rgba(13, 148, 136, 0.2); background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(6, 78, 84, 0.04) 100%);">
-                        <div style="position: absolute; top: -30%; left: -20%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(13, 148, 136, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+                    <div class="card animate-stagger-1"
+                        style="position: relative; overflow: hidden; padding: var(--spacing-lg); border: 1px solid rgba(13, 148, 136, 0.2); background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(6, 78, 84, 0.04) 100%);">
+                        <div
+                            style="position: absolute; top: -30%; left: -20%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(13, 148, 136, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;">
+                        </div>
                         <div style="position: relative; z-index: 1;">
-                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: var(--spacing-md); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);">
+                            <div
+                                style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: var(--spacing-md); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);">
                                 📍</div>
-                            <h4 style="color: var(--theme-accent); margin: 0 0 var(--spacing-sm) 0; font-weight: 600;">Address</h4>
+                            <h4 style="color: var(--theme-accent); margin: 0 0 var(--spacing-sm) 0; font-weight: 600;">
+                                Address</h4>
                             <p style="margin: 0; color: var(--theme-text-muted); line-height: 1.6; font-size: 0.95rem;">
                                 123 Float Street<br>
                                 Wellness District<br>
@@ -208,45 +280,66 @@
                     </div>
 
                     <!-- Phone & Email Card -->
-                    <div class="card animate-stagger-2" style="position: relative; overflow: hidden; padding: var(--spacing-lg); border: 1px solid rgba(13, 148, 136, 0.2); background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(6, 78, 84, 0.04) 100%);">
-                        <div style="position: absolute; bottom: -30%; right: -20%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(13, 148, 136, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+                    <div class="card animate-stagger-2"
+                        style="position: relative; overflow: hidden; padding: var(--spacing-lg); border: 1px solid rgba(13, 148, 136, 0.2); background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(6, 78, 84, 0.04) 100%);">
+                        <div
+                            style="position: absolute; bottom: -30%; right: -20%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(13, 148, 136, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;">
+                        </div>
                         <div style="position: relative; z-index: 1;">
-                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: var(--spacing-md); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);">
+                            <div
+                                style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: var(--spacing-md); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);">
                                 📞</div>
-                            <h4 style="color: var(--theme-accent); margin: 0 0 var(--spacing-sm) 0; font-weight: 600;">Contact</h4>
-                            <p style="margin: 0 0 var(--spacing-sm) 0; color: var(--theme-text-muted); font-size: 0.95rem;">
+                            <h4 style="color: var(--theme-accent); margin: 0 0 var(--spacing-sm) 0; font-weight: 600;">
+                                Contact</h4>
+                            <p
+                                style="margin: 0 0 var(--spacing-sm) 0; color: var(--theme-text-muted); font-size: 0.95rem;">
                                 <strong style="color: var(--theme-text);">Phone:</strong><br>
-                                <a href="tel:+1234567890" style="color: var(--theme-accent); text-decoration: none; transition: opacity 0.3s;">+1 (234) 567-8900</a>
+                                <a href="tel:+1234567890"
+                                    style="color: var(--theme-accent); text-decoration: none; transition: opacity 0.3s;">+1
+                                    (234) 567-8900</a>
                             </p>
                             <p style="margin: 0; color: var(--theme-text-muted); font-size: 0.95rem;">
                                 <strong style="color: var(--theme-text);">Email:</strong><br>
-                                <a href="mailto:info@example.com" style="color: var(--theme-accent); text-decoration: none; transition: opacity 0.3s;">info@example.com</a>
+                                <a href="mailto:info@example.com"
+                                    style="color: var(--theme-accent); text-decoration: none; transition: opacity 0.3s;">info@example.com</a>
                             </p>
                         </div>
                     </div>
 
                     <!-- Hours Card -->
-                    <div class="card animate-stagger-3" style="position: relative; overflow: hidden; padding: var(--spacing-lg); border: 1px solid rgba(13, 148, 136, 0.2); background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(6, 78, 84, 0.04) 100%);">
-                        <div style="position: absolute; top: -30%; right: -10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(13, 148, 136, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+                    <div class="card animate-stagger-3"
+                        style="position: relative; overflow: hidden; padding: var(--spacing-lg); border: 1px solid rgba(13, 148, 136, 0.2); background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(6, 78, 84, 0.04) 100%);">
+                        <div
+                            style="position: absolute; top: -30%; right: -10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(13, 148, 136, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;">
+                        </div>
                         <div style="position: relative; z-index: 1;">
-                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: var(--spacing-md); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);">
+                            <div
+                                style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--theme-accent)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: var(--spacing-md); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);">
                                 🕐</div>
-                            <h4 style="color: var(--theme-accent); margin: 0 0 var(--spacing-sm) 0; font-weight: 600;">Hours</h4>
+                            <h4 style="color: var(--theme-accent); margin: 0 0 var(--spacing-sm) 0; font-weight: 600;">
+                                Hours</h4>
                             <p style="margin: 0; color: var(--theme-text-muted); font-size: 0.95rem; line-height: 1.8;">
                                 <strong style="color: var(--theme-text);">Mon-Fri:</strong> 6 AM - 8 PM<br>
                                 <strong style="color: var(--theme-text);">Sat-Sun:</strong> 8 AM - 6 PM<br>
-                                <span style="color: var(--theme-accent); font-size: 0.85rem; margin-top: 0.5rem; display: block;">📅 Book anytime online</span>
+                                <span
+                                    style="color: var(--theme-accent); font-size: 0.85rem; margin-top: 0.5rem; display: block;">📅
+                                    Book anytime online</span>
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Map -->
-                <div class="card animate-fade-up" style="overflow: hidden; border: 1px solid rgba(13, 148, 136, 0.2); position: relative;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e8d4e62d%3A0x123456789!2sYour%20Float%20Center!5e0!3m2!1sen!2sus!4v1234567890"
-                        width="100%" height="450" style="border: none; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="card animate-fade-up"
+                    style="overflow: hidden; border: 1px solid rgba(13, 148, 136, 0.2); position: relative;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e8d4e62d%3A0x123456789!2sYour%20Float%20Center!5e0!3m2!1sen!2sus!4v1234567890"
+                        width="100%" height="450" style="border: none; display: block;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <!-- Decorative overlay gradient -->
-                    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(13, 148, 136, 0.05) 100%); pointer-events: none;"></div>
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(13, 148, 136, 0.05) 100%); pointer-events: none;">
+                    </div>
                 </div>
             </div>
         </section>
@@ -256,7 +349,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="logo" style="margin-bottom: var(--spacing-md);">  <a href="../index.html"  aria-label="Sensory Deprivation Float Center Home">FloatHaus</a></div>
+                    <div class="logo" style="margin-bottom: var(--spacing-md);"> <a href="../index.html"
+                            aria-label="Sensory Deprivation Float Center Home">FloatHaus</a></div>
                     <p style="color: var(--theme-text-muted); margin-bottom: var(--spacing-lg);">Elevating human
                         potential through nothingness.</p>
                     <div style="display: flex; gap: 1rem;">
