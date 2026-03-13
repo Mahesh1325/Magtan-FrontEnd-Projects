@@ -6,7 +6,8 @@
     <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account | FloatHaus</title>
-    <meta name="description" content="Create a FloatHaus account to begin your journey of sensory deprivation and absolute stillness.">
+    <meta name="description" content="Join FloatHaus to access premium float therapy and sensory deprivation experiences.">
+    <!-- Critical: Load main brand styles first -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,13 +127,13 @@
             align-items: center;
             justify-content: center;
             gap: 0.4rem;
-            height: 36px;
-            padding: 0 0.875rem;
+            min-height: 44px; /* Touch friendly */
+            padding: 0 1.125rem;
             border-radius: 99px;
             border: 1px solid var(--theme-border);
             background: rgba(var(--rgb-surface), 0.5);
             color: var(--theme-text);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -254,6 +255,38 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+        }
+        /* Mobile Hamburger & Nav Overlay */
+        .mobile-nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(var(--rgb-surface), 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .mobile-nav-overlay.is-active { display: flex; }
+        .mobile-nav-link {
+            font-family: var(--font-serif, 'Playfair Display', serif);
+            font-size: 2rem;
+            color: var(--theme-text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .mobile-nav-link:hover { color: var(--primary, #0d9488); }
+
+        .hamburger-btn {
+            display: none;
+            min-height: 44px;
+            min-width: 44px;
+        }
+        @media (max-width: 1023px) {
+            .hamburger-btn { display: inline-flex; }
         }
         .feature-item {
             display: flex;
@@ -494,23 +527,52 @@
         /* RTL adjustments */
         [dir="rtl"] .auth-visual { order: 2; }
         [dir="rtl"] .auth-form-panel { order: 1; text-align: right; }
+        [dir="rtl"] .form-row { flex-direction: row-reverse; }
         [dir="rtl"] .field-label { flex-direction: row-reverse; }
         [dir="rtl"] .social-btn { flex-direction: row-reverse; }
         [dir="rtl"] .btn-submit svg { transform: scaleX(-1); }
         [dir="rtl"] .btn-submit:hover svg { transform: scaleX(-1) translateX(3px); }
-        [dir="rtl"] .feature-item { flex-direction: row-reverse; }
+        [dir="rtl"] .features-list { padding-right: 0; padding-left: 0; }
         [dir="rtl"] .visual-badge { flex-direction: row-reverse; }
 
-        /* Responsive */
-        @media (max-width: 900px) {
+        /* ─── BREAKPOINTS ─── */
+
+        /* Large: > 1280px */
+        @media (min-width: 1281px) {
+            :root { --auth-max-width: 1200px; }
+            .auth-form-panel { padding: 4rem; }
+        }
+
+        /* Desktop: 1024px – 1280px */
+        @media (min-width: 1024px) and (max-width: 1280px) {
+            :root { --auth-max-width: 1040px; }
+        }
+
+        /* Tablet: 640px – 1024px */
+        @media (max-width: 1023px) {
+            .topbar-controls #dir-toggle,
+            .topbar-controls #theme-toggle { display: none; }
+            .auth-visual { flex: 1; }
             .auth-card { margin-top: 4.5rem; border-radius: 18px; }
             .auth-form-panel { padding: 2.25rem 1.75rem; }
             .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
         }
-        @media (max-width: 500px) {
+
+        /* Mobile: < 640px */
+        @media (max-width: 639px) {
+            body { padding: 1rem 0.75rem; }
+            .auth-card { margin-top: 4rem; flex-direction: column; box-shadow: none; border: none; }
+            .auth-visual { display: none; }
             .auth-form-panel { padding: 2rem 1.25rem; }
             .social-row { grid-template-columns: 1fr; }
-            .auth-topbar { padding: 1rem 1.25rem; }
+            .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
+            .auth-topbar { padding: 0.75rem 1rem; }
+            .form-title { font-size: 1.75rem; }
+            .social-btn, .btn-submit, .field-input { min-height: 48px; }
+            
+            /* Reduced animations for mobile */
+            .auth-blob, .visual-badge { animation: none; }
+            .auth-card { animation-duration: 0.4s; }
         }
     </style>
 </head>
@@ -528,6 +590,9 @@
             </span>
             FloatHaus
         </a>
+        <button type="button" class="topbar-btn hamburger-btn" id="auth-hamburger" aria-label="Open navigation menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
         <div class="topbar-controls">
             <button type="button" id="dir-toggle" class="topbar-btn" aria-label="Toggle text direction">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20"/><path d="m7 7-5 5 5 5"/><path d="m17 7 5 5-5 5"/></svg>
@@ -538,6 +603,21 @@
             </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="auth-nav-overlay" aria-hidden="true">
+        <button type="button" class="topbar-btn" style="position: absolute; top: 1.125rem; right: 2rem;" id="close-auth-nav">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <a href="../index.html" class="mobile-nav-link">Home</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button type="button" class="topbar-btn" onclick="document.getElementById('dir-toggle').click()">RTL Toggle</button>
+            <button type="button" class="topbar-btn" onclick="document.getElementById('theme-toggle').click()">Theme Toggle</button>
+        </div>
+    </div>
 
     <!-- Auth card -->
     <main class="auth-card" role="main">
@@ -692,6 +772,28 @@
 
     <script src="../assets/js/main.js"></script>
     <script>
+        // Hamburger Menu Logic
+        const hamburgerBtn = document.getElementById('auth-hamburger');
+        const closeNavBtn = document.getElementById('close-auth-nav');
+        const navOverlay = document.getElementById('auth-nav-overlay');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navOverlay.classList.add('is-active');
+            navOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeNavBtn.addEventListener('click', () => {
+            navOverlay.classList.remove('is-active');
+            navOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        });
+
+        // Close on link click
+        navOverlay.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => closeNavBtn.click());
+        });
+
         // Enhanced register handler with loading state
         window.handleRegisterSubmit = function() {
             const btn = document.getElementById('reg-submit-btn');

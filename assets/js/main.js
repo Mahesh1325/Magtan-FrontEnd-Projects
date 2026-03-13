@@ -56,24 +56,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const nav = document.getElementById("main-nav");
 
     if (mobileToggle && nav) {
-      mobileToggle.addEventListener("click", () => {
-        const isOpen = nav.classList.contains("is-open");
-        if (isOpen) {
-          nav.classList.remove("is-open");
-          mobileToggle.setAttribute("aria-expanded", "false");
-        } else {
+      const mobileClose = document.getElementById("mobile-close");
+
+      const toggleMenu = (open) => {
+        if (open) {
           nav.classList.add("is-open");
           mobileToggle.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden"; // Prevent background scroll
+        } else {
+          nav.classList.remove("is-open");
+          mobileToggle.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
         }
+      };
+
+      mobileToggle.addEventListener("click", () => {
+        const isOpen = nav.classList.contains("is-open");
+        toggleMenu(!isOpen);
       });
 
-      // Close menu on scroll
+      if (mobileClose) {
+        mobileClose.addEventListener("click", () => toggleMenu(false));
+      }
+
+      // Close menu on scroll (only if not already locking scroll)
       window.addEventListener(
         "scroll",
         () => {
-          if (nav.classList.contains("is-open")) {
-            nav.classList.remove("is-open");
-            mobileToggle.setAttribute("aria-expanded", "false");
+          if (nav.classList.contains("is-open") && document.body.style.overflow !== "hidden") {
+            toggleMenu(false);
           }
         },
         { passive: true },
@@ -84,15 +95,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdowns = document.querySelectorAll(".nav-item-dropdown");
     dropdowns.forEach((dropdown) => {
       dropdown.addEventListener("click", (e) => {
-        // If the target is the link inside the dropdown menu, don't toggle
+        // If the target is a link inside the dropdown menu, let it through
         if (e.target.closest(".dropdown-menu")) return;
+        
+        // Prevent trigger from closing immediately due to global doc click
+        e.stopPropagation();
 
-        // Close other open dropdowns
-        dropdowns.forEach((d) => {
-          if (d !== dropdown) d.classList.remove("is-open");
-        });
+        const wasOpen = dropdown.classList.contains("is-open");
 
-        dropdown.classList.toggle("is-open");
+        // Close all dropdowns
+        dropdowns.forEach((d) => d.classList.remove("is-open"));
+
+        // Toggle current if it wasn't already open
+        if (!wasOpen) {
+          dropdown.classList.add("is-open");
+        }
       });
     });
 

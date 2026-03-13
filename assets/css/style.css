@@ -1331,8 +1331,17 @@ img {
 
 /* ---- DROPDOWN MOBILE ADJUSTMENTS ---- */
 @media (max-width: 1023px) {
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Center the toggle between logo and controls */
   .mobile-toggle {
-    display: block;
+    display: flex;
+    order: 2; /* Ensure it stays in the middle visually if needed, though HTML order is 1:logo, 2:toggle, 3:controls */
   }
 
   .nav {

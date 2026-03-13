@@ -826,6 +826,12 @@
       <a href="../index.html" class="logo" aria-label="Sensory Deprivation Float Center Home">FloatHaus</a>
 
       <nav id="main-nav" class="nav" aria-label="Main Navigation">
+        <div class="mobile-nav-header" style="display: none; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 2rem;">
+          <span class="logo" style="font-size: 1.5rem;">FloatHaus</span>
+          <button type="button" id="mobile-close" class="theme-toggle" aria-label="Close menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
         <div class="nav-item-dropdown">
           <span style="display: flex; align-items: center; gap: 0.25rem">
             Home
@@ -857,6 +863,15 @@
           </div>
         </div>
       </nav>
+      <button type="button" id="mobile-toggle" class="mobile-toggle" aria-expanded="false" aria-controls="main-nav"
+        aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
 
       <div style="display: flex; gap: 1rem; align-items: center">
         <button type="button" id="dir-toggle" class="theme-toggle" style="
@@ -869,15 +884,6 @@
         </button>
         <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
           <span id="theme-icon"></span>
-        </button>
-        <button type="button" id="mobile-toggle" class="mobile-toggle" aria-expanded="false" aria-controls="main-nav"
-          aria-label="Open menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
         </button>
         <a href=".html" class="btn btn-primary btn-sticky-mobile d-none-mobile">Back Home</a>
       </div>
@@ -1053,7 +1059,7 @@
         </div>
 
         <!-- Main Image Grid: 2 large + sidebar stats -->
-        <div style="
+        <div class="h2-facility-grid" style="
               display: grid;
               grid-template-columns: 1fr 1fr 280px;
               grid-template-rows: 300px 300px;
@@ -1265,16 +1271,19 @@
 
       <!-- Responsive overrides scoped to this section -->
       <style>
-        @media (max-width: 900px) {
+        @media (max-width: 1023px) {
           .h2-facility-grid {
             grid-template-columns: 1fr 1fr !important;
             grid-template-rows: auto !important;
           }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 639px) {
+          .h2-facility-grid {
+            grid-template-columns: 1fr !important;
+          }
           .h2-stat-row {
-            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-columns: 1fr !important;
           }
         }
       </style>

@@ -1,27 +1,63 @@
 /*
- * responsive.css — Comprehensive responsive fixes for all 14 pages
- * Float Center Website
+ * responsive.css — Comprehensive responsive fixes for all pages
  *
- * Breakpoints (matching style.css):
+ * Breakpoints:
  *   Mobile  : < 640px
- *   Tablet  : 640px – 1024px
- *   Desktop : 1024px – 1280px
- *   Large   : > 1280px
- *
- * This file is loaded AFTER style.css so it can safely override layout.
- * Dark/light mode, RTL, booking, dashboard remain fully functional.
+ *   Tablet  : 640px – 1023px
+ *   Desktop : 1024px – 1279px
+ *   Large   : >= 1280px
  */
 
 /* ================================================================
    GLOBAL — applies to every page
    ================================================================ */
 
-/* Tighter container padding on small screens */
+/* Touch-friendly targets on mobile/tablet */
+@media (max-width: 1023px) {
+    .btn, 
+    .nav-link, 
+    .form-control, 
+    .topbar-btn, 
+    input, 
+    button {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Reduced motion/animations for mobile data and battery */
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 @media (max-width: 639px) {
     .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: 0 1rem;
     }
+}
+
+/* Sidebar Nav Header */
+@media (max-width: 1023px) {
+    .mobile-nav-header {
+        display: flex !important;
+    }
+    
+    .nav.is-open::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 639px) {
 
     /* Block-level buttons stretch full width on mobile */
     .btn-block-mobile {
@@ -107,9 +143,13 @@
 
     /* Ensure header items don't overflow on tablet/mobile */
     .header-container {
-        gap: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
         position: relative;
         z-index: 1005;
+        transition: all 0.3s ease;
     }
 
     /* Logo text truncation safety */
