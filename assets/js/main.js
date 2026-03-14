@@ -126,44 +126,54 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Nav Direction Toggle Logic
   const initDir = () => {
     const dirToggleBtn = document.getElementById("dir-toggle");
+    const navDirToggle = document.getElementById("nav-dir-toggle"); // inside mobile nav
     const dirText = document.getElementById("dir-text");
+    const navDirText = document.getElementById("nav-dir-text"); // inside mobile nav
     const headerContainer = document.querySelector(".header-container");
 
     // Load saved direction
     const savedDir = localStorage.getItem("direction");
-    if (savedDir === "rtl") {
+    const isAuthPage = window.location.pathname.includes('login.html') || window.location.pathname.includes('register.html');
+
+    if (isAuthPage) {
+      // Force LTR on auth pages for readability
+      document.documentElement.setAttribute("dir", "ltr");
+      if (dirText) dirText.textContent = "RTL";
+      if (navDirText) navDirText.textContent = "RTL";
+    } else if (savedDir === "rtl") {
       document.documentElement.setAttribute("dir", "rtl");
       if (dirText) dirText.textContent = "LTR";
+      if (navDirText) navDirText.textContent = "LTR";
     }
 
-    if (dirToggleBtn && dirText) {
-      dirToggleBtn.addEventListener("click", () => {
-        // Apply feedback class if container exists
-        if (headerContainer) headerContainer.classList.add("nav-switching");
-        
-        // Also apply to auth cards if present
-        const authCard = document.querySelector(".auth-card-combined");
-        if (authCard) authCard.classList.add("nav-switching");
+    const applyDir = () => {
+      if (headerContainer) headerContainer.classList.add("nav-switching");
+      const authCard = document.querySelector(".auth-card-combined");
+      if (authCard) authCard.classList.add("nav-switching");
 
-        setTimeout(() => {
-          const isRtl = document.documentElement.getAttribute("dir") === "rtl";
-          if (isRtl) {
-            document.documentElement.removeAttribute("dir");
-            localStorage.setItem("direction", "ltr");
-            dirText.textContent = "RTL";
-          } else {
-            document.documentElement.setAttribute("dir", "rtl");
-            localStorage.setItem("direction", "rtl");
-            dirText.textContent = "LTR";
-          }
-        }, 200);
+      setTimeout(() => {
+        const isRtl = document.documentElement.getAttribute("dir") === "rtl";
+        if (isRtl) {
+          document.documentElement.removeAttribute("dir");
+          localStorage.setItem("direction", "ltr");
+          if (dirText) dirText.textContent = "RTL";
+          if (navDirText) navDirText.textContent = "RTL";
+        } else {
+          document.documentElement.setAttribute("dir", "rtl");
+          localStorage.setItem("direction", "rtl");
+          if (dirText) dirText.textContent = "LTR";
+          if (navDirText) navDirText.textContent = "LTR";
+        }
+      }, 200);
 
-        setTimeout(() => {
-          if (headerContainer) headerContainer.classList.remove("nav-switching");
-          if (authCard) authCard.classList.remove("nav-switching");
-        }, 400);
-      });
-    }
+      setTimeout(() => {
+        if (headerContainer) headerContainer.classList.remove("nav-switching");
+        if (authCard) authCard.classList.remove("nav-switching");
+      }, 400);
+    };
+
+    if (dirToggleBtn) dirToggleBtn.addEventListener("click", applyDir);
+    if (navDirToggle) navDirToggle.addEventListener("click", applyDir);
   };
 
   // 4. Scroll Reveal Animations (Modern Look)
@@ -288,31 +298,62 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Special handling for Header (Logout icon)
-    const navCta = document.querySelector(".btn-sticky-mobile, .d-none-mobile");
-    if (navCta) {
-      const existingLogout = document.getElementById("logout-btn");
-      if (isAuthenticated) {
-        if (!existingLogout) {
-          const logoutBtn = document.createElement("a");
-          logoutBtn.id = "logout-btn";
-          logoutBtn.href = "#";
-          logoutBtn.className = "nav-link";
-          logoutBtn.style.display = "inline-flex";
-          logoutBtn.style.alignItems = "center";
-          logoutBtn.style.padding = "0.5rem";
-          logoutBtn.style.color = "#ff4444"; // Modern Red
-          logoutBtn.title = "Logout";
-          logoutBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>`;
-          logoutBtn.onclick = (e) => {
-            e.preventDefault();
-            window.simulateLogout();
-          };
-          // Insert after the CTA button
-          navCta.parentNode.insertBefore(logoutBtn, navCta.nextSibling);
+    // Special handling for Header (Logout icon) — injected into nav for mobile
+    const nav = document.getElementById("main-nav");
+    const existingNavLogout = document.getElementById("nav-logout-btn");
+    const existingNavCtaItem = document.getElementById("nav-mobile-cta-item");
+
+    if (nav) {
+      // 1. Handle CTA button inside Mobile Nav
+      if (!existingNavCtaItem) {
+        const ctaItem = document.createElement("div");
+        ctaItem.className = "nav-mobile-extra";
+        ctaItem.id = "nav-mobile-cta-item";
+        ctaItem.style.cssText = "width: 100%; padding-top: 1rem; margin-top: 0.5rem; border-top: 1px solid var(--theme-border/20);";
+        
+        const ctaBtn = document.createElement("a");
+        ctaBtn.className = "btn btn-primary btn-block-mobile";
+        ctaBtn.style.width = "100%";
+        ctaBtn.id = "nav-cta-btn-injected";
+        
+        ctaItem.appendChild(ctaBtn);
+        // Inject before directory toggle if it exists, otherwise append
+        const navDirToggle = document.getElementById("nav-dir-toggle");
+        if (navDirToggle) {
+          nav.insertBefore(ctaItem, navDirToggle);
+        } else {
+          nav.appendChild(ctaItem);
         }
-      } else if (existingLogout) {
-        existingLogout.remove();
+      }
+      
+      const navCtaBtn = document.getElementById("nav-cta-btn-injected");
+      if (navCtaBtn) {
+        if (isAuthenticated) {
+          navCtaBtn.textContent = "Book Now";
+          navCtaBtn.href = inPagesDir ? "booking.html" : "pages/booking.html";
+        } else {
+          navCtaBtn.textContent = "Get Started";
+          navCtaBtn.href = inPagesDir ? "login.html" : "pages/login.html";
+        }
+      }
+
+      // 2. Handle Logout icon inside Mobile Nav
+      if (isAuthenticated && !existingNavLogout) {
+        const logoutItem = document.createElement("div");
+        logoutItem.className = "nav-mobile-extra";
+        logoutItem.id = "nav-logout-item";
+        logoutItem.style.cssText = "width: 100%; padding: 0.85rem 0; border-top: 1px solid var(--theme-border/20); margin-top: 0.5rem;";
+        logoutItem.innerHTML = `<a id="nav-logout-btn" href="#" class="nav-link" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #ef4444; font-size: 1rem;" title="Logout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          Logout
+        </a>`;
+        logoutItem.querySelector("a").onclick = (e) => {
+          e.preventDefault();
+          window.simulateLogout();
+        };
+        nav.appendChild(logoutItem);
+      } else if (!isAuthenticated && existingNavLogout) {
+        existingNavLogout.closest("#nav-logout-item")?.remove();
       }
     }
   };

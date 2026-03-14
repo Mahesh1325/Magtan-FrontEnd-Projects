@@ -1199,3 +1199,125 @@
         font-size: 1rem !important;
     }
 }
+
+/* ================================================================
+   BLOG PAGE — Mobile & Tablet
+   ================================================================ */
+
+.blog-featured-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 767px) {
+    .blog-featured-post {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .blog-featured-post img {
+        height: 220px !important;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Newsletter form stacks on small screens */
+    section form[aria-label="Newsletter subscription"] {
+        flex-direction: column !important;
+    }
+}
+
+@media (max-width: 1023px) {
+    /* Blog category pills - horizontal scroll on tablet */
+    .category-pills {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+        justify-content: flex-start;
+    }
+
+    .category-pill {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+}
+
+/* ================================================================
+   MEMBERSHIPS PAGE — Mobile & Tablet
+   ================================================================ */
+
+@media (max-width: 767px) {
+    /* Pricing toggle - tighten on small screens */
+    .pricing-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pricing-toggle button {
+        flex: 1;
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+}
+
+/* ================================================================
+   COMING-SOON PAGE — Mobile
+   ================================================================ */
+
+@media (max-width: 640px) {
+    .countdown-wrapper {
+        gap: 0.5rem;
+    }
+
+    .countdown-item {
+        padding: 1rem 0.5rem;
+        min-width: 75px;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+    .cs-form form {
+        flex-direction: column;
+    }
+
+    .cs-desc {
+        font-size: 1rem !important;
+    }
+}
+
+/* ================================================================
+   CONFIRMATION PAGE — Mobile
+   ================================================================ */
+
+@media (max-width: 639px) {
+    #main-content .card {
+        text-align: left;
+    }
+
+    #main-content [style*="display: flex; gap"] {
+        flex-wrap: wrap;
+    }
+
+    #main-content [style*="display: flex; gap"] .btn {
+        width: 100%;
+    }
+}
+
+/* ================================================================
+   FOOTER — Newsletter form on mobile
+   ================================================================ */
+
+@media (max-width: 639px) {
+    .footer-col form[style*="display: flex"] {
+        flex-direction: column !important;
+    }
+
+    .footer-col form[style*="display: flex"] input {
+        min-width: unset;
+    }
+}

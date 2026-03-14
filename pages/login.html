@@ -587,9 +587,8 @@
             </span>
             FloatHaus
         </a>
-        <button type="button" class="topbar-btn hamburger-btn" id="auth-hamburger" aria-label="Open navigation menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
+
+
         <div class="topbar-controls">
             <button type="button" id="dir-toggle" class="topbar-btn" aria-label="Toggle text direction">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20"/><path d="m7 7-5 5 5 5"/><path d="m17 7 5 5-5 5"/></svg>
@@ -740,28 +739,6 @@
 
     <script src="../assets/js/main.js"></script>
     <script>
-        // Hamburger Menu Logic
-        const hamburgerBtn = document.getElementById('auth-hamburger');
-        const closeNavBtn = document.getElementById('close-auth-nav');
-        const navOverlay = document.getElementById('auth-nav-overlay');
-
-        hamburgerBtn.addEventListener('click', () => {
-            navOverlay.classList.add('is-active');
-            navOverlay.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeNavBtn.addEventListener('click', () => {
-            navOverlay.classList.remove('is-active');
-            navOverlay.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        });
-
-        // Close on link click
-        navOverlay.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => closeNavBtn.click());
-        });
-
         // Enhanced login handler with loading state
         window.handleLoginSubmit = function() {
             const btn = document.getElementById('login-submit-btn');

@@ -1335,41 +1335,140 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
   }
 
-  /* Center the toggle between logo and controls */
+  /* In RTL mode, reverse the header layout for mobile */
+  [dir="rtl"] .header-container {
+    flex-direction: row-reverse;
+  }
+
+  /* Center-ish the toggle if items allow, but usually 1:Logo, 2:Toggle, 3:Controls */
   .mobile-toggle {
     display: flex;
-    order: 2; /* Ensure it stays in the middle visually if needed, though HTML order is 1:logo, 2:toggle, 3:controls */
+    order: 2;
+    background: transparent;
+    border: none;
+    color: var(--theme-text);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
   }
 
+  .mobile-toggle:active {
+    transform: scale(0.9);
+  }
+
+  /* Hide header RTL/LTR toggle on mobile (moved to nav) */
+  .nav-controls #dir-toggle,
+  .header-container > div:last-child #dir-toggle {
+    display: none !important;
+  }
+
+  /* "Book Now" / "Get Started" Button in Header on Mobile */
+  /* Target specifically to override d-none-mobile and sticky positioning */
+  .header-container a.btn-primary[class*="d-none-mobile"],
+  .header-container .btn-primary {
+    display: inline-flex !important;
+    position: static !important; /* Don't stick to bottom from .btn-sticky-mobile */
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    min-height: 38px !important;
+    width: auto !important;
+    white-space: nowrap !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Navigation Sidebar */
   .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 280px;
-    height: 100vh;
-    background-color: var(--theme-surface);
-    flex-direction: column;
-    padding: var(--spacing-xl) var(--spacing-lg);
-    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.2);
-    transform: translateX(-100%);
-    transition: transform var(--transition-normal);
-    z-index: var(--z-toast);
-    align-items: flex-start;
-    gap: 1.5rem;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    height: 100vh !important;
+    background-color: var(--theme-surface) !important;
+    flex-direction: column !important; /* Forces vertical stack */
+    padding: 2rem 1.5rem !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2) !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 2000 !important;
+    display: flex !important;
+    align-items: stretch !important; /* Ensure children fill width */
+    gap: 0 !important;
+    overflow-y: auto !important;
+    visibility: visible !important;
   }
 
-  [dir="rtl"] .nav {
-    left: auto;
-    right: 0;
-    transform: translateX(100%);
-    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.2);
+  /* Force vertical arrangement for all direct children of nav */
+  .nav > a,
+  .nav > .nav-item-dropdown,
+  .nav > .btn {
+    display: flex !important;
+    flex-direction: row !important; /* text and icon/arrow in row */
+    width: 100% !important;
+    padding: 1rem 0 !important;
+    margin: 0 !important;
+    border-bottom: 1px solid rgba(var(--rgb-primary), 0.1);
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
   }
 
   .nav.is-open {
-    transform: translateX(0);
+    transform: translateX(0) !important;
+  }
+
+  /* RTL: Open from Left */
+  [dir="rtl"] .nav {
+    right: auto !important;
+    left: 0 !important; /* Pinned to left in RTL */
+    transform: translateX(-100%) !important; /* Start off-screen to the left */
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  [dir="rtl"] .nav.is-open {
+    transform: translateX(0) !important;
+  }
+
+  /* ── Auth Page Responsive Refinements ── */
+  .auth-card {
+    width: 100% !important;
+    max-width: var(--auth-max-width) !important;
+    margin: 5rem auto 0 !important; /* Center horizontally, keeps top margin */
+  }
+
+  @media (max-width: 1023px) {
+    .auth-card {
+      flex-direction: column !important;
+      min-height: auto !important;
+      border-radius: var(--auth-radius) !important;
+      margin-top: 2rem !important; /* Reduce top margin on smaller screens */
+    }
+    
+    .auth-visual {
+      display: none !important; /* Hide image on mobile/tablet to focus on form */
+    }
+    
+    .auth-form-side {
+      padding: 2.5rem 1.5rem !important;
+      width: 100% !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .auth-form-side {
+      padding: 2rem 1rem !important;
+    }
+    
+    .btn-submit {
+      padding: 1rem !important;
+    }
   }
 
   .nav-item-dropdown {
@@ -1379,6 +1478,7 @@ img {
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
+    transition: color 0.2s ease;
   }
 
   [dir="rtl"] .nav-item-dropdown {
@@ -1401,7 +1501,7 @@ img {
     transform: none;
     padding: 0;
     margin-left: 1rem;
-    transition: none;
+    transition: all 0.3s ease;
     width: 100%;
   }
 
@@ -1417,7 +1517,63 @@ img {
     margin-left: 0;
     margin-right: 1rem;
   }
+
+  /* RTL/LTR toggle inside the mobile nav panel */
+  .nav-dir-toggle {
+    display: flex !important;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--theme-border/20);
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--theme-text);
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: var(--font-sans);
+    font-weight: 500;
+  }
+
+  .nav-dir-toggle:hover {
+    color: var(--theme-accent);
+  }
+
+  /* Nav Extra Items (Logout, injected via JS) */
+  .nav-mobile-extra {
+    display: flex !important;
+    width: 100%;
+  }
+
+  .nav-mobile-extra:last-child {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--theme-border/20);
+  }
 }
+
+/* Desktop: hide nav-dir-toggle */
+@media (min-width: 1024px) {
+  .nav-dir-toggle,
+  .nav-mobile-extra {
+    display: none !important;
+  }
+}
+
+
+/* Desktop: hide nav-dir-toggle (it lives in the header desktop controls) */
+@media (min-width: 1024px) {
+  .nav-dir-toggle {
+    display: none !important;
+  }
+  .nav-mobile-extra {
+    display: none !important;
+  }
+}
+
+
 
 /* HUD & Technical Animations */
 @keyframes pulse-soft {
