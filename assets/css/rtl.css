@@ -155,6 +155,45 @@
 }
 
 /* ============================================
+   DASHBOARD COMPONENTS (RTL)
+   ============================================ */
+
+/* Flip cards with directional accent borders */
+[dir="rtl"] .card[style*="border-left"] {
+    border-left: none !important;
+    border-right: 3px solid transparent; /* default placeholder */
+}
+
+/* Specific detections based on inline color vars or common classes if they existed */
+[dir="rtl"] .card[style*="border-left"][style*="var(--success)"] { border-right: 3px solid var(--success) !important; }
+[dir="rtl"] .card[style*="border-left"][style*="var(--error)"] { border-right: 3px solid var(--error) !important; }
+[dir="rtl"] .card[style*="border-left"][style*="var(--theme-accent)"] { border-right: 3px solid var(--theme-accent) !important; }
+
+/* Dashboard table alignment */
+[dir="rtl"] .dashboard-main table th,
+[dir="rtl"] .dashboard-main table td {
+    text-align: right !important;
+}
+
+/* Progress bars should fill from the right in RTL */
+[dir="rtl"] .dashboard-main [style*="height: 6px; background: var(--theme-border)"] > div,
+[dir="rtl"] .dashboard-main [style*="height: 8px; background: var(--theme-border)"] > div {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/* Flip pagination arrows */
+[dir="rtl"] .dashboard-main div[style*="justify-content: center; gap: var(--spacing-md)"] button:first-child svg,
+[dir="rtl"] .dashboard-main div[style*="justify-content: center; gap: var(--spacing-md)"] button:last-child svg {
+    transform: scaleX(-1);
+}
+
+/* Adjust stats alignment in profile */
+[dir="rtl"] #user-profile .card > div[style*="display: flex; justify-content: space-between"] {
+    flex-direction: row; /* Keep text-value pair together but horizontal flow */
+}
+
+/* ============================================
    MOBILE SIDEBAR (RTL – opens from left)
    ============================================ */
 @media (max-width: 1023px) {

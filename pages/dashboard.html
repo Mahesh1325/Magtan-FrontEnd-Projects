@@ -3,10 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Sensory Deprivation Float Center</title>
-    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
+    <script>
+        // Synchronous anti-flash for theme AND direction
+        (function() {
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+            const savedDir = localStorage.getItem('direction');
+            if (savedDir === 'rtl') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -542,6 +552,9 @@
                 </div>
 
                 <div style="display: flex; gap: 0.75rem; align-items: center; flex-shrink: 0;">
+                    <button class="theme-toggle" id="dir-toggle" style="width: auto; padding: 0 0.75rem; font-weight: bold; font-family: var(--font-sans);" aria-label="Toggle Navigation Direction">
+                        <span id="dir-text">RTL</span>
+                    </button>
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                         <span id="theme-icon"></span>
                     </button>
