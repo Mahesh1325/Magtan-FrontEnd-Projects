@@ -1411,20 +1411,20 @@ img {
     flex-shrink: 0 !important;        /* Don't let flex compress and warp the shape */
   }
 
-  /* Navigation Sidebar – panel slides in from the right, starting below header */
+  /* Navigation Sidebar – LTR: open from LEFT, RTL: open from RIGHT */
   .nav {
     position: fixed !important;
     top: var(--header-height) !important;
-    right: 0 !important;
-    left: auto !important;
+    left: 0 !important;
+    right: auto !important;
     width: 280px !important;
     max-width: 85vw !important;
     height: calc(100vh - var(--header-height)) !important;
     background-color: var(--nav-bg, var(--theme-surface)) !important;
     flex-direction: column !important;
     padding: 2rem 1.5rem !important;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.22) !important;
-    transform: translateX(100%) !important; /* start off-screen to the RIGHT */
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.22) !important;
+    transform: translateX(-100%) !important; /* start off-screen to the LEFT */
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
     z-index: 2000 !important;
     display: flex !important;
@@ -1492,11 +1492,11 @@ img {
     transform: translateX(0) !important;
   }
 
-  /* RTL: still open from the RIGHT (mirrors your design) */
+  /* RTL: open from the RIGHT (mirror of LTR) */
   [dir="rtl"] .nav {
     right: 0 !important;
     left: auto !important;
-    transform: translateX(100%) !important;
+    transform: translateX(100%) !important; /* start off-screen to the RIGHT */
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.22) !important;
   }
 
