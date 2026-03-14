@@ -1422,7 +1422,7 @@ img {
     height: calc(100vh - var(--header-height)) !important;
     background-color: var(--nav-bg, var(--theme-surface)) !important;
     flex-direction: column !important;
-    padding: 2rem 1.5rem !important;
+    padding: 2rem 1.5rem 5rem !important; /* Increased bottom padding to prevent clipping */
     box-shadow: 10px 0 30px rgba(0, 0, 0, 0.22) !important;
     transform: translateX(-100%) !important; /* start off-screen to the LEFT */
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -1432,6 +1432,7 @@ img {
     gap: 0 !important;
     overflow-y: auto !important;
     visibility: visible !important;
+    scrollbar-width: thin;
   }
 
   /* Match overlay background with nav surface so it isn't gray */
@@ -1664,6 +1665,7 @@ img {
   .nav-mobile-extra:last-child {
     margin-top: auto;
     padding-top: 1.5rem;
+    padding-bottom: 2rem; /* Add extra bottom padding for the last item */
     border-top: 1px solid var(--theme-border/20);
   }
 }

@@ -62,11 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (open) {
           nav.classList.add("is-open");
           mobileToggle.setAttribute("aria-expanded", "true");
-          document.body.style.overflow = "hidden"; // Prevent background scroll
+          // document.body.style.overflow = "hidden"; // Commented out to allow scroll-to-close
         } else {
           nav.classList.remove("is-open");
           mobileToggle.setAttribute("aria-expanded", "false");
-          document.body.style.overflow = "";
+          // document.body.style.overflow = "";
         }
       };
 
@@ -102,6 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         { passive: true },
       );
+
+      // Note: We removed document.body.style.overflow = "hidden" from toggleMenu 
+      // to ensure scroll events can still be captured and used to close the menu.
+
 
       // Close menu on click outside
       document.addEventListener("click", (e) => {
