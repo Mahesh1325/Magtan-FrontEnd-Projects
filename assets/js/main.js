@@ -79,6 +79,20 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileClose.addEventListener("click", () => toggleMenu(false));
       }
 
+      // Close menu when tapping any nav link or dropdown item (mobile/tablet only)
+      const closeOnNavClick = () => {
+        if (window.innerWidth <= 1023 && nav.classList.contains("is-open")) {
+          toggleMenu(false);
+        }
+      };
+
+      const clickableNavItems = nav.querySelectorAll(
+        "a.nav-link, .dropdown-menu .dropdown-item",
+      );
+      clickableNavItems.forEach((el) => {
+        el.addEventListener("click", closeOnNavClick);
+      });
+
       window.addEventListener(
         "scroll",
         () => {

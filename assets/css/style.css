@@ -141,6 +141,8 @@
   --theme-text-muted: var(--text-muted-light);
   --theme-border: var(--border-light);
   --theme-accent: var(--accent-light);
+  --nav-bg: #ffffff;
+  --nav-text-color: #0f172a; /* Slate 900 for high contrast */
 
   --hero-gradient: linear-gradient(
     to bottom,
@@ -174,6 +176,10 @@
   --cta-text-muted: var(--theme-text-muted);
   --cta-secondary-btn-bg: rgba(13, 148, 136, 0.05);
   --cta-secondary-btn-border: rgba(13, 148, 136, 0.3);
+}
+
+[data-theme="light"] .mobile-toggle {
+  color: var(--primary) !important;
 }
 
 /* === Global Reset & Base === */
@@ -1405,37 +1411,40 @@ img {
     flex-shrink: 0 !important;        /* Don't let flex compress and warp the shape */
   }
 
-  /* Navigation Sidebar */
+  /* Navigation Sidebar – panel slides in from the right, starting below header */
   .nav {
     position: fixed !important;
-    top: 0 !important;
+    top: var(--header-height) !important;
     right: 0 !important;
     left: auto !important;
     width: 280px !important;
     max-width: 85vw !important;
-    height: 100vh !important;
-    background-color: var(--theme-bg) !important;
-    flex-direction: column !important; /* Forces vertical stack */
+    height: calc(100vh - var(--header-height)) !important;
+    background-color: var(--nav-bg, var(--theme-surface)) !important;
+    flex-direction: column !important;
     padding: 2rem 1.5rem !important;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2) !important;
-    transform: translateX(100%) !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.22) !important;
+    transform: translateX(100%) !important; /* start off-screen to the RIGHT */
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
     z-index: 2000 !important;
     display: flex !important;
-    align-items: stretch !important; /* Ensure children fill width */
+    align-items: stretch !important;
     gap: 0 !important;
     overflow-y: auto !important;
     visibility: visible !important;
   }
 
+  /* Match overlay background with nav surface so it isn't gray */
+  .nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--nav-bg, var(--theme-surface)) !important;
+    z-index: -1;
+  }
+
   .nav > .mobile-nav-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-    padding-bottom: 1rem !important;
-    margin-bottom: 0.5rem !important;
-    border-bottom: 1px solid rgba(var(--rgb-primary), 0.1);
+    display: none !important;
   }
 
   /* Force vertical arrangement for all direct children of nav */
@@ -1452,6 +1461,7 @@ img {
     visibility: visible !important;
     opacity: 1 !important;
     position: static !important;
+    color: var(--nav-text-color, var(--theme-text)) !important;
     transform: none !important;
   }
 
@@ -1466,6 +1476,7 @@ img {
     visibility: visible !important;
     opacity: 1 !important;
     position: static !important;
+    color: var(--nav-text-color, var(--theme-text)) !important;
     transform: none !important;
   }
   
@@ -1481,16 +1492,49 @@ img {
     transform: translateX(0) !important;
   }
 
-  /* RTL: Open from Left */
+  /* RTL: still open from the RIGHT (mirrors your design) */
   [dir="rtl"] .nav {
-    right: auto !important;
-    left: 0 !important; /* Pinned to left in RTL */
-    transform: translateX(-100%) !important; /* Start off-screen to the left */
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2) !important;
+    right: 0 !important;
+    left: auto !important;
+    transform: translateX(100%) !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.22) !important;
   }
 
   [dir="rtl"] .nav.is-open {
     transform: translateX(0) !important;
+  }
+
+  /* Mobile nav theme overrides:
+     - Light theme: soft green panel with dark text
+     - Ensure dropdown items and RTL/LTR toggle are clearly readable */
+  [data-theme="light"] #main-nav.nav {
+    background-color: #ecfdf5 !important; /* very light green */
+    color: #022c22 !important;            /* deep teal text */
+  }
+
+  [data-theme="light"] #main-nav.nav::before {
+    background-color: #ecfdf5 !important;
+  }
+
+  [data-theme="light"] #main-nav a.nav-link,
+  [data-theme="light"] #main-nav .nav-item-dropdown > span {
+    color: #022c22 !important;
+  }
+
+  /* Home / Dashboard dropdown items in mobile menu */
+  [data-theme="light"] #main-nav .dropdown-menu .dropdown-item {
+    color: #065f46 !important; /* readable dark green */
+  }
+
+  /* RTL / LTR toggle inside mobile nav in light theme */
+  [data-theme="light"] #main-nav .nav-dir-toggle {
+    background-color: #ffffff !important;
+    color: #022c22 !important;
+    border-color: rgba(22, 101, 52, 0.3) !important;
+  }
+
+  [data-theme="dark"] #main-nav .dropdown-menu .dropdown-item {
+    color: rgba(240, 253, 249, 0.85) !important; /* light text on dark */
   }
 
   /* ── Auth Page Responsive Refinements ── */
